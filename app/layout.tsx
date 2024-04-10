@@ -1,5 +1,10 @@
-import { Footer, Header } from "@jecfe/react-design-system";
+import { Footer } from "@jecfe/react-design-system";
 import "@jecfe/react-design-system/src/tailwind.css";
+
+export const metadata = {
+  title: "Jessica Fealy",
+  description: "A Fullstack Engineer Portfolio",
+};
 
 export default function RootLayout({
   children,
@@ -8,10 +13,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen bg-white font-mono">
-        <Header title="JeCFe - Next Template" />
-        <div className="flex-1 container mx-auto">{children}</div>
-        <Footer>JeCFe - Next Template</Footer>
+      <body className=" flex-col min-h-screen font-mono">
+        <div className="flex-1">{children}</div>
       </body>
     </html>
   );
