@@ -12,18 +12,18 @@ export default function Home() {
       <GlowCapture size={700}>
         <Glow>
           <div className="flex min-h-screen w-full flex-col bg-slate-900 text-white glow:bg-slate-700/50">
-            <div className="container mx-auto flex flex-row items-center justify-center pt-20">
-              <div className="flex w-2/3 flex-row space-y-28 md:flex-col">
-                <div className="space-y-16 text-7xl glow:bg-gradient-to-r glow:from-pink-500 glow:via-sky-400 glow:to-blue-500 glow:bg-clip-text glow:text-transparent ">
+            <div className="container mx-auto flex flex-col items-center justify-center pt-20 md:flex-row">
+              <div className="flex w-2/3 flex-col space-y-28">
+                <div className="space-y-16 text-7xl glow:bg-gradient-to-r glow:from-pink-500 glow:via-sky-400 glow:to-blue-500 glow:bg-clip-text glow:text-transparent">
                   <h1>Hi there!</h1>
-                  <h1 className="ml-40">{`I'm Jessica`} </h1>
+                  <h1 className="md:ml-40">{`I'm Jessica`} </h1>
                 </div>
-                <div className="ml-40 text-center text-2xl">
+                <div className="text-center text-2xl md:ml-40">
                   {`I'm a fullstack software engineer that enjoys toying around with
                   micro-processors, and web application projects. Having build various projects including custom macro pads, secure chat server, and react design systems`}
                 </div>
 
-                <div className="ml-40 flex flex-row space-x-12">
+                <div className="flex flex-row space-x-12 md:ml-40  ">
                   <Link
                     className="flex flex-col"
                     href="https://github.com/JeCFe"
@@ -46,7 +46,7 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-              <div className="flex h-1/2 w-1/3 flex-row items-center justify-center md:flex-col">
+              <div className="hidden h-1/2 w-1/3 flex-row items-center justify-center md:visible md:flex md:flex-col">
                 <Image
                   src={selfie}
                   alt="Phone of Jessica Fealy"
@@ -56,7 +56,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex-grow" />
-            <div className="flex w-full flex-row items-center justify-center pb-16 text-center">
+            <div className="flex w-full flex-row items-center justify-center pb-16 pt-20 text-center md:pt-0">
               <div className="rounded-full border-2 glow:border-pink-500">
                 <Link href={""}>
                   <ArrowDown className="fill-white hover:fill-cyan-500" />
