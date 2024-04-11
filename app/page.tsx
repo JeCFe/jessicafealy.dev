@@ -1,10 +1,47 @@
 "use client";
 import { Github, LinkedIn } from "@/assets";
 import { Glow, GlowCapture } from "@codaworks/react-glow";
-import { ArrowDown } from "@jecfe/react-design-system";
+import { Anchor, ArrowDown, Pill, Timeline } from "@jecfe/react-design-system";
 import Image from "next/image";
 import Link from "next/link";
 import selfie from "@/assets/selfie3.jpg";
+import { projectData } from "@/data";
+import { TimelineItem } from "@jecfe/react-design-system/dist/cjs/components/timeline/Timeline";
+
+const renderableContent: TimelineItem[] = projectData.map(
+  (project): TimelineItem => ({
+    children: (
+      <div>
+        <div className="space-x-3 pb-2">
+          {project.pills.map((pill, index) => (
+            <Pill
+              size="medium"
+              type="info"
+              key={`${project.subheading}-${pill}-${index}`}
+            >
+              {pill}
+            </Pill>
+          ))}
+        </div>
+
+        <h3 className="text-xl font-bold">{project.heading}</h3>
+        <h4 className="text-lg">{project.subheading}</h4>
+        <div className="space-y-4">
+          <p>{project.body}</p>
+          {project.hrefs.map((href, index) => (
+            <Anchor
+              key={`${project.subheading}-${href.name}-${index}`}
+              href={href.href}
+              target="_blank"
+            >
+              {href.name}
+            </Anchor>
+          ))}
+        </div>
+      </div>
+    ),
+  }),
+);
 
 export default function Home() {
   return (
@@ -64,7 +101,12 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          <div className="h-4 bg-black glow:bg-gray-700"></div>
         </Glow>
+        <div className="min-h-screen bg-pink-900 py-20">
+          <Timeline lineColour="black" items={renderableContent} />
+        </div>
       </GlowCapture>
     </div>
   );
