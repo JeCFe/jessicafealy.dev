@@ -7,7 +7,6 @@ import Link from "next/link";
 import selfie from "@/assets/selfie3.jpg";
 import { projectData } from "@/data";
 import { TimelineItem } from "@jecfe/react-design-system/dist/cjs/components/timeline/Timeline";
-import { cva } from "class-variance-authority";
 
 const renderableContent: TimelineItem[] = projectData.map(
   (project): TimelineItem => ({
@@ -16,7 +15,6 @@ const renderableContent: TimelineItem[] = projectData.map(
         <div className="space-x-3 pb-2">
           {project.pills.map((pill, index) => (
             <Pill
-              className="bg-gradient-to-r from-pink-500  to-blue-500 bg-cover"
               size="medium"
               type="info"
               key={`${project.subheading}-${pill}-${index}`}
