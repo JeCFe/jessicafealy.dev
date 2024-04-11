@@ -13,7 +13,7 @@
     "date": "Dec 2021",
     "heading": "Machine Learning",
     "subheading": "Facial Recognition",
-    "body": "Used encryption, salt, and hashing techniques using a master password to store password, which could only be read with the master password.",
+    "body": "",
     "hrefs": [
       {
         "name": "Github",
@@ -26,7 +26,7 @@
     "date": "May 2022",
     "heading": "Final Year Project",
     "subheading": "Secure Chat Server",
-    "body": "Used encryption, salt, and hashing techniques using a master password to store password, which could only be read with the master password.",
+    "body": "",
     "hrefs": [
       {
         "name": "Github",
@@ -39,7 +39,7 @@
     "date": "Nov 2021 - Jul 2022",
     "heading": "Raspberry Pico",
     "subheading": "Custom Macropad",
-    "body": "Used encryption, salt, and hashing techniques using a master password to store password, which could only be read with the master password.",
+    "body": "",
     "hrefs": [
       { "name": "Github", "href": "https://github.com/JeCFe/Custom-Marcopad" }
     ],
@@ -59,7 +59,7 @@
     "date": "Nov 2023",
     "heading": "Web Application",
     "subheading": "Todo List Application",
-    "body": "A template to allow for a quick start solution that requires a Next.js frontend and a .Net backend using Auth0 as the authorisation provider. Actively being maintained.",
+    "body": "",
     "hrefs": [],
     "pills": ["C#", "TypeScript", "Next.js", "AuthO"]
   },
@@ -67,7 +67,7 @@
     "date": "Nov 2021 - Jan 2023",
     "heading": "Web Application",
     "subheading": "Visualised Sorter",
-    "body": "A template to allow for a quick start solution that requires a Next.js frontend and a .Net backend using Auth0 as the authorisation provider. Actively being maintained.",
+    "body": "",
     "hrefs": [],
     "pills": ["TypeScript", "Next.js"]
   },
@@ -75,7 +75,7 @@
     "date": "Dec 23 - Ongoing",
     "heading": "Design System",
     "subheading": "React Design System",
-    "body": "A template to allow for a quick start solution that requires a Next.js frontend and a .Net backend using Auth0 as the authorisation provider. Actively being maintained.",
+    "body": "",
     "hrefs": [],
     "pills": ["TypeScript", "Next.js", "Storybook", "npm"]
   },
@@ -85,6 +85,6 @@
     "subheading": "Visualised Sorter",
     "body": "",
     "hrefs": [],
-    "pills": []
+    "pills": ["TypeScript", "Next.js"]
   }
 ]
