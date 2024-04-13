@@ -41,25 +41,23 @@ export function Projects() {
     }),
   );
   return (
-    <GlowCapture>
-      <Glow>
-        <div
-          className="min-h-screen w-full bg-pink-900 text-white"
-          id="projects"
-        >
-          <NavArrow direction="up" id="home" />
-          <div className="flex w-full flex-col items-center justify-center pb-40 pt-20 font-bold">
-            <h1 className="flex w-full items-center justify-center pb-12 text-center text-5xl md:text-7xl">
-              Projects
-            </h1>
-            <div className="flex w-1/2 text-center text-2xl font-light">
-              {`I have worked on numerours projects over the years, here are some that are available via my Github.`}
-            </div>
+    <Glow>
+      <div
+        className="min-h-screen w-full bg-pink-900 text-white glow:bg-pink-500/50"
+        id="projects"
+      >
+        <NavArrow direction="up" id="home" />
+        <div className="flex w-full flex-col items-center justify-center pb-40 pt-20 font-bold">
+          <h1 className="flex w-full items-center justify-center pb-12 text-center text-5xl md:text-7xl">
+            Projects
+          </h1>
+          <div className="flex w-1/2 text-center text-2xl font-light">
+            {`I have worked on numerours projects over the years, here are some that are available via my Github.`}
           </div>
-
-          <Timeline lineColour="black" items={renderableContent} />
         </div>
-      </Glow>
-    </GlowCapture>
+
+        <Timeline lineColour="black" items={renderableContent} />
+      </div>
+    </Glow>
   );
 }

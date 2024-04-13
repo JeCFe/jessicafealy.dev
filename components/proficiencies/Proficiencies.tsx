@@ -13,15 +13,18 @@ import {
   Ts,
   XUnit,
 } from "@/assets";
+import { Glow } from "@codaworks/react-glow";
 import { cva } from "class-variance-authority";
 
 const logo = cva("w-24 h-24");
 
 export function Proficiencies() {
   return (
-    <>
-      <div className="h-4 bg-black glow:bg-gray-700" />
-      <div className="flex w-full flex-col items-center justify-center space-y-12 bg-purple-600 py-12">
+    <Glow>
+      <div className="flex w-full flex-col items-center justify-center space-y-12 bg-gradient-to-b from-slate-900 to-pink-900  py-12 glow:from-slate-700/50  glow:to-pink-500/50">
+        <div className="text-5xl font-bold text-white md:text-7xl">
+          Proficiencies
+        </div>
         <div className="container flex w-full flex-row justify-between">
           <CSharp className={logo()} />
           <Dotnet className={logo()} />
@@ -37,7 +40,6 @@ export function Proficiencies() {
           <SQLServer className={`${logo()} fill-white`} />
         </div>
       </div>
-      <div className="h-4 bg-black glow:bg-gray-700" />
-    </>
+    </Glow>
   );
 }
