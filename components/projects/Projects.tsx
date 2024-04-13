@@ -7,6 +7,7 @@ import { Glow, GlowCapture } from "@codaworks/react-glow";
 export function Projects() {
   const renderableContent: TimelineItem[] = projectData.map(
     (project): TimelineItem => ({
+      date: project.date,
       children: (
         <div className="w-full">
           <div className="flex w-full flex-wrap space-x-3 pb-2">

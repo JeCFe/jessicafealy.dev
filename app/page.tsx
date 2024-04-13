@@ -60,8 +60,6 @@ export default function Home() {
             <div className="flex-grow" />
             <NavArrow direction="down" id="projects" />
           </div>
-
-          <div className="h-4 bg-black glow:bg-gray-700"></div>
         </Glow>
         <Proficiencies />
         <Projects />
