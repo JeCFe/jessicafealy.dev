@@ -1,9 +1,10 @@
-# Next.js Typescript Client
+# Portfolio Website
 
-Basic building blocks for a quick next js start up application with design system integration
+A portfolio website to introduce myself, highlighting proficiencies, projects, and resumé.
+
+The website is being hosted on [https://jessicafealy.dev](https://jessicafealy.dev)
 
 ## Local Run
-
 ```bash
   npm install
   npm run dev
