@@ -15,11 +15,11 @@ export default function Home() {
           <div className="flex min-h-screen w-full flex-col bg-slate-900 text-white glow:bg-slate-700/50">
             <div className="container mx-auto flex flex-col items-center justify-center pt-20 md:flex-row">
               <div className="flex w-2/3 flex-col space-y-28">
-                <div className="space-y-4 bg-gradient-to-r from-pink-500 via-sky-400 to-blue-500 bg-clip-text text-center text-7xl text-transparent">
+                <div className="space-y-4 bg-gradient-to-r from-pink-500 via-sky-400 to-blue-500 bg-clip-text text-center text-5xl font-bold text-transparent md:text-7xl">
                   <h1>Hi there!</h1>
                   <h1>{`I'm Jessica`} </h1>
                 </div>
-                <div className="text-center text-2xl md:mx-40">
+                <div className="text-center text-2xl font-light md:mx-40">
                   {`I'm a fullstack software engineer that enjoys toying around with
                   micro-processors, and web application projects. Having build various projects including custom macro pads, secure chat server, and react design systems`}
                 </div>
