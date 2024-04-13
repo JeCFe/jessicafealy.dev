@@ -1,15 +1,14 @@
 "use client";
 import { Github, LinkedIn } from "@/assets";
 import { Glow, GlowCapture } from "@codaworks/react-glow";
-import { ArrowDown } from "@jecfe/react-design-system";
 import Image from "next/image";
 import Link from "next/link";
 import selfie from "@/assets/selfie3.jpg";
-import { Jecfe, Projects } from "@/components";
+import { Jecfe, NavArrow, Projects } from "@/components";
 
 export default function Home() {
   return (
-    <div>
+    <div id="home">
       <GlowCapture size={700}>
         <Jecfe />
         <Glow>
@@ -58,20 +57,13 @@ export default function Home() {
               </div>
             </div>
             <div className="flex-grow" />
-            <div className="md:visable hidden w-full flex-row items-center justify-center pb-16 pt-20 text-center md:flex md:pt-0">
-              <div className="rounded-full border-2 glow:border-pink-500">
-                <Link href={""}>
-                  <ArrowDown className="fill-white hover:fill-cyan-500" />
-                </Link>
-              </div>
-            </div>
+            <NavArrow direction="down" id="projects" />
           </div>
 
           <div className="h-4 bg-black glow:bg-gray-700"></div>
         </Glow>
-        <div className="min-h-screen bg-pink-900 py-20">
-          <Projects />
-        </div>
+
+        <Projects />
       </GlowCapture>
     </div>
   );
