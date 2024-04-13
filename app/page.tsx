@@ -1,10 +1,11 @@
 "use client";
-import { Github, LinkedIn } from "@/assets";
+
+import Link from "next/link";
+import { Github, LinkedIn } from "@/assets/logos";
+import selfie from "@/assets/selfie3.jpg";
+import { Jecfe, NavArrow, Proficiencies, Projects } from "@/components";
 import { Glow, GlowCapture } from "@codaworks/react-glow";
 import Image from "next/image";
-import Link from "next/link";
-import selfie from "@/assets/selfie3.jpg";
-import { Jecfe, NavArrow, Projects } from "@/components";
 
 export default function Home() {
   return (
@@ -62,7 +63,7 @@ export default function Home() {
 
           <div className="h-4 bg-black glow:bg-gray-700"></div>
         </Glow>
-
+        <Proficiencies />
         <Projects />
       </GlowCapture>
     </div>
