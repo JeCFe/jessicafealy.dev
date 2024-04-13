@@ -25,7 +25,7 @@ export function Proficiencies() {
         <div className="text-5xl font-bold text-white md:text-7xl">
           Proficiencies
         </div>
-        <div className="container flex w-full flex-row justify-between">
+        <div className="container grid w-full grid-cols-5 flex-row items-center justify-between gap-5 md:flex">
           <CSharp className={logo()} />
           <Dotnet className={logo()} />
           <Ts className={logo()} />
