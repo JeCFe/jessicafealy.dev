@@ -51,16 +51,16 @@ export default function Home() {
           <div className="flex min-h-screen w-full flex-col bg-slate-900 text-white glow:bg-slate-700/50">
             <div className="container mx-auto flex flex-col items-center justify-center pt-20 md:flex-row">
               <div className="flex w-2/3 flex-col space-y-28">
-                <div className="space-y-16 bg-gradient-to-r from-pink-500 via-sky-400 to-blue-500 bg-clip-text text-7xl text-transparent">
+                <div className="space-y-4 bg-gradient-to-r from-pink-500 via-sky-400 to-blue-500 bg-clip-text text-center text-7xl text-transparent">
                   <h1>Hi there!</h1>
-                  <h1 className="md:ml-40">{`I'm Jessica`} </h1>
+                  <h1>{`I'm Jessica`} </h1>
                 </div>
-                <div className="text-center text-2xl md:ml-40">
+                <div className="mx-40 text-center text-2xl">
                   {`I'm a fullstack software engineer that enjoys toying around with
                   micro-processors, and web application projects. Having build various projects including custom macro pads, secure chat server, and react design systems`}
                 </div>
 
-                <div className="flex w-full flex-row justify-center space-x-12 pb-20 md:ml-40 md:justify-start md:pb-0 ">
+                <div className="flex w-full flex-row justify-center space-x-12 pb-20 md:justify-start md:pb-0 ">
                   <Link
                     className="flex flex-col"
                     href="https://github.com/JeCFe"
