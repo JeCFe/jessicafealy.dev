@@ -13,3 +13,5 @@ export { default as SQLServer } from "./sqlserver.svg";
 export { default as Tailwind } from "./tailwindcss.svg";
 export { default as Ts } from "./typescript.svg";
 export { default as XUnit } from "./xunit.svg";
+export { default as VSCode } from "./vscode.svg";
+export { default as Azure } from "./azure.svg";

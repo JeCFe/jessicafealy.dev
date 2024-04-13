@@ -27,6 +27,7 @@ export default function Home() {
 
                 <div className="flex w-full flex-row justify-center space-x-12 pb-20 md:justify-start md:pb-0 ">
                   <Link
+                    aria-label="Github link"
                     className="flex flex-col"
                     href="https://github.com/JeCFe"
                     target="_blank"
@@ -37,6 +38,7 @@ export default function Home() {
                     />
                   </Link>
                   <Link
+                    aria-label="LinkedIn link"
                     className="flex flex-col"
                     href="https://uk.linkedin.com/in/jessicaclarafealy"
                     target="_blank"

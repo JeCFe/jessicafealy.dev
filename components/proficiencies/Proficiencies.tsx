@@ -1,4 +1,5 @@
 import {
+  Azure,
   CSharp,
   Cypress,
   Docker,
@@ -11,6 +12,7 @@ import {
   SQLServer,
   Tailwind,
   Ts,
+  VSCode,
   XUnit,
 } from "@/assets";
 import { Glow } from "@codaworks/react-glow";
@@ -25,7 +27,7 @@ export function Proficiencies() {
         <div className="text-5xl font-bold text-white md:text-7xl">
           Proficiencies
         </div>
-        <div className="container grid w-full grid-cols-5 flex-row items-center justify-between gap-5 md:flex">
+        <div className="container grid w-full grid-cols-3 flex-row items-center justify-between justify-items-center gap-5 md:flex">
           <CSharp className={logo()} />
           <Dotnet className={logo()} />
           <Ts className={logo()} />
@@ -38,6 +40,8 @@ export function Proficiencies() {
           <React className={logo()} />
           <Tailwind className={logo()} />
           <SQLServer className={`${logo()} fill-white`} />
+          <Azure className={logo()} />
+          <VSCode className={logo()} />
         </div>
       </div>
     </Glow>
