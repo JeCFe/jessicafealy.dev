@@ -35,8 +35,9 @@ jobs:
 
       - name: Build with Next.js
         run: npm run build
-      - name: Static HTML export with Next.js
-        run: npm run build
+        env:
+          NEXT_PUBLIC_TRAKT_KEY: ${{ secrets.NEXT_PUBLIC_TRAKT_KEY }}
+          RNEXT_PUBLIC_OMDB_KEY: ${{ secrets.NEXT_PUBLIC_OMDB_KEY }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
