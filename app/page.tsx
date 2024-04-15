@@ -3,9 +3,17 @@
 import Link from "next/link";
 import { Github, LinkedIn } from "@/assets/logos";
 import selfie from "@/assets/selfie3.jpg";
-import { Jecfe, NavArrow, Proficiencies, Projects } from "@/components";
+import {
+  Jecfe,
+  NavArrow,
+  Proficiencies,
+  Projects,
+  Reading,
+} from "@/components";
 import { Glow, GlowCapture } from "@codaworks/react-glow";
 import Image from "next/image";
+import { AboutMe } from "@/components/about-me";
+import { Movies } from "@/components/movies/Movies";
 
 export default function Home() {
   return (
@@ -65,6 +73,13 @@ export default function Home() {
         </Glow>
         <Proficiencies />
         <Projects />
+        <Glow>
+          <div className="flex w-full justify-center bg-pink-900 glow:bg-pink-500/50">
+            TODO: Somthing to fill this space
+          </div>
+        </Glow>
+
+        <AboutMe />
       </GlowCapture>
     </div>
   );

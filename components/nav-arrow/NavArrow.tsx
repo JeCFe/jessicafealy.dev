@@ -20,18 +20,18 @@ const arrow = cva(
 type Props = {
   id: string;
   direction: "up" | "down";
+  className?: string;
 };
 
-export function NavArrow({ id, direction }: Props) {
+export function NavArrow({ id, direction, className }: Props) {
   const handleClick = () => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-    console.log(id);
   };
   return (
-    <div className={arrow({ direction })}>
+    <div className={arrow({ direction, className })}>
       <button
         className="rounded-full border-2 glow:border-pink-500"
         onClick={handleClick}

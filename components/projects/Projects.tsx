@@ -47,7 +47,7 @@ export function Projects() {
         id="projects"
       >
         <NavArrow direction="up" id="home" />
-        <div className="flex w-full flex-col items-center justify-center pb-40 pt-20 font-bold">
+        <div className="flex w-full flex-col items-center justify-center  py-20 font-bold">
           <h1 className="flex w-full items-center justify-center pb-12 text-center text-5xl md:text-7xl">
             Projects
           </h1>
@@ -57,6 +57,7 @@ export function Projects() {
         </div>
 
         <Timeline lineColour="black" items={renderableContent} />
+        <NavArrow direction="down" id="about-me" className="mt-20" />
       </div>
     </Glow>
   );
