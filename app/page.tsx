@@ -79,7 +79,7 @@ export default function Home() {
           </div>
         </Glow>
 
-        <AboutMe />
+        {/* <AboutMe /> */}
       </GlowCapture>
     </div>
   );
