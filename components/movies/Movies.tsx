@@ -21,7 +21,7 @@ export function Movies({
     const fetchImage = async () => {
       try {
         const response = await fetch(
-          `http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_KEY as string}&i=${id}`,
+          `https://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_KEY as string}&i=${id}`,
         );
 
         if (!response.ok) {
