@@ -2,11 +2,9 @@
 
 import Link from "next/link";
 import { Github, LinkedIn } from "@/assets/logos";
-import selfie from "@/assets/selfie3.jpg";
 import { Jecfe, Proficiencies } from "@/components";
 import { Glow, GlowCapture } from "@codaworks/react-glow";
 import { AboutMe } from "@/components/about-me";
-import { useEffect, useRef, useState } from "react";
 
 type PageLink = { name?: string; id: string };
 
