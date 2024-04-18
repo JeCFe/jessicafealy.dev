@@ -3,84 +3,82 @@
 import Link from "next/link";
 import { Github, LinkedIn } from "@/assets/logos";
 import selfie from "@/assets/selfie3.jpg";
-import {
-  Jecfe,
-  NavArrow,
-  Proficiencies,
-  Projects,
-  Reading,
-} from "@/components";
+import { Jecfe, Proficiencies } from "@/components";
 import { Glow, GlowCapture } from "@codaworks/react-glow";
-import Image from "next/image";
 import { AboutMe } from "@/components/about-me";
-import { Movies } from "@/components/movies/Movies";
+import { useEffect, useRef, useState } from "react";
+
+type PageLink = { name?: string; id: string };
+
+const links: PageLink[] = [
+  { id: "about" },
+  { id: "proficiencies" },
+  { id: "experience" },
+  { id: "projects" },
+];
 
 export default function Home() {
   return (
-    <div id="home">
-      <GlowCapture size={700}>
-        <Jecfe />
-        <Glow>
-          <div className="flex min-h-screen w-full flex-col bg-slate-900 text-white glow:bg-slate-700/50">
-            <div className="container mx-auto flex flex-col items-center justify-center pt-20 md:flex-row">
-              <div className="flex w-2/3 flex-col space-y-28">
-                <div className="space-y-4 bg-gradient-to-r from-pink-500 via-sky-400 to-blue-500 bg-clip-text text-center text-5xl font-bold text-transparent md:text-7xl">
-                  <h1>Hi there!</h1>
-                  <h1>{`I'm Jessica`} </h1>
+    <GlowCapture size={700}>
+      <Jecfe />
+      <Glow>
+        <div className="min-h-screen w-full flex-col bg-slate-900 text-white glow:bg-slate-800/50">
+          <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+            <div className="md:flex md:justify-between md:gap-4">
+              <div className="top-0 flex max-h-screen flex-col justify-between pt-12 md:sticky md:h-screen md:w-auto md:py-24">
+                <div className="flex flex-col">
+                  <h1 className="text-5xl font-bold tracking-tight text-slate-200 md:text-7xl">
+                    Jessica Fealy
+                  </h1>
+                  <h2 className="mt-3 text-xl font-medium tracking-tight text-slate-200 md:text-3xl">
+                    Fullstack Software Engineer
+                  </h2>
+                  <h3 className="max-w-s mt-4 text-lg leading-normal text-slate-400 md:max-w-xs">
+                    Enjoy toying around with micro-processors, and web
+                    applications.
+                  </h3>
                 </div>
-                <div className="text-center text-2xl font-light md:mx-40">
-                  {`I'm a fullstack software engineer that enjoys toying around with
-                  micro-processors, and web application projects. Having build various projects including custom macro pads, secure chat server, and react design systems`}
-                </div>
+                {/* <div>
+                  <a href="#about">About me</a>
+                  <div>Proficiencies</div>
+                  <div>Experience</div>
+                  <div>Projects</div>
+                </div> */}
 
-                <div className="flex w-full flex-row justify-center space-x-12 pb-20 md:justify-start md:pb-0 ">
+                <div className="w-full justify-start space-x-12 pt-10">
                   <Link
                     aria-label="Github link"
-                    className="flex flex-col"
                     href="https://github.com/JeCFe"
                     target="_blank"
                   >
                     <Github
                       alt="Github logo"
-                      className="h-20 w-20 fill-white glow:fill-pink-500"
+                      className="inline-block h-20 w-20 fill-white glow:fill-pink-500"
                     />
                   </Link>
                   <Link
                     aria-label="LinkedIn link"
-                    className="flex flex-col"
                     href="https://uk.linkedin.com/in/jessicaclarafealy"
                     target="_blank"
                   >
                     <LinkedIn
                       alt="LinkedIn logo"
-                      className="h-20 w-20 fill-white glow:fill-cyan-500"
+                      className="inline-block h-20 w-20 fill-white glow:fill-cyan-500"
                     />
                   </Link>
                 </div>
               </div>
-              <div className="hidden h-1/2 w-1/3 flex-row items-center justify-center md:visible md:flex md:flex-col">
-                <Image
-                  src={selfie}
-                  alt="Phone of Jessica Fealy"
-                  width={400}
-                  className="max-w-full rounded-full border-4 border-transparent align-middle  shadow glow:border-pink-500 glow:shadow-2xl glow:shadow-cyan-500"
-                />
+              <div className="flex max-h-screen max-w-full md:visible md:sticky md:top-0 md:w-1/12">
+                <div className="mx-auto my-12 flex flex-grow border glow:border-pink-500 md:flex-grow-0" />
+              </div>
+              <div className="flex min-h-screen w-full flex-col md:py-24">
+                <AboutMe />
+                <Proficiencies />
               </div>
             </div>
-            <div className="flex-grow" />
-            <NavArrow direction="down" id="projects" />
           </div>
-        </Glow>
-        <Proficiencies />
-        <Projects />
-        <Glow>
-          <div className="flex w-full justify-center bg-pink-900 glow:bg-pink-500/50">
-            TODO: Somthing to fill this space
-          </div>
-        </Glow>
-
-        {/* <AboutMe /> */}
-      </GlowCapture>
-    </div>
+        </div>
+      </Glow>
+    </GlowCapture>
   );
 }
