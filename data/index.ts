@@ -1,2 +1,3 @@
 import projectData from "./projects.json";
-export { projectData };
+import experienceData from "./experience.json";
+export { projectData, experienceData };
