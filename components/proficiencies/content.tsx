@@ -73,7 +73,9 @@ export const proficiencies: { href: string; children: ReactNode }[] = [
   },
   {
     href: "https://www.microsoft.com/en-gb/sql-server/sql-server-2019",
-    children: <SQLServer alt="SQL Server logo" className={logo()} />,
+    children: (
+      <SQLServer alt="SQL Server logo" className={logo({ white: true })} />
+    ),
   },
   {
     href: "https://azure.microsoft.com/en-gb/",
