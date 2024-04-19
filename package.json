@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@codaworks/react-glow": "^1.0.6",
     "@jecfe/react-design-system": "1.0.28",
     "@types/react-type-animation": "^1.1.4",
     "class-variance-authority": "^0.7.0",

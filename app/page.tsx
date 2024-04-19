@@ -7,7 +7,6 @@ import {
   MiddleDivider,
   Proficiencies,
 } from "@/components";
-import { Glow, GlowCapture } from "@codaworks/react-glow";
 import { AboutMe } from "@/components/about-me";
 
 type PageLink = { name?: string; id: string };
