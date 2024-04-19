@@ -20,7 +20,7 @@ export function ExperienceBox({
   pills,
 }: ExperienceProps) {
   return (
-    <div className="z-10 rounded-xl md:p-8 md:hover:bg-slate-800/70 md:hover:shadow-xl">
+    <div className="z-10 rounded-xl transition-all duration-300 ease-in-out md:p-8 md:hover:bg-slate-800/70 md:hover:shadow-xl">
       <div className="flex flex-row">
         <h2 className="text-2xl font-medium tracking-tight text-slate-200">
           {jobTitle}

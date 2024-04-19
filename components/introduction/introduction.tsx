@@ -24,7 +24,7 @@ export function Introduction() {
         >
           <Github
             alt="Github logo"
-            className="inline-block h-20 w-20 fill-pink-500"
+            className="inline-block h-20 w-20 fill-pink-500 hover:animate-pulse"
           />
         </Link>
         <Link
@@ -34,7 +34,7 @@ export function Introduction() {
         >
           <LinkedIn
             alt="LinkedIn logo"
-            className="inline-block h-20 w-20 fill-cyan-500"
+            className="inline-block h-20 w-20 fill-cyan-500 hover:animate-pulse"
           />
         </Link>
       </div>
