@@ -8,7 +8,7 @@ export function Introduction() {
         <h1 className="text-5xl font-bold tracking-tight text-slate-200 md:text-7xl">
           Jessica Fealy
         </h1>
-        <h2 className="mt-3 text-xl font-medium tracking-tight text-slate-200 md:text-3xl">
+        <h2 className="mt-3 text-2xl font-medium tracking-tight text-slate-200 md:text-3xl">
           Fullstack Software Engineer
         </h2>
         <h3 className="max-w-s mt-4 text-lg leading-normal text-slate-400 md:max-w-xs">
