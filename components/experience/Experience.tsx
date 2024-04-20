@@ -1,7 +1,7 @@
 import { experienceData } from "@/data";
-import { ExperienceBox, ExperienceProps, PageIds } from "..";
+import { ExperienceBox, ExperienceProps, PageId } from "..";
 
-export function Experience({ id }: { id: PageIds }) {
+export function Experience({ id }: { id: PageId }) {
   const data: ExperienceProps[] = experienceData;
 
   return (

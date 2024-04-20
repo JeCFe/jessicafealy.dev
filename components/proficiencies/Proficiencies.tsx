@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { proficiencies } from ".";
-import { PageIds } from "..";
+import { PageId } from "..";
 
-export function Proficiencies({ id }: { id: PageIds }) {
+export function Proficiencies({ id }: { id: PageId }) {
   return (
     <div className="mt-14 flex flex-col" id={id}>
       <h2 className="w-full text-2xl font-bold tracking-tight text-slate-200 underline decoration-1 underline-offset-8 md:text-3xl">

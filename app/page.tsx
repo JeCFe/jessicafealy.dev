@@ -5,7 +5,7 @@ import {
   Introduction,
   Jecfe,
   MiddleDivider,
-  PageIds,
+  PageId,
   Proficiencies,
 } from "@/components";
 import { AboutMe } from "@/components/about-me";
@@ -22,11 +22,11 @@ const links: PageLink[] = [
 ];
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState<PageIds>("about");
+  const [activeSection, setActiveSection] = useState<PageId>("about");
 
   useEffect(() => {
     const handleScroll = () => {
-      const sectionIds: PageIds[] = ["about", "proficiencies", "experience"]; // Add your section IDs here
+      const sectionIds: PageId[] = ["about", "proficiencies", "experience"]; // Add your section IDs here
       let currentActiveSection = null;
 
       sectionIds.forEach((id) => {
