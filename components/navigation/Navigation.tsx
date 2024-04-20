@@ -1,9 +1,10 @@
 import { Menu } from "@/assets";
 import { navData } from "@/data";
+import { ArrowUp } from "@jecfe/react-design-system";
 import { cva } from "class-variance-authority";
 import { useState } from "react";
 
-export type PageId = "about" | "proficiencies" | "experience";
+export type PageId = "about" | "proficiencies" | "experience" | "absolute";
 
 const navLink = cva(
   "left-0 my-auto flex w-0 bg-slate-200 transition-all duration-300 group-hover:mr-2 group-hover:h-px group-hover:w-20",
@@ -24,6 +25,18 @@ const mobileNav = cva("md:hidden", {
     },
   },
 });
+
+const uppies = cva(
+  "fixed bottom-5 right-5 z-10 cursor-pointer rounded-xl border-2 border-pink-400 transition-all duration-300 hover:animate-pulse",
+  {
+    variants: {
+      show: {
+        true: "opacity-100",
+        false: "opacity-0",
+      },
+    },
+  },
+);
 
 type NavItem = {
   text: string;
@@ -68,7 +81,15 @@ export function Navigation({ currentId }: { currentId: PageId }) {
   return (
     <div>
       <div
-        className="group fixed left-5 top-5 z-10 cursor-pointer text-white md:hidden"
+        className={uppies({
+          show: currentId !== "about" && currentId !== "absolute",
+        })}
+        onClick={() => handleClick("absolute")}
+      >
+        <ArrowUp className="fill-cyan-500" />
+      </div>
+      <div
+        className="group fixed left-5 top-5 z-10 cursor-pointer md:hidden"
         onClick={() => setIsOpen(!isOpen)}
       >
         <Menu className="h-12 w-12 fill-slate-200 group-hover:fill-slate-400" />

@@ -12,7 +12,7 @@ import { AboutMe } from "@/components/about-me";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState<PageId>("about");
+  const [activeSection, setActiveSection] = useState<PageId>("absolute");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,7 +43,10 @@ export default function Home() {
   });
 
   return (
-    <div className="min-h-screen w-full flex-col bg-slate-900 text-white">
+    <div
+      className="min-h-screen w-full flex-col bg-slate-900 text-white"
+      id="absolute"
+    >
       <Jecfe />
       <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 pb-20 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
         <div className="md:flex md:justify-between md:gap-4">
