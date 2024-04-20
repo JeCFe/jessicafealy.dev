@@ -1,11 +1,11 @@
 import { experienceData } from "@/data";
-import { ExperienceBox, ExperienceProps } from "..";
+import { ExperienceBox, ExperienceProps, PageIds } from "..";
 
-export function Experience() {
+export function Experience({ id }: { id: PageIds }) {
   const data: ExperienceProps[] = experienceData;
 
   return (
-    <div className="mt-14 flex flex-col">
+    <div className="mt-14 flex flex-col" id={id}>
       <h2 className="w-full pb-4 text-2xl font-bold tracking-tight text-slate-200 underline decoration-1 underline-offset-8 md:text-3xl">
         Experience
       </h2>
