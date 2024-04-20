@@ -1,0 +1,14 @@
+[
+  {
+    "text": "About me",
+    "id": "about"
+  },
+  {
+    "text": "Proficiencies",
+    "id": "proficiencies"
+  },
+  {
+    "text": "Experience",
+    "id": "experience"
+  }
+]

@@ -1,7 +1,8 @@
 import { Github, LinkedIn } from "@/assets";
 import Link from "next/link";
+import { Navigation, PageId } from "..";
 
-export function Introduction() {
+export function Introduction({ currentId }: { currentId: PageId }) {
   return (
     <div className="top-0 flex max-h-screen flex-col justify-between pt-12 md:sticky md:h-screen md:w-auto md:py-24">
       <div className="flex flex-col">
@@ -15,6 +16,7 @@ export function Introduction() {
           Enjoy toying around with micro-processors, and web applications.
         </h3>
       </div>
+      <Navigation currentId={currentId} />
 
       <div className="w-full justify-start space-x-12 pt-10">
         <Link

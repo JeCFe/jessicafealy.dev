@@ -27,7 +27,7 @@ export function ExperienceBox({
         </h2>
         <div className="flex flex-grow" />
         <Anchor href={jobLink.href} target="_blank">
-          <h2 className="text-2xl font-medium tracking-tight">
+          <h2 className="text-right text-2xl font-medium tracking-tight">
             {jobLink.name}
           </h2>
         </Anchor>

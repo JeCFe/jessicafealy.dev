@@ -1,12 +1,12 @@
 import { Anchor } from "@jecfe/react-design-system";
 import { cva } from "class-variance-authority";
-import Link from "next/link";
+import { PageId } from "..";
 
 const link = cva("font-bold z-100");
 
-export function AboutMe() {
+export function AboutMe({ id }: { id: PageId }) {
   return (
-    <div id="#about">
+    <div id={id}>
       <h2 className="w-full text-2xl font-bold tracking-tight text-slate-200 underline decoration-1 underline-offset-8 md:text-3xl">
         About me
       </h2>
