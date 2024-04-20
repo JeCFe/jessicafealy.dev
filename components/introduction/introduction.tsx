@@ -1,15 +1,8 @@
 import { Github, LinkedIn } from "@/assets";
-import { cva } from "class-variance-authority";
 import Link from "next/link";
 import { Navigation, PageId } from "..";
 
 export function Introduction({ currentId }: { currentId: PageId }) {
-  const handleClick = (id: PageId) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
   return (
     <div className="top-0 flex max-h-screen flex-col justify-between pt-12 md:sticky md:h-screen md:w-auto md:py-24">
       <div className="flex flex-col">

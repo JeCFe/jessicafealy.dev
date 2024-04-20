@@ -1,6 +1,5 @@
 import { Anchor } from "@jecfe/react-design-system";
 import { cva } from "class-variance-authority";
-import Link from "next/link";
 import { PageId } from "..";
 
 const link = cva("font-bold z-100");

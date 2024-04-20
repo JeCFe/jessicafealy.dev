@@ -9,17 +9,7 @@ import {
   Proficiencies,
 } from "@/components";
 import { AboutMe } from "@/components/about-me";
-import { createRef, useEffect, useRef, useState } from "react";
-import { useInView } from "react-intersection-observer";
-
-type PageLink = { name?: string; id: string };
-
-const links: PageLink[] = [
-  { id: "about" },
-  { id: "proficiencies" },
-  { id: "experience" },
-  { id: "projects" },
-];
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<PageId>("about");
@@ -52,9 +42,6 @@ export default function Home() {
     };
   });
 
-  useEffect(() => {
-    console.log(activeSection);
-  }, [activeSection]);
   return (
     <div className="min-h-screen w-full flex-col bg-slate-900 text-white">
       <Jecfe />
