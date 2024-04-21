@@ -22,7 +22,7 @@ export default function Home() {
         "proficiencies",
         "experience",
         "projects",
-      ]; // Add your section IDs here
+      ];
       let currentActiveSection = null;
 
       sectionIds.forEach((id) => {
