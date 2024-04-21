@@ -43,16 +43,13 @@ export default function Home() {
   });
 
   return (
-    <div
-      className="min-h-screen w-full flex-col bg-slate-900 text-white"
-      id="absolute"
-    >
+    <div id="absolute">
       <Jecfe />
-      <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 pb-20 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+      <div className="mx-auto max-w-screen-xl px-6 py-12 pb-20 md:px-12 md:py-20 lg:px-24 lg:py-0">
         <div className="md:flex md:justify-between md:gap-4">
           <Introduction currentId={activeSection} />
           <MiddleDivider />
-          <div className="flex min-h-screen w-full flex-col md:py-24">
+          <div className="flex flex-col md:py-24">
             <AboutMe id="about" />
             <Proficiencies id="proficiencies" />
             <Experience id="experience" />
