@@ -48,7 +48,7 @@ const accordionIcon = cva("cursor-pointer transition-all duration-200", {
 
 const accordion = cva(
   [
-    "transition-max-height overflow-hidden duration-300 ease-in-out",
+    "transition-max-height overflow-hidden duration-300 ease-in-out list-disc",
     "border-l border-slate-200 pl-10 ml-2",
     "text-slate-400 leading-normal text-sm",
   ],
@@ -146,11 +146,13 @@ export function ProjectBox({
         )}
       </div>
       {improvements && (
-        <div className={accordion({ open: isOpen })}>
+        <ul className={accordion({ open: isOpen })}>
           {improvements.map((x, i) => (
-            <li key={`improvements-${i}`}>{x}</li>
+            <li className="pl-1" key={`improvements-${i}`}>
+              {x}
+            </li>
           ))}
-        </div>
+        </ul>
       )}
 
       <div className="pointer-events-none mt-4 flex flex-wrap  gap-2">
