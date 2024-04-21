@@ -1,49 +1,44 @@
 [
   {
-    "date": "Dec 2021",
-    "heading": "Facial Recognition",
-    "description": "",
-    "link": [
-      {
-        "href": "https://github.com/JeCFe/Machine-Learning/tree/main/Face%20Recognisation",
-        "type": "git"
-      },
-      {
-        "href": "https://github.com/JeCFe/Machine-Learning/tree/main/Face%20Recognisation",
-        "type": "web"
-      }
-    ],
-    "pills": ["Python"]
-  },
-  {
-    "date": "May 2022",
+    "date": "Sept 2021 - May 2022",
+    "type": "closed",
     "heading": "Secure Chat Server",
-    "description": "",
+    "description": "C# Secure chat server, using asynchronous (RSA) and synchronous (AES) cryptographic techniques and other secure programming practices to create a secure means of communication between 2 nodes through a server machine. Additionally, admin users were able to log in and interaction on the server machine console, to perform protected actions such as admin account management, viewing logs, and server restart - these credentials were stored on a MongoDB cloud instance.",
     "link": [
       {
         "href": "https://github.com/JeCFe/Final-Year-Project",
         "type": "git"
       }
     ],
-    "pills": ["C#", "WinForms"]
+    "pills": ["C#", "WinForms", "Cryptography", "RSA", "AES", "MongoDB"]
   },
   {
     "date": "Nov 2021 - Jul 2022",
     "heading": "Custom Macropad",
-    "subheading": "",
-    "description": "",
+    "type": "active",
+    "description": "A project that allowed exploration of both hardware and software, using an Ender 3 Pro 3D printer and TinkerCAD I created a variety of designs for macropods that revolved around using the Raspberry Pi Pico microprocessor to decode mechanical key switches into programmable code. Using AdaFruit CircuitPython I built code that would take GPIO inputs and process them into simulated keyboard inputs, using this to perform shortcuts, control media, open applications, and control of windows.",
     "link": [
       {
         "href": "https://github.com/JeCFe/Custom-Marcopad",
         "type": "git"
       }
     ],
-    "pills": ["C#", "WinForms", "Python"]
+    "pills": [
+      "C#",
+      "WinForms",
+      "Python",
+      "CircuitPython",
+      "Raspberry Pi Pico",
+      "Ada Fruit",
+      "3D Modeling",
+      "3D Printing"
+    ]
   },
   {
     "date": "Nov 2023 - Ongoing",
+    "type": "active",
     "heading": "Next Dotnet Auth0 Template",
-    "description": "A template to allow for a quick start solution that requires a Next.js frontend and a .Net backend using Auth0 as the authorisation provider. Actively being maintained.",
+    "description": "A template to allow for a quick start for a full stack project that requires a Next.js TypeScript frontend and a C# .Net backend using Auth0 as the authorisation provider. This quick-start solution is established with authenticated APIs to the backend using Next.js middleware and server calls, as well as Eslint and Prettier rules to ensure code quality and consistent code styling across projects.",
     "link": [
       {
         "href": "https://github.com/JeCFe/next-dotnet-auth0",
@@ -53,31 +48,42 @@
     "pills": ["C#", "TypeScript", "Next.js", "AuthO"]
   },
   {
-    "date": "Nov 2023",
-    "heading": "Todo List Application",
-    "description": "",
-    "link": [],
-    "pills": [
-      "C#",
-      "TypeScript",
-      "Next.js",
-      "AuthO",
-      "SQL Server",
-      "Entity Framework"
-    ]
-  },
-  {
     "date": "Nov 2021 - Jan 2023",
     "heading": "Visualised Sorter",
-    "description": "",
-    "link": [],
-    "pills": ["TypeScript", "Next.js"]
+    "type": "maintain",
+    "description": "An adaptation of an early approach for a visualised sorter made using React. First iteration was made on this project as an introductory learning into React and JavaScript, with this new approach I have rewritten the code into TypeScript and Tailwind using best coding practices, striving for better abstractions and readability. Using signalling to allow the cancellation of the sorting animations mid-flow, was a major bug with the first iteration that was managed in the new one. Current support array sorting methods include Merge, Quick, Bubble, Heap, Insertion, and Selection sort, each one uses an array of render bars at different heights to sort with animations to show each step.",
+    "link": [
+      {
+        "type": "web",
+        "href": "https://react-sorter.jessicafealy.dev"
+      },
+      {
+        "type": "git",
+        "href": "https://github.com/JeCFe/improved-visualised-sorter"
+      }
+    ],
+    "pills": ["TypeScript", "Next.js", "Tailwind", "Various Sorting Algorithms"]
   },
   {
-    "date": "Dec 23 - Ongoing",
+    "date": "Dec 2023 - Ongoing",
     "heading": "React Design System",
-    "description": "",
-    "link": [],
-    "pills": ["TypeScript", "Next.js", "Storybook", "npm"]
+    "type": "active",
+    "description": "An opinionated react based design system, using React, Tailwind, Class Variance Authority and Storybook. Design system set out to be adopted across personal projects, ideally to be an iterative approach where the design system is capable of changing to better fit future needs. Using Github Actions for CICD pipelines set to update the Storybook deployment when a PR is merged onto main, and package deployment whenever a new release is made.",
+    "link": [
+      {
+        "type": "deployed",
+        "href": "https://github.com/JeCFe/react-design-system/pkgs/npm/react-design-system"
+      },
+      { "type": "web", "href": "https://react-design-system.jessicafealy.dev" },
+      { "type": "git", "href": "https://github.com/JeCFe/react-design-system" }
+    ],
+    "pills": [
+      "TypeScript",
+      "Next.js",
+      "Storybook",
+      "Npm Package",
+      "Tailwind",
+      "Cypress"
+    ]
   }
 ]
