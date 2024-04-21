@@ -27,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${cookie.variable} font-poppins min-h-screen flex-col`}>
-        <div className="flex-1">{children}</div>
+        <div className="min-h-screen w-full flex-1 flex-col bg-slate-900 text-white">
+          {children}
+        </div>
       </body>
     </html>
   );
