@@ -10,5 +10,9 @@
   {
     "text": "Experience",
     "id": "experience"
+  },
+  {
+    "text": "Projects",
+    "id": "projects"
   }
 ]

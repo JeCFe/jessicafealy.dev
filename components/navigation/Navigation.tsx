@@ -4,7 +4,12 @@ import { ArrowUp } from "@jecfe/react-design-system";
 import { cva } from "class-variance-authority";
 import { useState } from "react";
 
-export type PageId = "about" | "proficiencies" | "experience" | "absolute";
+export type PageId =
+  | "about"
+  | "proficiencies"
+  | "experience"
+  | "absolute"
+  | "projects";
 
 const navLink = cva(
   "left-0 my-auto flex w-0 bg-slate-200 transition-all duration-300 group-hover:mr-2 group-hover:h-px group-hover:w-20",

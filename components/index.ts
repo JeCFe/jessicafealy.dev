@@ -6,3 +6,4 @@ export * from "./middle-divider";
 export * from "./pill";
 export * from "./experience-box";
 export * from "./navigation";
+export * from "./project-box";
