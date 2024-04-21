@@ -32,6 +32,9 @@
       "Ada Fruit",
       "3D Modeling",
       "3D Printing"
+    ],
+    "improvements": [
+      "React site to allow better customisation / JSON generation"
     ]
   },
   {
@@ -45,7 +48,8 @@
         "type": "git"
       }
     ],
-    "pills": ["C#", "TypeScript", "Next.js", "AuthO"]
+    "pills": ["C#", "TypeScript", "Next.js", "AuthO"],
+    "improvements": ["Continuous iterations and improvements"]
   },
   {
     "date": "Nov 2021 - Jan 2023",
@@ -77,13 +81,11 @@
       { "type": "web", "href": "https://react-design-system.jessicafealy.dev" },
       { "type": "git", "href": "https://github.com/JeCFe/react-design-system" }
     ],
-    "pills": [
-      "TypeScript",
-      "Next.js",
-      "Storybook",
-      "Npm Package",
-      "Tailwind",
-      "Cypress"
+    "pills": ["TypeScript", "Next.js", "Storybook", "Npm Package", "Tailwind"],
+    "improvements": [
+      "Completing Github issues as they arise",
+      "Continuous iterations and improvements",
+      "Improved accessibility confirmed via automation testing"
     ]
   }
 ]

@@ -26,7 +26,6 @@ export default function Home() {
       let currentActiveSection = null;
 
       sectionIds.forEach((id) => {
-        console.log(id);
         const element = document.getElementById(id);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -50,7 +49,7 @@ export default function Home() {
 
   return (
     <div
-      className="min-h-screen w-full flex-col bg-slate-900 text-white"
+      className="min-h-screen w-full flex-col bg-slate-900 pb-5"
       id="absolute"
     >
       <Jecfe />
