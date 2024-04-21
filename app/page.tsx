@@ -9,6 +9,7 @@ import {
   Proficiencies,
 } from "@/components";
 import { AboutMe } from "@/components/about-me";
+import { Project } from "@/components/projects";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -16,7 +17,12 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sectionIds: PageId[] = ["about", "proficiencies", "experience"]; // Add your section IDs here
+      const sectionIds: PageId[] = [
+        "about",
+        "proficiencies",
+        "experience",
+        "projects",
+      ]; // Add your section IDs here
       let currentActiveSection = null;
 
       sectionIds.forEach((id) => {
@@ -56,6 +62,7 @@ export default function Home() {
             <AboutMe id="about" />
             <Proficiencies id="proficiencies" />
             <Experience id="experience" />
+            <Project id="projects" />
           </div>
         </div>
       </div>
