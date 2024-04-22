@@ -1,4 +1,4 @@
-import { Code, OpenWeb, DeployedCode } from "@/assets";
+import { Code, OpenWeb, DeployedCode, Design } from "@/assets";
 import { Info, ArrowUp } from "@jecfe/react-design-system";
 import { cva } from "class-variance-authority";
 import Link from "next/link";
@@ -65,7 +65,7 @@ const accordion = cva(
   },
 ); // Need to export this from the DS or change how the accordion in the DS is set up
 
-const customOrder = ["deployed", "web", "git"]; // Desired order
+const customOrder = ["design", "deployed", "web", "git"]; // Desired order
 
 function compareString(a: ProjectLink, b: ProjectLink) {
   const indexA = customOrder.indexOf(a.type);
@@ -115,6 +115,7 @@ export function ProjectBox({
               {x.type === "git" && <Code className={links()} />}
               {x.type === "web" && <OpenWeb className={links()} />}
               {x.type === "deployed" && <DeployedCode className={links()} />}
+              {x.type === "design" && <Design className={links()} />}
             </Link>
           ))}
         </div>
