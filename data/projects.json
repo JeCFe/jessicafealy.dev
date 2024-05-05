@@ -45,14 +45,22 @@
     "date": "Nov 2023 - Ongoing",
     "type": "active",
     "heading": "Next Dotnet Auth0 Template",
-    "description": "A template to allow for a quick start for a full stack project that requires a Next.js TypeScript frontend and a C# .Net backend using Auth0 as the authorisation provider. This quick-start solution is established with authenticated APIs to the backend using Next.js middleware and server calls, as well as Eslint and Prettier rules to ensure code quality and consistent code styling across projects.",
+    "description": "A template to allow for a quick start for a full stack project that requires a Next.js TypeScript frontend and a C# .Net backend using Auth0 as the authorisation provider. This quick-start solution is established with authenticated APIs to the backend using Next.js middleware and server calls, as well as Eslint and Prettier rules to ensure code quality and consistent code styling across projects. CICD pipelines configured to ensure that the project is buildable, and has all tests (units and automation) passing both on PRs and on the main branch; once all tests pass on the main branch, there is a pipeline that handles automatic Azure deployment using ACR and ACA. ",
     "link": [
+      {
+        "type": "web",
+        "href": "https://next-template.jessicafealy.dev"
+      },
+      {
+        "type": "web",
+        "href": "https://dotnet-template.jessicafealy.dev/swagger/index.html"
+      },
       {
         "href": "https://github.com/JeCFe/next-dotnet-auth0",
         "type": "git"
       }
     ],
-    "pills": ["C#", "TypeScript", "Next.js", "AuthO"],
+    "pills": ["C#", "TypeScript", "Next.js", "Auth0", "Azure", "Cypress"],
     "improvements": ["Continuous iterations and improvements"]
   },
   {
