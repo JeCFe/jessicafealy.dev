@@ -1,4 +1,4 @@
-import { Github, LinkedIn } from "@/assets";
+import { Github, JcfeLogoWhite, LinkedIn } from "@/assets";
 import Link from "next/link";
 import { Navigation, PageId } from "..";
 
@@ -13,13 +13,15 @@ export function Introduction({ currentId }: { currentId: PageId }) {
           Fullstack Software Engineer
         </h2>
         <h3 className="max-w-s mt-4 text-lg leading-normal text-slate-400 md:max-w-xs">
-          Enjoy toying around with micro-processors, and web applications.
+          Experience with micro-processors, cryptography, and full-stack
+          applications.
         </h3>
       </div>
       <Navigation currentId={currentId} />
 
-      <div className="w-full justify-start space-x-12 pt-10">
+      <div className="flex w-full justify-center space-x-12 pt-10">
         <Link
+          className="flex flex-col"
           aria-label="Github link"
           href="https://github.com/JeCFe"
           target="_blank"
@@ -30,6 +32,7 @@ export function Introduction({ currentId }: { currentId: PageId }) {
           />
         </Link>
         <Link
+          className="flex flex-col"
           aria-label="LinkedIn link"
           href="https://uk.linkedin.com/in/jessicaclarafealy"
           target="_blank"
@@ -39,6 +42,9 @@ export function Introduction({ currentId }: { currentId: PageId }) {
             className="inline-block h-20 w-20 fill-cyan-500 hover:animate-pulse"
           />
         </Link>
+      </div>
+      <div className="pointer-events-none flex w-full justify-center">
+        <JcfeLogoWhite height="48" />
       </div>
     </div>
   );

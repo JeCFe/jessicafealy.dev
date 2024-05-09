@@ -1,4 +1,5 @@
 import {
+  Auth0,
   Azure,
   CSharp,
   Cypress,
@@ -80,5 +81,9 @@ export const proficiencies: { href: string; children: ReactNode }[] = [
   {
     href: "https://azure.microsoft.com/en-gb/",
     children: <Azure alt="Azure logo" className={logo()} />,
+  },
+  {
+    href: "https://auth0.com/",
+    children: <Auth0 alt="Auth0 logo" className={logo()} />,
   },
 ];
