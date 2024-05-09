@@ -5,13 +5,7 @@ export const metadata = {
   description: "A Fullstack Engineer Portfolio",
 };
 
-import { Cookie, Poppins } from "next/font/google";
-
-const cookie = Cookie({
-  subsets: ["latin"],
-  variable: "--font-cookie",
-  weight: "400",
-});
+import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -26,7 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${cookie.variable} font-poppins min-h-screen flex-col`}>
+      <body
+        className={`${poppins.variable} min-h-screen flex-col font-poppins`}
+      >
         <div className="min-h-screen w-full flex-1 flex-col bg-slate-900 text-white">
           {children}
         </div>

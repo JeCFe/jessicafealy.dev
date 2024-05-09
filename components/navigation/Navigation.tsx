@@ -84,7 +84,7 @@ export function Navigation({ currentId }: { currentId: PageId }) {
   };
 
   return (
-    <div>
+    <div className="my-4">
       <div
         className={uppies({
           show: currentId !== "about" && currentId !== "absolute",

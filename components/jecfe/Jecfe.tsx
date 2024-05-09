@@ -1,15 +1,9 @@
-import { TypeAnimation } from "react-type-animation";
+import { JcfeLogoWhite } from "@/assets";
 
 export function Jecfe() {
   return (
-    <div className="font-cookie absolute right-8 top-8 text-5xl text-pink-500 glow:text-pink-500">
-      <TypeAnimation
-        sequence={["JeCFe", 5000, "", 2000]}
-        cursor={true}
-        repeat={Infinity}
-        speed={{ type: "keyStrokeDelayInMs", value: 300 }}
-        deletionSpeed={{ type: "keyStrokeDelayInMs", value: 150 }}
-      />
+    <div className="pointer-events-none absolute right-8 top-8">
+      <JcfeLogoWhite height="54" />
     </div>
   );
 }

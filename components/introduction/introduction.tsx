@@ -1,4 +1,4 @@
-import { Github, JcfeLogoWhite, LinkedIn } from "@/assets";
+import { Github, LinkedIn } from "@/assets";
 import Link from "next/link";
 import { Navigation, PageId } from "..";
 
@@ -9,7 +9,7 @@ export function Introduction({ currentId }: { currentId: PageId }) {
         <h1 className="text-5xl font-bold tracking-tight text-slate-200 md:text-7xl">
           Jessica Fealy
         </h1>
-        <h2 className="mt-3 text-2xl font-medium tracking-tight text-slate-200 md:text-3xl">
+        <h2 className="mt-3 text-2xl font-medium tracking-tight text-slate-200">
           Fullstack Software Engineer
         </h2>
         <h3 className="max-w-s mt-4 max-w-xs text-lg leading-normal text-slate-400">
@@ -42,9 +42,6 @@ export function Introduction({ currentId }: { currentId: PageId }) {
               className="inline-block h-20 w-20 fill-cyan-500 hover:animate-pulse"
             />
           </Link>
-        </div>
-        <div className="pointer-events-none hidden w-full justify-center pt-6 md:flex">
-          <JcfeLogoWhite height="54" />
         </div>
       </div>
     </div>
