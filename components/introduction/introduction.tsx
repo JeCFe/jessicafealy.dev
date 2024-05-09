@@ -12,39 +12,40 @@ export function Introduction({ currentId }: { currentId: PageId }) {
         <h2 className="mt-3 text-2xl font-medium tracking-tight text-slate-200 md:text-3xl">
           Fullstack Software Engineer
         </h2>
-        <h3 className="max-w-s mt-4 text-lg leading-normal text-slate-400 md:max-w-xs">
+        <h3 className="max-w-s mt-4 max-w-xs text-lg leading-normal text-slate-400">
           Experience with micro-processors, cryptography, and full-stack
           applications.
         </h3>
       </div>
       <Navigation currentId={currentId} />
-
-      <div className="flex w-full justify-center space-x-12 pt-10">
-        <Link
-          className="flex flex-col"
-          aria-label="Github link"
-          href="https://github.com/JeCFe"
-          target="_blank"
-        >
-          <Github
-            alt="Github logo"
-            className="inline-block h-20 w-20 fill-pink-500 hover:animate-pulse"
-          />
-        </Link>
-        <Link
-          className="flex flex-col"
-          aria-label="LinkedIn link"
-          href="https://uk.linkedin.com/in/jessicaclarafealy"
-          target="_blank"
-        >
-          <LinkedIn
-            alt="LinkedIn logo"
-            className="inline-block h-20 w-20 fill-cyan-500 hover:animate-pulse"
-          />
-        </Link>
-      </div>
-      <div className="pointer-events-none flex w-full justify-center">
-        <JcfeLogoWhite height="48" />
+      <div className="flex flex-col justify-end">
+        <div className="flex w-full justify-start space-x-12 pt-12 md:justify-center md:pt-0">
+          <Link
+            className="flex flex-col"
+            aria-label="Github link"
+            href="https://github.com/JeCFe"
+            target="_blank"
+          >
+            <Github
+              alt="Github logo"
+              className="inline-block h-20 w-20 fill-pink-500 hover:animate-pulse"
+            />
+          </Link>
+          <Link
+            className="flex flex-col"
+            aria-label="LinkedIn link"
+            href="https://uk.linkedin.com/in/jessicaclarafealy"
+            target="_blank"
+          >
+            <LinkedIn
+              alt="LinkedIn logo"
+              className="inline-block h-20 w-20 fill-cyan-500 hover:animate-pulse"
+            />
+          </Link>
+        </div>
+        <div className="pointer-events-none hidden w-full justify-center pt-6 md:flex">
+          <JcfeLogoWhite height="54" />
+        </div>
       </div>
     </div>
   );

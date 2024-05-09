@@ -1,5 +1,6 @@
 "use client";
 
+import { JcfeLogo } from "@/assets";
 import {
   Experience,
   Introduction,
@@ -50,7 +51,7 @@ export default function Home() {
   return (
     <div id="absolute">
       <Jecfe />
-      <div className="mx-auto max-w-screen-xl px-6 py-12 pb-20 md:px-12 md:py-20 lg:px-24 lg:py-0">
+      <div className="mx-auto max-w-screen-xl px-6 py-12 pt-20 md:px-12  lg:px-24 lg:py-0">
         <div className="md:flex md:justify-between md:gap-4">
           <Introduction currentId={activeSection} />
           <MiddleDivider />
@@ -60,6 +61,10 @@ export default function Home() {
             <Experience id="experience" />
             <Project id="projects" />
           </div>
+        </div>
+
+        <div className="pointer-events-none flex w-full items-center justify-center pt-12 md:hidden">
+          <JcfeLogo height="54" />
         </div>
       </div>
     </div>
