@@ -99,5 +99,19 @@
       "Continuous iterations and improvements",
       "Improved accessibility confirmed via automation testing"
     ]
+  },
+   {
+    "date": "May 2024 - Ongoing",
+    "heading": "Book Repo",
+    "type": "active",
+    "description": "Book Repo, is an on going full stack project that aims to allow the management, organisation, and visualisation of a users book collection. With ability to track goals and user defined targets for book consumption, and to incorporate AI tools to recommend books based on a users existing library. This project is built utilising OpenLibrary public APIs, Azure for deployment and data storage, and Auth0 as an authorisation integration.",
+    "link": [
+      { "type": "web", "href": "https://book-repo.jessicafealy.dev" },
+      { "type": "git", "href": "https://github.com/JeCFe/book-repo" }
+    ],
+    "pills": ["TypeScript", "Next.js", "Auth0", "Azure", "OpenLibrary", "Tailwind", "Sql Server", "C#", ".Net 8"],
+    "improvements": [
+      "Feature delivery is still ongoing"
+    ]
   }
 ]
