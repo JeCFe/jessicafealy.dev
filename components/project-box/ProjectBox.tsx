@@ -1,5 +1,5 @@
-import { Code, OpenWeb, DeployedCode, Design } from "@/assets";
-import { Info, ArrowUp } from "@jecfe/react-design-system";
+import { Code, DeployedCode, Design, OpenWeb } from "@/assets";
+import { ArrowUp, Info } from "@jecfe/react-design-system";
 import { cva } from "class-variance-authority";
 import Link from "next/link";
 import { useState } from "react";
@@ -16,6 +16,7 @@ const statusText = cva(
       status: {
         active: "text-green-500",
         maintain: "text-amber-500",
+        paused: "text-amber-500",
         closed: "text-red-500",
       },
     },
@@ -27,6 +28,7 @@ const statusIcon = cva("h-8 w-8", {
     status: {
       active: "fill-green-500",
       maintain: "fill-amber-500",
+      paused: "fill-amber-500",
       closed: "fill-red-500",
     },
   },
@@ -41,6 +43,7 @@ const accordionIcon = cva("cursor-pointer transition-all duration-200", {
     status: {
       active: "fill-green-500 hover:fill-green-700",
       maintain: "fill-amber-500 hover:fill-amber-700",
+      paused: "fill-amber-500 hover:fill-amber-700",
       closed: "fill-red-500 hover:fill-red-700",
     },
   },
@@ -87,7 +90,7 @@ export type ProjectBoxProps = {
   date: string;
   description: string;
   pills?: string[];
-  type?: "active" | "maintain" | "closed";
+  type?: "active" | "maintain" | "closed" | "paused";
   improvements?: string[];
 };
 
@@ -134,6 +137,8 @@ export function ProjectBox({
             "Actively maintained with continued feature delivery."}
           {type === "maintain" &&
             "Critical maintenance only with no plans for new features."}
+          {type === "paused" &&
+            "On pause with plans to resume development in the future."}
           {type === "closed" &&
             "No longer maintained with no plans for new features."}
         </div>

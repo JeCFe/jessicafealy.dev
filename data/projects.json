@@ -15,7 +15,7 @@
   {
     "date": "Nov 2021 - Jul 2022",
     "heading": "Custom Macropad",
-    "type": "active",
+    "type": "paused",
     "description": "A project that allowed exploration of both hardware and software, using an Ender 3 Pro 3D printer and TinkerCAD I created a variety of designs for macropods that revolved around using the Raspberry Pi Pico microprocessor to decode mechanical key switches into programmable code. Using AdaFruit CircuitPython I built code that would take GPIO inputs and process them into simulated keyboard inputs, using this to perform shortcuts, control media, open applications, and control of windows.",
     "link": [
       {
@@ -100,7 +100,7 @@
       "Improved accessibility confirmed via automation testing"
     ]
   },
-   {
+  {
     "date": "May 2024 - Ongoing",
     "heading": "Book Repo",
     "type": "active",
@@ -109,9 +109,17 @@
       { "type": "web", "href": "https://book-repo.jessicafealy.dev" },
       { "type": "git", "href": "https://github.com/JeCFe/book-repo" }
     ],
-    "pills": ["TypeScript", "Next.js", "Auth0", "Azure", "OpenLibrary", "Tailwind", "Sql Server", "C#", ".Net 8"],
-    "improvements": [
-      "Feature delivery is still ongoing"
-    ]
+    "pills": [
+      "TypeScript",
+      "Next.js",
+      "Auth0",
+      "Azure",
+      "OpenLibrary",
+      "Tailwind",
+      "Sql Server",
+      "C#",
+      ".Net 8"
+    ],
+    "improvements": ["Feature delivery is still ongoing"]
   }
 ]
