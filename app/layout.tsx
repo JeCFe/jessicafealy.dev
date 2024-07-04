@@ -21,11 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} min-h-screen flex-col font-poppins`}
+        className={`${poppins.variable} min-h-screen flex-col bg-slate-900 font-poppins`}
       >
-        <div className="min-h-screen w-full flex-1 flex-col bg-slate-900 text-white">
-          {children}
-        </div>
+        <div className="min-h-screen w-full flex-1 flex-col">{children}</div>
       </body>
     </html>
   );
