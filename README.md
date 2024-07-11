@@ -16,4 +16,4 @@ The website is being hosted on [https://jessicafealy.dev](https://jessicafealy.d
 Concurrent deployments to both github pages and Azure static apps:
 
 Github Pages: [https://jessicafealy.dev]("https://jessicafealy.dev")
-Azure Static Pages: [https://www.jessicafealy.dev]("https://www.jessicafealy.dev")
+Azure Static Pages: Pending back up URL
