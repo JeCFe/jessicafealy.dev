@@ -25,7 +25,7 @@ const navLink = cva(
 const mobileNav = cva("md:hidden", {
   variants: {
     isOpen: {
-      true: "fixed left-0 top-0 h-1/4 w-screen bg-slate-800/80",
+      true: "fixed",
       false: "hidden",
     },
   },
@@ -100,8 +100,10 @@ export function Navigation({ currentId }: { currentId: PageId }) {
         <Menu className="h-12 w-12 fill-slate-200 group-hover:fill-slate-400" />
       </div>
       <div className={mobileNav({ isOpen })}>
-        <div className="fixed left-5 top-20 space-y-px text-lg">
-          <NavItems currentId={currentId} handleClick={handleClick} />
+        <div className="fixed left-0 top-0 w-full space-y-px border-b border-slate-400 bg-slate-900/90 text-lg">
+          <div className="mx-6 mt-20 pb-4">
+            <NavItems currentId={currentId} handleClick={handleClick} />
+          </div>
         </div>
       </div>
       <div className="hidden items-start justify-center space-y-2 pt-10 md:flex md:flex-col md:pt-0">
