@@ -19,7 +19,7 @@ export function Introduction({ currentId }: { currentId: PageId }) {
       </div>
       <Navigation currentId={currentId} />
       <div className="flex flex-col justify-end">
-        <div className="flex w-full justify-start space-x-12 pt-12 md:justify-center md:pt-0">
+        <div className="flex w-full justify-start space-x-12 pt-2 md:justify-center md:pt-0">
           <Link
             className="flex flex-col"
             aria-label="Github link"
