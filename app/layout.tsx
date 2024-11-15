@@ -1,7 +1,8 @@
 import "@jecfe/react-design-system/src/tailwind.css";
+import PlausibleProvider from "next-plausible";
 
 export const metadata = {
-  title: "Jessica Fealy",
+  title: "Jessica Fealy blah",
   description: "A Fullstack Engineer Portfolio",
 };
 
@@ -20,6 +21,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <PlausibleProvider
+          trackOutboundLinks
+          enabled
+          domain="jessicafealy.dev"
+        />
+      </head>
       <body
         className={`${poppins.variable} min-h-screen flex-col bg-slate-900 font-poppins`}
       >
