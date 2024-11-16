@@ -2,7 +2,7 @@ import "@jecfe/react-design-system/src/tailwind.css";
 import PlausibleProvider from "next-plausible";
 
 export const metadata = {
-  title: "Jessica Fealy blah",
+  title: "Jessica Fealy",
   description: "A Fullstack Engineer Portfolio",
 };
 
