@@ -13,8 +13,8 @@ export function Introduction({ currentId }: { currentId: PageId }) {
           Fullstack Software Engineer
         </h2>
         <h3 className="max-w-s mt-4 max-w-xs text-lg leading-normal text-slate-400">
-          Experience with micro-processors, cryptography, and full-stack
-          applications.
+          Developing secure, scalable, and accessible applications. Championing
+          DE&I through mentorship & inclusive practices.
         </h3>
       </div>
       <Navigation currentId={currentId} />

@@ -11,6 +11,12 @@ export function AboutMe({ id }: { id: PageId }) {
         About me
       </h2>
       <p className="mt-4 text-lg leading-normal text-slate-400">
+        Full Stack Software Engineer based in Cardiff, Wales with a passion for
+        building secure, scalable, and accessible applications. Committed to
+        fostering a collaborative and inclusive environment providing mentorship
+        support for fellow engineers.
+      </p>
+      <p className="mt-4 text-lg leading-normal text-slate-400">
         Graduated in 2022 with a First Class Honours degree in Computer Science
         from the{" "}
         <Anchor
@@ -24,14 +30,14 @@ export function AboutMe({ id }: { id: PageId }) {
         artificial intelligence, algorithms, and secure programming. My final
         year dissertation focused on researching, designing and implementing a
         secure chat server which expanded my knowledge of cryptography, secure
-        programming techniques, and cyber security. Completion of the
-        dissertation resulted in a dissertation{" "}
+        programming techniques, and cyber security. The culmination of my
+        dissertation was a{" "}
         <Anchor
           href="https://github.com/JeCFe/Final-Year-Project/blob/main/SUBMISSION/18024092_Dissertation_Report.pdf"
           className={link()}
           target="_blank"
         >
-          paper
+          research paper
         </Anchor>
         ,{" "}
         <Anchor
@@ -58,12 +64,9 @@ export function AboutMe({ id }: { id: PageId }) {
         </Anchor>{" "}
         as a Software Engineer. In this role, I leverage my programming skills
         and problem-solving abilities to design and develop solutions and
-        systems that fulfil client requirements through technical excellence
-        using best programming practices with test-driven development.
-      </p>
-      <p className="mt-4 text-lg leading-normal text-slate-400">
-        During my downtime, I’m usually reading a romance or fantasy book,
-        watching science fiction TV, or playing games with friends.
+        systems that deliver high-quality solutions that meet client needs and
+        exceed expectations through technical excellence using best programming
+        practices with test-driven development.
       </p>
     </div>
   );
