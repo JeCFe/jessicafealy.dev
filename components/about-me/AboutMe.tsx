@@ -11,10 +11,10 @@ export function AboutMe({ id }: { id: PageId }) {
         About me
       </h2>
       <p className="mt-4 text-lg leading-normal text-slate-400">
-        Full Stack Software Engineer based in Cardiff, Wales with a passion for
-        building secure, scalable, and accessible applications. Committed to
-        fostering a collaborative and inclusive environment providing mentorship
-        support for fellow engineers.
+        I am a Full Stack Software Engineer based in Cardiff, Wales with a
+        passion for building secure, scalable, and accessible applications.
+        Committed to fostering a collaborative and inclusive environment,
+        providing mentorship support for fellow engineers.
       </p>
       <p className="mt-4 text-lg leading-normal text-slate-400">
         Graduated in 2022 with a First Class Honours degree in Computer Science
@@ -28,10 +28,10 @@ export function AboutMe({ id }: { id: PageId }) {
         </Anchor>
         . Throughout my studies, I delved into a variety of subjects, including
         artificial intelligence, algorithms, and secure programming. My final
-        year dissertation focused on researching, designing and implementing a
+        year dissertation focused on researching, designing, and implementing a
         secure chat server which expanded my knowledge of cryptography, secure
-        programming techniques, and cyber security. The culmination of my
-        dissertation was a{" "}
+        programming techniques, and cyber security. My dissertation culminated
+        in a{" "}
         <Anchor
           href="https://github.com/JeCFe/Final-Year-Project/blob/main/SUBMISSION/18024092_Dissertation_Report.pdf"
           className={link()}
@@ -39,7 +39,7 @@ export function AboutMe({ id }: { id: PageId }) {
         >
           research paper
         </Anchor>
-        ,{" "}
+        , a{" "}
         <Anchor
           href="https://github.com/JeCFe/Final-Year-Project/blob/main/SUBMISSION/18024092_Submission_Poster.pdf"
           target="_blank"
@@ -63,10 +63,9 @@ export function AboutMe({ id }: { id: PageId }) {
           BJSS
         </Anchor>{" "}
         as a Software Engineer. In this role, I leverage my programming skills
-        and problem-solving abilities to design and develop solutions and
-        systems that deliver high-quality solutions that meet client needs and
-        exceed expectations through technical excellence using best programming
-        practices with test-driven development.
+        and problem-solving abilities to design, develop, and deliver solutions
+        and systems. Doing so through technical excellence, best practices, and
+        test-driven development to meet client needs and to exceed expectations.
       </p>
     </div>
   );
