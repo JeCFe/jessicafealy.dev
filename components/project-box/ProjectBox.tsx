@@ -92,6 +92,7 @@ export type ProjectBoxProps = {
   pills?: string[];
   type?: "active" | "maintain" | "closed" | "paused";
   improvements?: string[];
+  order: number;
 };
 
 export function ProjectBox({

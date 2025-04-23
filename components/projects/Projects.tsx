@@ -9,9 +9,11 @@ export function Project({ id }: { id: PageId }) {
         Projects
       </h2>
       <div className="space-y-8 md:space-y-2">
-        {data.map((x, i) => (
-          <ProjectBox {...x} key={`${x.heading}-${i}`} />
-        ))}
+        {data
+          .sort((a, b) => b.order - a.order)
+          .map((x, i) => (
+            <ProjectBox {...x} key={`${x.heading}-${i}`} />
+          ))}
       </div>
     </div>
   );

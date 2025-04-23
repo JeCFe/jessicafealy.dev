@@ -2,10 +2,20 @@
   {
     "jobTitle": "Software Engineer",
     "jobLink": {
+      "name": "Rocket Science Group - Terminal Velocity",
+      "href": "https://www.rocketscience.gg/"
+    },
+    "date": "Apr 2025 - Present",
+    "description": "",
+    "pills": ["Java", "Next.js", "TypeScript"]
+  },
+  {
+    "jobTitle": "Software Engineer",
+    "jobLink": {
       "name": "BJSS",
       "href": "https://www.bjss.com/"
     },
-    "date": "Sept 2023 - Present",
+    "date": "Sept 2023 - Apr 2025",
     "description": "Designed, refined, and developed several key systems and infrastructures working alongside both BJSS and client teams to bring the clients vision to life. Operated within a multi-capability team, providing support and guidance to junior engineers, and doing low-level designs for mission-critical systems. Working in all capabilities from creating frontend applications, backend services and databases - utilising TDD, automation and unit testing to ensure code confidence and regression resilience.",
     "pills": [
       "C#",
