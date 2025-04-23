@@ -58,14 +58,20 @@ export function AboutMe({ id }: { id: PageId }) {
         written in C#.
       </p>
       <p className="mt-4 text-lg leading-normal text-slate-400">
-        Currently, {`I'm`} working at{" "}
-        <Anchor href="https://www.bjss.com/" className={link()} target="_blank">
-          BJSS
+        Prior I worked alongside a Welsh Government organisation to deliver
+        critical national infrastructure related to flood warnings. In this
+        project, one of the areas I was responsible for was developing a
+        resilient message delivery system capable of sending over 40,000
+        messages across three different channels in under an hour. I also played
+        a key role in optimising the message creation process—reducing the time
+        taken from tens of minutes to just tens of seconds.{" "}
+        <Anchor
+          href="https://www.linkedin.com/posts/jessicaclarafealy_how-bjss-and-nrw-are-safeguarding-wales-activity-7298022225394216961-icQ_?utm_source=share&utm_medium=member_ios&rcm=ACoAACqMyUsBE82sDF6bHzg2vOCGmzEssZTOwG4"
+          className={link()}
+          target="_blank"
+        >
+          See more here
         </Anchor>{" "}
-        as a Software Engineer. In this role, I leverage my programming skills
-        and problem-solving abilities to design, develop, and deliver solutions
-        and systems. Doing so through technical excellence, best practices, and
-        test-driven development to meet client needs and to exceed expectations.
       </p>
     </div>
   );

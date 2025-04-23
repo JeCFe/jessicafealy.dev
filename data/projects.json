@@ -10,7 +10,8 @@
         "type": "git"
       }
     ],
-    "pills": ["C#", "WinForms", "Cryptography", "RSA", "AES", "MongoDB"]
+    "pills": ["C#", "WinForms", "Cryptography", "RSA", "AES", "MongoDB"],
+    "order": 0
   },
   {
     "date": "Nov 2021 - Jul 2022",
@@ -39,7 +40,8 @@
     ],
     "improvements": [
       "React site to allow better customisation / JSON generation"
-    ]
+    ],
+    "order": 1
   },
   {
     "date": "Nov 2023 - Ongoing",
@@ -61,7 +63,8 @@
       }
     ],
     "pills": ["C#", "TypeScript", "Next.js", "Auth0", "Azure", "Cypress"],
-    "improvements": ["Continuous iterations and improvements"]
+    "improvements": ["Continuous iterations and improvements"],
+    "order": 2
   },
   {
     "date": "Nov 2021 - Jan 2023",
@@ -78,7 +81,13 @@
         "href": "https://github.com/JeCFe/improved-visualised-sorter"
       }
     ],
-    "pills": ["TypeScript", "Next.js", "Tailwind", "Various Sorting Algorithms"]
+    "pills": [
+      "TypeScript",
+      "Next.js",
+      "Tailwind",
+      "Various Sorting Algorithms"
+    ],
+    "order": 3
   },
   {
     "date": "Dec 2023 - Ongoing",
@@ -98,7 +107,8 @@
       "Completing Github issues as they arise",
       "Continuous iterations and improvements",
       "Improved accessibility confirmed via automation testing"
-    ]
+    ],
+    "order": 4
   },
   {
     "date": "May 2024 - Ongoing",
@@ -120,6 +130,7 @@
       "C#",
       ".Net 8"
     ],
-    "improvements": ["Feature delivery is still ongoing"]
+    "improvements": ["Feature delivery is still ongoing"],
+    "order": 5
   }
 ]
