@@ -1,3 +1,4 @@
+export * from "./grid-overlay";
 export * from "./jecfe";
 export * from "./proficiencies";
 export * from "./experience";
