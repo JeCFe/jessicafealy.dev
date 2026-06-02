@@ -1,4 +1,5 @@
 import { Anchor } from "@jecfe/react-design-system";
+import Markdown from "react-markdown";
 import { Pill } from "..";
 
 export type ExperienceProps = {
@@ -35,7 +36,28 @@ export function ExperienceBox({
 
       <h3 className="text-sm leading-normal text-slate-400">{date}</h3>
 
-      <p className="my-4 leading-normal text-slate-400">{description}</p>
+      <Markdown
+        components={{
+          p: ({ children }) => (
+            <p className="my-4 leading-normal text-slate-400">{children}</p>
+          ),
+          strong: ({ children }) => (
+            <strong className="font-semibold text-slate-200">{children}</strong>
+          ),
+          a: ({ href, children }) => (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold hover:text-slate-200"
+            >
+              {children}
+            </a>
+          ),
+        }}
+      >
+        {description}
+      </Markdown>
       <div className="pointer-events-none flex flex-wrap gap-2">
         {pills?.map((x, i) => <Pill key={`${x}-${i}`}>{x}</Pill>)}
       </div>

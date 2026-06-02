@@ -60,14 +60,18 @@ function NavItems({
   return (
     <>
       {navItems.map((x) => (
-        <button
+        <a
           key={`${x.id}`}
+          href={`#${x.id}`}
           className="group flex leading-normal text-slate-200 "
-          onClick={() => handleClick(x.id)}
+          onClick={(e) => {
+            e.preventDefault();
+            handleClick(x.id);
+          }}
         >
           <div className={navLink({ active: currentId == x.id })} />
           <div className="flex w-full">{x.text}</div>
-        </button>
+        </a>
       ))}
     </>
   );
@@ -85,21 +89,28 @@ export function Navigation({ currentId }: { currentId: PageId }) {
 
   return (
     <div className="my-4">
-      <div
+      <button
+        aria-label="Back to top"
         className={uppies({
           show: currentId !== "about" && currentId !== "absolute",
         })}
         onClick={() => handleClick("absolute")}
       >
-        <ArrowUp className="fill-cyan-500" />
-      </div>
-      <div
+        <ArrowUp aria-hidden="true" className="fill-cyan-500" />
+      </button>
+      <button
+        aria-expanded={isOpen}
+        aria-controls="mobile-nav"
+        aria-label="Toggle navigation menu"
         className="group fixed left-5 top-5 z-10 cursor-pointer md:hidden"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <Menu className="h-12 w-12 fill-slate-200 group-hover:fill-slate-400" />
-      </div>
-      <div className={mobileNav({ isOpen })}>
+        <Menu
+          aria-hidden="true"
+          className="h-12 w-12 fill-slate-200 group-hover:fill-slate-400"
+        />
+      </button>
+      <div id="mobile-nav" className={mobileNav({ isOpen })}>
         <div className="fixed left-0 top-0 w-full space-y-px border-b border-slate-400 bg-slate-900/90 text-lg">
           <div className="mx-6 mt-20 pb-4">
             <NavItems currentId={currentId} handleClick={handleClick} />

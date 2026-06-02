@@ -44,7 +44,7 @@ export const proficiencies: { href: string; children: ReactNode }[] = [
     ),
   },
   {
-    href: "www.cypress.io/",
+    href: "https://www.cypress.io/",
     children: <Cypress alt="Cypress logo" className={logo()} />,
   },
   {

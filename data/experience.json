@@ -6,8 +6,8 @@
       "href": "https://www.rocketscience.gg/"
     },
     "date": "Apr 2025 - Present",
-    "description": "",
-    "pills": ["Java", "Next.js", "TypeScript"]
+    "description": "Working across some of the biggest names in the gaming industry, taking on both technical and leadership responsibilities. Led a frontend team to design and build a brand-new hosting platform dashboard from the ground up. Worked on orchestration layers to bridge into legacy and modern systems across organisations. Operating across the full stack with a focus on delivery, code quality, and supporting the wider team.",
+    "pills": ["Java", "Next.js", "TypeScript", "AWS", "GCP", "Terraform"]
   },
   {
     "jobTitle": "Software Engineer",
@@ -16,7 +16,7 @@
       "href": "https://www.bjss.com/"
     },
     "date": "Sept 2023 - Apr 2025",
-    "description": "Designed, refined, and developed several key systems and infrastructures working alongside both BJSS and client teams to bring the clients vision to life. Operated within a multi-capability team, providing support and guidance to junior engineers, and doing low-level designs for mission-critical systems. Working in all capabilities from creating frontend applications, backend services and databases - utilising TDD, automation and unit testing to ensure code confidence and regression resilience.",
+    "description": "Designed, refined, and developed several key systems and infrastructures working alongside both BJSS and client teams to bring the client's vision to life. Operated within a multi-capability team, providing support and guidance to junior engineers, and producing low-level designs for mission-critical systems. Working in all capabilities from creating frontend applications, backend services and databases - utilising TDD, automation and unit testing to ensure code confidence and regression resilience.",
     "pills": [
       "C#",
       "Dotnet",
@@ -34,7 +34,7 @@
       "href": "https://www.bjss.com/academy"
     },
     "date": "Sept 2022 - Sept 2023",
-    "description": "Starting with a 4-week intensive training course led by senior BJSS engineers giving comprehensive training on many technologies, consultancy skills, presentation skills, and agile principles. After the 4 week course, being placed onto a major public sector client developing React internal and Ruby on Rails external frontend applications, and Java APIs backend microservices. Moving onto another major public sector client developing a multitude of C# backend services, frontend internal and external Next.js applications including a React design system, and regularly providing sprint review demos of the team progress and becoming a key client contact for several key project areas.",
+    "description": "Began with a 4-week intensive training course led by senior BJSS engineers, covering a wide range of technologies, consultancy skills, presentation skills, and agile principles. Was then placed on a major public sector client, developing React internal and Ruby on Rails external frontend applications, and Java API backend microservices. Moved on to another major public sector client, developing a multitude of C# backend services, internal and external Next.js frontend applications including a React design system, regularly providing sprint review demos and becoming a key client contact for several project areas.",
     "pills": [
       "C#",
       "Dotnet",

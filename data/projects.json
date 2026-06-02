@@ -3,7 +3,7 @@
     "date": "Sept 2021 - May 2022",
     "type": "closed",
     "heading": "Secure Chat Server",
-    "description": "C# Secure chat server, using asynchronous (RSA) and synchronous (AES) cryptographic techniques and other secure programming practices to create a secure means of communication between 2 nodes through a server machine. Additionally, admin users were able to log in and interaction on the server machine console, to perform protected actions such as admin account management, viewing logs, and server restart - these credentials were stored on a MongoDB cloud instance.",
+    "description": "C# Secure chat server, using asynchronous (RSA) and synchronous (AES) cryptographic techniques and other secure programming practices to create a secure means of communication between 2 nodes through a server machine. Additionally, admin users were able to log in and interact on the server machine console, to perform protected actions such as admin account management, viewing logs, and server restart - these credentials were stored on a MongoDB cloud instance.",
     "link": [
       {
         "href": "https://github.com/JeCFe/Final-Year-Project",
@@ -17,7 +17,7 @@
     "date": "Nov 2021 - Jul 2022",
     "heading": "Custom Macropad",
     "type": "paused",
-    "description": "A project that allowed exploration of both hardware and software, using an Ender 3 Pro 3D printer and TinkerCAD I created a variety of designs for macropods that revolved around using the Raspberry Pi Pico microprocessor to decode mechanical key switches into programmable code. Using AdaFruit CircuitPython I built code that would take GPIO inputs and process them into simulated keyboard inputs, using this to perform shortcuts, control media, open applications, and control of windows.",
+    "description": "A project that allowed exploration of both hardware and software, using an Ender 3 Pro 3D printer and TinkerCAD I created a variety of designs for macropads that revolved around using the Raspberry Pi Pico microprocessor to decode mechanical key switches into programmable code. Using AdaFruit CircuitPython I built code that would take GPIO inputs and process them into simulated keyboard inputs, using this to perform shortcuts, control media, open applications, and control of windows.",
     "link": [
       {
         "href": "https://github.com/JeCFe/Custom-Marcopad",
