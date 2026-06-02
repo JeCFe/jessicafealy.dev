@@ -3,6 +3,7 @@ import { ArrowUp, Info } from "@jecfe/react-design-system";
 import { cva } from "class-variance-authority";
 import Link from "next/link";
 import { useState } from "react";
+import Markdown from "react-markdown";
 import { Pill } from "..";
 
 const links = cva(
@@ -115,11 +116,34 @@ export function ProjectBox({
 
         <div className="flex space-x-2 text-right text-2xl font-medium tracking-tight">
           {link.sort(compareString).map((x, i) => (
-            <Link key={`project link-${i}`} href={x.href} target="_blank">
-              {x.type === "git" && <Code className={links()} />}
-              {x.type === "web" && <OpenWeb className={links()} />}
-              {x.type === "deployed" && <DeployedCode className={links()} />}
-              {x.type === "design" && <Design className={links()} />}
+            <Link
+              key={`project link-${i}`}
+              href={x.href}
+              target="_blank"
+              aria-label={
+                x.type === "git"
+                  ? "View source code on GitHub"
+                  : x.type === "web"
+                    ? "View live website"
+                    : x.type === "deployed"
+                      ? "View deployed package"
+                      : x.type === "design"
+                        ? "View design"
+                        : "View link"
+              }
+            >
+              {x.type === "git" && (
+                <Code aria-hidden="true" className={links()} />
+              )}
+              {x.type === "web" && (
+                <OpenWeb aria-hidden="true" className={links()} />
+              )}
+              {x.type === "deployed" && (
+                <DeployedCode aria-hidden="true" className={links()} />
+              )}
+              {x.type === "design" && (
+                <Design aria-hidden="true" className={links()} />
+              )}
             </Link>
           ))}
         </div>
@@ -127,10 +151,31 @@ export function ProjectBox({
 
       <h3 className="text-sm leading-normal text-slate-400">{date}</h3>
 
-      <p className="my-4 leading-normal text-slate-400">{description}</p>
+      <Markdown
+        components={{
+          p: ({ children }) => (
+            <p className="my-4 leading-normal text-slate-400">{children}</p>
+          ),
+          strong: ({ children }) => (
+            <strong className="font-semibold text-slate-200">{children}</strong>
+          ),
+          a: ({ href, children }) => (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold hover:text-slate-200"
+            >
+              {children}
+            </a>
+          ),
+        }}
+      >
+        {description}
+      </Markdown>
       <div className={statusText({ status: type })}>
         <div className="flex h-full items-center justify-center">
-          <Info className={statusIcon({ status: type })} />
+          <Info aria-hidden="true" className={statusIcon({ status: type })} />
         </div>
 
         <div className="ml-4 flex items-center">
@@ -145,11 +190,17 @@ export function ProjectBox({
         </div>
         <div className="flex flex-grow" />
         {improvements && (
-          <div className="flex items-center" onClick={() => setIsOpen(!isOpen)}>
+          <button
+            aria-expanded={isOpen}
+            aria-label="Toggle improvements list"
+            className="flex items-center"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             <ArrowUp
+              aria-hidden="true"
               className={accordionIcon({ open: isOpen, status: type })}
             />
-          </div>
+          </button>
         )}
       </div>
       {improvements && (

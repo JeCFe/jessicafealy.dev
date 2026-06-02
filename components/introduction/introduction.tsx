@@ -10,7 +10,7 @@ export function Introduction({ currentId }: { currentId: PageId }) {
           Jessica Fealy
         </h1>
         <h2 className="mt-3 text-2xl font-medium tracking-tight text-slate-200">
-          Fullstack Software Engineer
+          Full Stack Software Engineer
         </h2>
         <h3 className="max-w-s mt-4 max-w-xs text-lg leading-normal text-slate-400">
           Developing secure, scalable, and accessible applications. Championing

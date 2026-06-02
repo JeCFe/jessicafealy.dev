@@ -3,6 +3,7 @@
 import { JcfeLogo } from "@/assets";
 import {
   Experience,
+  GridOverlay,
   Introduction,
   Jecfe,
   MiddleDivider,
@@ -46,10 +47,11 @@ export default function Home() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  });
+  }, []);
 
   return (
     <div id="absolute">
+      <GridOverlay />
       <Jecfe />
       <div className="mx-auto max-w-screen-xl px-6 py-12 pt-20 md:px-12  lg:px-24 lg:py-0">
         <div className="md:flex md:justify-between md:gap-4">
