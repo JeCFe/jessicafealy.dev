@@ -1,7 +1,10 @@
+"use client";
+
 import { Code, DeployedCode, Design, OpenWeb } from "@/assets";
 import { siteData } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import Markdown from "react-markdown";
 import { ExternalLink, Pill } from "..";
 
@@ -32,8 +35,9 @@ const projectLinkIcons = {
 export type ProjectBoxProps = {
   heading: string;
   link: ProjectLink[];
-  image: string;
-  imageAlt: string;
+  image?: string | null;
+  imageAlt?: string | null;
+  imageLayout?: "side" | "wide";
   body: string;
   pills?: string[];
   order: number;
@@ -44,25 +48,65 @@ export function ProjectBox({
   link,
   image,
   imageAlt,
+  imageLayout = "side",
   body,
   pills,
 }: ProjectBoxProps) {
+  const [isImageLoading, setIsImageLoading] = useState(true);
+  const hasImage = typeof image === "string" && image.trim().length > 0;
+  const usesWideImage = hasImage && imageLayout === "wide";
+
   return (
     <article className="relative overflow-hidden rounded-3xl border border-slate-700/70 bg-slate-900/70 shadow-[0_24px_80px_-44px_rgba(34,211,238,0.5)] backdrop-blur">
-      <div className="grid md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-        <div className="relative min-h-56 overflow-hidden border-b border-slate-700/70 md:min-h-full md:border-b-0 md:border-r">
-          <Image
-            src={image}
-            alt={imageAlt}
-            fill
-            sizes="(min-width: 768px) 320px, 100vw"
-            className="object-cover"
-          />
+      <div
+        className={`grid ${
+          hasImage && !usesWideImage
+            ? "md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]"
+            : "grid-cols-1"
+        }`}
+      >
+        {hasImage ? (
           <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent"
-          />
-        </div>
+            className={`relative overflow-hidden border-b border-slate-700/70 ${
+              usesWideImage
+                ? "aspect-video min-h-56"
+                : "min-h-56 md:min-h-full md:border-b-0 md:border-r"
+            }`}
+          >
+            {isImageLoading ? (
+              <div
+                className="absolute inset-0 z-10 flex items-center justify-center bg-slate-950/70"
+                role="status"
+                aria-label={`Loading image for ${heading}`}
+              >
+                <span
+                  aria-hidden="true"
+                  className="h-8 w-8 animate-spin rounded-full border-2 border-slate-700 border-t-pink-400 motion-reduce:animate-none"
+                />
+              </div>
+            ) : null}
+            <Image
+              src={image}
+              alt={imageAlt ?? ""}
+              fill
+              loading="lazy"
+              sizes={
+                usesWideImage
+                  ? "(min-width: 1024px) 760px, 100vw"
+                  : "(min-width: 768px) 320px, 100vw"
+              }
+              className={`object-cover transition-opacity duration-300 ${
+                isImageLoading ? "opacity-0" : "opacity-100"
+              }`}
+              onLoad={() => setIsImageLoading(false)}
+              onError={() => setIsImageLoading(false)}
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent"
+            />
+          </div>
+        ) : null}
 
         <div className="p-6 sm:p-8">
           <div className="flex items-start justify-between gap-4">

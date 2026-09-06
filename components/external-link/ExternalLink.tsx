@@ -21,7 +21,7 @@ export function ExternalLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`rounded-sm underline decoration-cyan-400/60 decoration-2 underline-offset-4 transition-colors hover:text-white hover:decoration-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 ${className}`}
+      className={`rounded-sm underline decoration-cyan-400/60 decoration-2 underline-offset-4 transition-colors hover:decoration-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 ${className}`}
       {...props}
     >
       {children}

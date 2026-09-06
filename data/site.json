@@ -9,9 +9,8 @@
   "hero": {
     "name": "Jessica Fealy",
     "role": "Full Stack Software Engineer",
-    "eyebrow": "Cardiff, Wales · Software engineering",
-    "summary": "I build **secure, scalable and accessible products**—and help engineering teams do their best work through thoughtful leadership and mentorship.",
-    "actionsIntro": "Explore the code behind my work on GitHub, or connect with me on LinkedIn.",
+    "eyebrow": "Cardiff, Wales · Software engineer",
+    "summary": "Developing **secure, scalable, and accessible applications**. Championing DE&I through mentorship & inclusive practices.",
     "secondaryAction": {
       "label": "Let's connect",
       "href": "https://uk.linkedin.com/in/jessicaclarafealy"

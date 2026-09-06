@@ -3,8 +3,6 @@
   "items": [
     {
       "heading": "Secure Chat Server",
-      "image": "/projects/secure-chat.jpg",
-      "imageAlt": "Abstract encrypted communication network connecting two secure nodes through a central server",
       "body": "A secure C# chat server that combines RSA and AES encryption to protect communication between two clients. It also provides authenticated administration for account management, audit logs and controlled server restarts, backed by MongoDB.",
       "link": [
         {
@@ -17,8 +15,6 @@
     },
     {
       "heading": "Custom Macropad",
-      "image": "/projects/macropad.jpg",
-      "imageAlt": "Six-key illuminated custom macropad with visible circuit details",
       "body": "A programmable macropad spanning hardware, firmware and fabrication. I designed and 3D-printed the enclosure, then used a Raspberry Pi Pico and CircuitPython to turn mechanical switches into configurable shortcuts, media controls and application commands.",
       "link": [
         {
@@ -44,8 +40,6 @@
     },
     {
       "heading": "Next Dotnet Auth0 Template",
-      "image": "/projects/auth0-template.jpg",
-      "imageAlt": "Abstract secure application gateway connecting frontend and backend systems",
       "body": "A production-minded starter for Next.js and .NET applications using Auth0. It includes authenticated server calls, shared quality rules, automated tests and CI/CD pipelines that deploy containers to Azure only after every check passes.",
       "link": [
         {
@@ -66,8 +60,6 @@
     },
     {
       "heading": "Visualised Sorter",
-      "image": "/projects/visualised-sorter.jpg",
-      "imageAlt": "Luminous bars moving from an unsorted pattern into ascending order",
       "body": "An interactive visualisation of six sorting algorithms, rebuilt in TypeScript with clearer abstractions and cancellable animations. It turns Merge, Quick, Bubble, Heap, Insertion and Selection sort into step-by-step visual sequences.",
       "link": [
         {
@@ -89,8 +81,6 @@
     },
     {
       "heading": "React Design System",
-      "image": "/projects/design-system.jpg",
-      "imageAlt": "Abstract collection of modular interface components and design tokens",
       "body": "An accessible React design system built with Tailwind, Class Variance Authority and Storybook. Automated GitHub Actions publish Storybook on merge and release the package for reuse across projects.",
       "link": [
         {
@@ -118,7 +108,8 @@
     {
       "heading": "Book Repo",
       "image": "/projects/book-repo.jpg",
-      "imageAlt": "Abstract digital library formed from books, glass panels and connected data points",
+      "imageAlt": "The Book Repository homepage with reading journey information and expandable questions",
+      "imageLayout": "wide",
       "body": "A full-stack product for organising and exploring a personal book collection, tracking reading goals and discovering recommendations. It combines Open Library data with Auth0 authentication and Azure-hosted application services and storage.",
       "link": [
         { "type": "web", "href": "https://book-repo.jessicafealy.dev" },

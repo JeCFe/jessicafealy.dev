@@ -10,7 +10,7 @@ export function Introduction({ currentId }: { currentId: PageId }) {
         <p className="mb-5 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
           {siteData.hero.eyebrow}
         </p>
-        <h1 className="bg-gradient-to-br from-white via-slate-100 to-slate-500 bg-clip-text text-5xl font-semibold tracking-[-0.055em] text-transparent sm:text-6xl lg:text-7xl">
+        <h1 className="bg-gradient-to-br from-white via-slate-100 to-slate-500 bg-clip-text pb-2 text-5xl font-semibold tracking-[-0.055em] text-transparent sm:text-6xl lg:text-7xl">
           {siteData.hero.name}
         </h1>
         <h2 className="mt-5 text-xl font-medium tracking-tight text-slate-200 sm:text-2xl">
@@ -32,13 +32,10 @@ export function Introduction({ currentId }: { currentId: PageId }) {
         >
           {siteData.hero.summary}
         </Markdown>
-        <p className="mt-8 max-w-sm text-sm leading-6 text-slate-500">
-          {siteData.hero.actionsIntro}
-        </p>
-        <div className="mt-4 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-wrap gap-3">
           <ExternalLink
             href={siteData.hero.tertiaryAction.href}
-            className="flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 !no-underline transition-colors hover:bg-white hover:text-slate-950"
+            className="flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 !no-underline transition-colors hover:bg-cyan-200 hover:text-slate-950"
           >
             <Github
               aria-hidden="true"
