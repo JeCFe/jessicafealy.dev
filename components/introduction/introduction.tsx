@@ -39,10 +39,10 @@ export function Introduction({ currentId }: { currentId: PageId }) {
           >
             <Github
               aria-hidden="true"
-              width={20}
-              height={20}
-              className="h-5 w-5 fill-current"
-              style={{ height: 20, width: 20 }}
+              width={24}
+              height={24}
+              className="h-6 w-6 fill-current [&_path]:stroke-current [&_path]:stroke-[0.35]"
+              style={{ height: 24, width: 24 }}
             />
             {siteData.hero.tertiaryAction.label}
           </ExternalLink>
