@@ -9,7 +9,7 @@ export type ExperienceProps = {
     href: string;
   };
   date: string;
-  description: string;
+  body: string;
   pills?: string[];
 };
 
@@ -17,7 +17,7 @@ export function ExperienceBox({
   jobLink,
   jobTitle,
   date,
-  description,
+  body,
   pills,
 }: ExperienceProps) {
   return (
@@ -56,7 +56,7 @@ export function ExperienceBox({
           ),
         }}
       >
-        {description}
+        {body}
       </Markdown>
       <div className="pointer-events-none flex flex-wrap gap-2">
         {pills?.map((x, i) => <Pill key={`${x}-${i}`}>{x}</Pill>)}

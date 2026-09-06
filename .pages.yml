@@ -1,0 +1,349 @@
+# Tells Pages CMS where to upload images
+media:
+  input: public/images
+  output: /images
+
+# Defines the editable portfolio content
+content:
+  - name: site
+    label: Site Settings
+    type: file
+    path: data/site.json
+    fields:
+      - name: metadata
+        label: Search and Browser Metadata
+        type: object
+        fields:
+          - name: title
+            label: Site Title
+            type: string
+          - name: description
+            label: Site Description
+            type: text
+      - name: analytics
+        label: Analytics
+        type: object
+        fields:
+          - name: domain
+            label: Plausible Domain
+            type: string
+      - name: hero
+        label: Introduction
+        type: object
+        fields:
+          - name: name
+            label: Name
+            type: string
+          - name: role
+            label: Role
+            type: string
+          - name: summary
+            label: Summary
+            type: rich-text
+            options:
+              format: markdown
+              media: false
+      - name: socialLinks
+        label: Social Links
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{platform}"
+        fields:
+          - name: platform
+            label: Platform
+            type: select
+            options:
+              values:
+                - name: github
+                  label: GitHub
+                - name: linkedin
+                  label: LinkedIn
+          - name: href
+            label: Profile URL
+            type: string
+          - name: label
+            label: Accessible Link Label
+            type: string
+          - name: iconAlt
+            label: Icon Alt Text
+            type: string
+      - name: projectStatusDescriptions
+        label: Project Status Descriptions
+        type: object
+        fields:
+          - name: active
+            label: Active
+            type: rich-text
+            options:
+              format: markdown
+              media: false
+          - name: maintain
+            label: Maintenance Only
+            type: rich-text
+            options:
+              format: markdown
+              media: false
+          - name: paused
+            label: Paused
+            type: rich-text
+            options:
+              format: markdown
+              media: false
+          - name: closed
+            label: Closed
+            type: rich-text
+            options:
+              format: markdown
+              media: false
+      - name: accessibility
+        label: Accessibility Labels
+        type: object
+        fields:
+          - name: backToTop
+            label: Back-to-top Button
+            type: string
+          - name: toggleNavigation
+            label: Navigation Toggle
+            type: string
+          - name: toggleImprovements
+            label: Improvements Toggle
+            type: string
+          - name: projectLinks
+            label: Project Link Labels
+            type: object
+            fields:
+              - name: git
+                label: Source Code
+                type: string
+              - name: web
+                label: Website
+                type: string
+              - name: deployed
+                label: Deployed Package
+                type: string
+              - name: design
+                label: Design
+                type: string
+              - name: fallback
+                label: Other Link
+                type: string
+      - name: notFound
+        label: Not-found Page
+        type: object
+        fields:
+          - name: title
+            label: Heading
+            type: string
+          - name: description
+            label: Description
+            type: rich-text
+            options:
+              format: markdown
+              media: false
+          - name: linkLabel
+            label: Home Link Label
+            type: string
+
+  - name: about
+    label: About
+    type: file
+    path: data/about.json
+    fields:
+      - name: heading
+        label: Heading
+        type: string
+      - name: body
+        label: Content
+        type: rich-text
+        options:
+          format: markdown
+          media: false
+
+  - name: proficiencies
+    label: Proficiencies
+    type: file
+    path: data/proficiencies.json
+    fields:
+      - name: heading
+        label: Heading
+        type: string
+      - name: items
+        label: Proficiencies
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Name
+            type: string
+          - name: href
+            label: Documentation URL
+            type: string
+          - name: icon
+            label: Icon
+            type: select
+            options:
+              values:
+                - name: auth0
+                  label: Auth0
+                - name: azure
+                  label: Azure
+                - name: csharp
+                  label: C#
+                - name: cypress
+                  label: Cypress
+                - name: docker
+                  label: Docker
+                - name: dotnet
+                  label: .NET
+                - name: git
+                  label: Git
+                - name: javascript
+                  label: JavaScript
+                - name: jest
+                  label: Jest
+                - name: nextjs
+                  label: Next.js
+                - name: react
+                  label: React
+                - name: sqlserver
+                  label: SQL Server
+                - name: tailwind
+                  label: Tailwind CSS
+                - name: typescript
+                  label: TypeScript
+                - name: xunit
+                  label: xUnit
+          - name: iconAlt
+            label: Icon Alt Text
+            type: string
+
+  - name: experience
+    label: Experience
+    type: file
+    path: data/experience.json
+    fields:
+      - name: heading
+        label: Heading
+        type: string
+      - name: items
+        label: Roles
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{jobTitle} — {jobLink.name}"
+        fields:
+          - name: jobTitle
+            label: Job Title
+            type: string
+          - name: jobLink
+            label: Employer
+            type: object
+            fields:
+              - name: name
+                label: Name
+                type: string
+              - name: href
+                label: Website URL
+                type: string
+          - name: date
+            label: Dates
+            type: string
+            description: A display range such as “Apr 2025 - Present”.
+          - name: body
+            label: Description
+            type: rich-text
+            options:
+              format: markdown
+              media: false
+          - name: pills
+            label: Technologies
+            type: string
+            list: true
+
+  - name: projects
+    label: Projects
+    type: file
+    path: data/projects.json
+    fields:
+      - name: heading
+        label: Heading
+        type: string
+      - name: items
+        label: Projects
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{heading}"
+        fields:
+          - name: heading
+            label: Name
+            type: string
+          - name: date
+            label: Dates
+            type: string
+            description: A display range such as “Nov 2023 - Ongoing”.
+          - name: type
+            label: Status
+            type: select
+            options:
+              values:
+                - name: active
+                  label: Active
+                - name: maintain
+                  label: Maintenance Only
+                - name: paused
+                  label: Paused
+                - name: closed
+                  label: Closed
+          - name: body
+            label: Description
+            type: rich-text
+            options:
+              format: markdown
+              media: false
+          - name: link
+            label: Links
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{type}"
+            fields:
+              - name: type
+                label: Link Type
+                type: select
+                options:
+                  values:
+                    - name: design
+                      label: Design
+                    - name: deployed
+                      label: Deployed Package
+                    - name: web
+                      label: Website
+                    - name: git
+                      label: GitHub Source
+              - name: href
+                label: URL
+                type: string
+          - name: pills
+            label: Technologies
+            type: string
+            list: true
+          - name: improvements
+            label: Planned Improvements
+            type: rich-text
+            list: true
+            options:
+              format: markdown
+              media: false
+          - name: order
+            label: Display Order
+            type: number
+            description: Higher numbers are shown first.

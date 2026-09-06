@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "title": "Jessica Fealy",
+    "description": "A Fullstack Engineer Portfolio"
+  },
+  "analytics": {
+    "domain": "jessicafealy.dev"
+  },
+  "hero": {
+    "name": "Jessica Fealy",
+    "role": "Full Stack Software Engineer",
+    "summary": "Developing secure, scalable, and accessible applications. Championing DE&I through mentorship & inclusive practices."
+  },
+  "socialLinks": [
+    {
+      "platform": "github",
+      "href": "https://github.com/JeCFe",
+      "label": "Github link",
+      "iconAlt": "Github logo"
+    },
+    {
+      "platform": "linkedin",
+      "href": "https://uk.linkedin.com/in/jessicaclarafealy",
+      "label": "LinkedIn link",
+      "iconAlt": "LinkedIn logo"
+    }
+  ],
+  "projectStatusDescriptions": {
+    "active": "Actively maintained with continued feature delivery.",
+    "maintain": "Critical maintenance only with no plans for new features.",
+    "paused": "On pause with plans to resume development in the future.",
+    "closed": "No longer maintained with no plans for new features."
+  },
+  "accessibility": {
+    "backToTop": "Back to top",
+    "toggleNavigation": "Toggle navigation menu",
+    "toggleImprovements": "Toggle improvements list",
+    "projectLinks": {
+      "git": "View source code on GitHub",
+      "web": "View live website",
+      "deployed": "View deployed package",
+      "design": "View design",
+      "fallback": "View link"
+    }
+  },
+  "notFound": {
+    "title": "404 - Not Found",
+    "description": "Requested resources was moved or deleted",
+    "linkLabel": "Escape"
+  }
+}

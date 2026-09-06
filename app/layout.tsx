@@ -1,10 +1,8 @@
+import { siteData } from "@/data";
 import "@jecfe/react-design-system/src/tailwind.css";
 import PlausibleProvider from "next-plausible";
 
-export const metadata = {
-  title: "Jessica Fealy",
-  description: "A Fullstack Engineer Portfolio",
-};
+export const metadata = siteData.metadata;
 
 import { Poppins } from "next/font/google";
 
@@ -25,7 +23,7 @@ export default function RootLayout({
         <PlausibleProvider
           trackOutboundLinks
           enabled
-          domain="jessicafealy.dev"
+          domain={siteData.analytics.domain}
         />
       </head>
       <body

@@ -1,5 +1,5 @@
 import { Menu } from "@/assets";
-import { navData } from "@/data";
+import { navData, siteData } from "@/data";
 import { ArrowUp } from "@jecfe/react-design-system";
 import { cva } from "class-variance-authority";
 import { useState } from "react";
@@ -90,7 +90,7 @@ export function Navigation({ currentId }: { currentId: PageId }) {
   return (
     <div className="my-4">
       <button
-        aria-label="Back to top"
+        aria-label={siteData.accessibility.backToTop}
         className={uppies({
           show: currentId !== "about" && currentId !== "absolute",
         })}
@@ -101,7 +101,7 @@ export function Navigation({ currentId }: { currentId: PageId }) {
       <button
         aria-expanded={isOpen}
         aria-controls="mobile-nav"
-        aria-label="Toggle navigation menu"
+        aria-label={siteData.accessibility.toggleNavigation}
         className="group fixed left-5 top-5 z-10 cursor-pointer md:hidden"
         onClick={() => setIsOpen(!isOpen)}
       >

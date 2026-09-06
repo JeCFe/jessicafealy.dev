@@ -1,4 +1,5 @@
 import { Code, DeployedCode, Design, OpenWeb } from "@/assets";
+import { siteData } from "@/data";
 import { ArrowUp, Info } from "@jecfe/react-design-system";
 import { cva } from "class-variance-authority";
 import Link from "next/link";
@@ -80,6 +81,9 @@ function compareString(a: ProjectLink, b: ProjectLink) {
   return indexA - indexB;
 }
 
+const projectLinkLabels: Record<string, string> =
+  siteData.accessibility.projectLinks;
+
 type ProjectLink = {
   href: string;
   type: string;
@@ -89,7 +93,7 @@ export type ProjectBoxProps = {
   heading: string;
   link: ProjectLink[];
   date: string;
-  description: string;
+  body: string;
   pills?: string[];
   type?: "active" | "maintain" | "closed" | "paused";
   improvements?: string[];
@@ -100,7 +104,7 @@ export function ProjectBox({
   heading,
   link,
   date,
-  description,
+  body,
   pills,
   type,
   improvements,
@@ -121,15 +125,8 @@ export function ProjectBox({
               href={x.href}
               target="_blank"
               aria-label={
-                x.type === "git"
-                  ? "View source code on GitHub"
-                  : x.type === "web"
-                    ? "View live website"
-                    : x.type === "deployed"
-                      ? "View deployed package"
-                      : x.type === "design"
-                        ? "View design"
-                        : "View link"
+                projectLinkLabels[x.type] ??
+                siteData.accessibility.projectLinks.fallback
               }
             >
               {x.type === "git" && (
@@ -171,7 +168,7 @@ export function ProjectBox({
           ),
         }}
       >
-        {description}
+        {body}
       </Markdown>
       <div className={statusText({ status: type })}>
         <div className="flex h-full items-center justify-center">
@@ -179,20 +176,31 @@ export function ProjectBox({
         </div>
 
         <div className="ml-4 flex items-center">
-          {type === "active" &&
-            "Actively maintained with continued feature delivery."}
-          {type === "maintain" &&
-            "Critical maintenance only with no plans for new features."}
-          {type === "paused" &&
-            "On pause with plans to resume development in the future."}
-          {type === "closed" &&
-            "No longer maintained with no plans for new features."}
+          {type && (
+            <Markdown
+              components={{
+                p: ({ children }) => <span>{children}</span>,
+                a: ({ href, children }) => (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    {children}
+                  </a>
+                ),
+              }}
+            >
+              {siteData.projectStatusDescriptions[type]}
+            </Markdown>
+          )}
         </div>
         <div className="flex flex-grow" />
         {improvements && (
           <button
             aria-expanded={isOpen}
-            aria-label="Toggle improvements list"
+            aria-label={siteData.accessibility.toggleImprovements}
             className="flex items-center"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -207,7 +215,28 @@ export function ProjectBox({
         <ul className={accordion({ open: isOpen })}>
           {improvements.map((x, i) => (
             <li className="pl-1" key={`improvements-${i}`}>
-              {x}
+              <Markdown
+                components={{
+                  p: ({ children }) => <span>{children}</span>,
+                  strong: ({ children }) => (
+                    <strong className="font-semibold text-slate-200">
+                      {children}
+                    </strong>
+                  ),
+                  a: ({ href, children }) => (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold hover:text-slate-200"
+                    >
+                      {children}
+                    </a>
+                  ),
+                }}
+              >
+                {x}
+              </Markdown>
             </li>
           ))}
         </ul>
