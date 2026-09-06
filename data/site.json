@@ -6,6 +6,9 @@
   "analytics": {
     "domain": "jessicafealy.dev"
   },
+  "footer": {
+    "copyrightName": "Jessica Fealy"
+  },
   "hero": {
     "name": "Jessica Fealy",
     "role": "Full Stack Software Engineer",

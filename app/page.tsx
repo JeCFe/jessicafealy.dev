@@ -10,6 +10,7 @@ import {
 } from "@/components";
 import { AboutMe } from "@/components/about-me";
 import { Project } from "@/components/projects";
+import { siteData } from "@/data";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -70,6 +71,10 @@ export default function Home() {
             style={{ height: 48, width: 48 }}
           />
         </div>
+
+        <footer className="border-t border-slate-800/80 py-8 text-center font-mono text-xs tracking-[0.14em] text-slate-500">
+          &copy; {new Date().getFullYear()} {siteData.footer.copyrightName}
+        </footer>
       </main>
     </div>
   );
