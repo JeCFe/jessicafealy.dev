@@ -1,7 +1,6 @@
 export * from "./experience";
 export * from "./experience-box";
 export * from "./external-link";
-export * from "./grid-overlay";
 export * from "./introduction";
 export * from "./jecfe";
 export * from "./navigation";

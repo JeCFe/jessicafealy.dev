@@ -3,7 +3,6 @@
 import { JcfeLogo } from "@/assets";
 import {
   Experience,
-  GridOverlay,
   Introduction,
   Jecfe,
   PageId,
@@ -50,7 +49,6 @@ export default function Home() {
 
   return (
     <div id="absolute" className="relative overflow-clip">
-      <GridOverlay />
       <Jecfe />
       <main className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
         <div className="grid gap-20 lg:grid-cols-[minmax(280px,0.72fr)_minmax(0,1.28fr)] lg:gap-24">
