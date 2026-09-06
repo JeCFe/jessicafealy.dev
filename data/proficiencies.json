@@ -1,0 +1,95 @@
+{
+  "heading": "Proficiencies",
+  "items": [
+    {
+      "name": "C#",
+      "href": "https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/",
+      "icon": "csharp",
+      "iconAlt": "C Sharp logo"
+    },
+    {
+      "name": ".NET",
+      "href": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8/overview",
+      "icon": "dotnet",
+      "iconAlt": "Dotnet logo"
+    },
+    {
+      "name": "TypeScript",
+      "href": "https://www.typescriptlang.org/",
+      "icon": "typescript",
+      "iconAlt": "TypeScript langage logo"
+    },
+    {
+      "name": "JavaScript",
+      "href": "https://www.javascript.com/",
+      "icon": "javascript",
+      "iconAlt": "JavaScript language logo"
+    },
+    {
+      "name": "Next.js",
+      "href": "https://nextjs.org/",
+      "icon": "nextjs",
+      "iconAlt": "Next framework logo"
+    },
+    {
+      "name": "Cypress",
+      "href": "https://www.cypress.io/",
+      "icon": "cypress",
+      "iconAlt": "Cypress logo"
+    },
+    {
+      "name": "xUnit",
+      "href": "https://xunit.net/",
+      "icon": "xunit",
+      "iconAlt": "XUnit logo"
+    },
+    {
+      "name": "Jest",
+      "href": "https://jestjs.io/",
+      "icon": "jest",
+      "iconAlt": "Jest logo"
+    },
+    {
+      "name": "Docker",
+      "href": "https://www.docker.com/",
+      "icon": "docker",
+      "iconAlt": "Docker logo"
+    },
+    {
+      "name": "Git",
+      "href": "https://git-scm.com/",
+      "icon": "git",
+      "iconAlt": "Git logo"
+    },
+    {
+      "name": "React",
+      "href": "https://react.dev/",
+      "icon": "react",
+      "iconAlt": "React logo"
+    },
+    {
+      "name": "Tailwind CSS",
+      "href": "https://tailwindcss.com/",
+      "icon": "tailwind",
+      "iconAlt": "Tailwind logo"
+    },
+    {
+      "name": "SQL Server",
+      "href": "https://www.microsoft.com/en-gb/sql-server/sql-server-2019",
+      "icon": "sqlserver",
+      "iconAlt": "SQL Server logo"
+    },
+    {
+      "name": "Azure",
+      "href": "https://azure.microsoft.com/en-gb/",
+      "icon": "azure",
+      "iconAlt": "Azure logo"
+    },
+    {
+      "name": "Auth0",
+      "href": "https://auth0.com/",
+      "icon": "auth0",
+      "iconAlt": "Auth0 logo"
+    }
+  ]
+}

@@ -1,49 +1,60 @@
-import { Github, LinkedIn } from "@/assets";
-import Link from "next/link";
-import { Navigation, PageId } from "..";
+import { Github } from "@/assets";
+import { siteData } from "@/data";
+import Markdown from "react-markdown";
+import { ExternalLink, Navigation, PageId } from "..";
 
 export function Introduction({ currentId }: { currentId: PageId }) {
   return (
-    <div className="top-0 flex max-h-screen flex-col justify-between pt-12 md:sticky md:h-screen md:w-auto md:py-24">
+    <header className="top-0 flex flex-col pt-20 lg:sticky lg:h-screen lg:py-24">
       <div className="flex flex-col">
-        <h1 className="text-5xl font-bold tracking-tight text-slate-200 md:text-7xl">
-          Jessica Fealy
+        <p className="mb-5 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
+          {siteData.hero.eyebrow}
+        </p>
+        <h1 className="bg-gradient-to-br from-white via-slate-100 to-slate-500 bg-clip-text pb-2 text-5xl font-semibold tracking-[-0.055em] text-transparent sm:text-6xl lg:text-7xl">
+          {siteData.hero.name}
         </h1>
-        <h2 className="mt-3 text-2xl font-medium tracking-tight text-slate-200">
-          Full Stack Software Engineer
+        <h2 className="mt-5 text-xl font-medium tracking-tight text-slate-200 sm:text-2xl">
+          {siteData.hero.role}
         </h2>
-        <h3 className="max-w-s mt-4 max-w-xs text-lg leading-normal text-slate-400">
-          Developing secure, scalable, and accessible applications. Championing
-          DE&I through mentorship & inclusive practices.
-        </h3>
-      </div>
-      <Navigation currentId={currentId} />
-      <div className="flex flex-col justify-end">
-        <div className="flex w-full justify-start space-x-12 pt-2 md:justify-center md:pt-0">
-          <Link
-            className="flex flex-col"
-            aria-label="Github link"
-            href="https://github.com/JeCFe"
-            target="_blank"
+        <Markdown
+          components={{
+            p: ({ children }) => (
+              <p className="mt-5 max-w-md text-base leading-7 text-slate-400 sm:text-lg">
+                {children}
+              </p>
+            ),
+            strong: ({ children }) => (
+              <strong className="font-semibold text-slate-100">
+                {children}
+              </strong>
+            ),
+          }}
+        >
+          {siteData.hero.summary}
+        </Markdown>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <ExternalLink
+            href={siteData.hero.tertiaryAction.href}
+            className="flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 !no-underline transition-colors hover:bg-cyan-200 hover:text-slate-950"
           >
             <Github
-              alt="Github logo"
-              className="inline-block h-20 w-20 fill-pink-500 hover:animate-pulse"
+              aria-hidden="true"
+              width={20}
+              height={20}
+              className="h-5 w-5 fill-current"
+              style={{ height: 20, width: 20 }}
             />
-          </Link>
-          <Link
-            className="flex flex-col"
-            aria-label="LinkedIn link"
-            href="https://uk.linkedin.com/in/jessicaclarafealy"
-            target="_blank"
+            {siteData.hero.tertiaryAction.label}
+          </ExternalLink>
+          <ExternalLink
+            href={siteData.hero.secondaryAction.href}
+            className="rounded-full border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-300 !no-underline hover:border-pink-400 hover:text-pink-200"
           >
-            <LinkedIn
-              alt="LinkedIn logo"
-              className="inline-block h-20 w-20 fill-cyan-500 hover:animate-pulse"
-            />
-          </Link>
+            {siteData.hero.secondaryAction.label}
+          </ExternalLink>
         </div>
       </div>
-    </div>
+      <Navigation currentId={currentId} />
+    </header>
   );
 }

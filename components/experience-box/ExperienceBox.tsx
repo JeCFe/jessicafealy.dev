@@ -1,6 +1,5 @@
-import { Anchor } from "@jecfe/react-design-system";
 import Markdown from "react-markdown";
-import { Pill } from "..";
+import { ExternalLink, Pill } from "..";
 
 export type ExperienceProps = {
   jobTitle: string;
@@ -9,7 +8,7 @@ export type ExperienceProps = {
     href: string;
   };
   date: string;
-  description: string;
+  highlights: string[];
   pills?: string[];
 };
 
@@ -17,50 +16,59 @@ export function ExperienceBox({
   jobLink,
   jobTitle,
   date,
-  description,
+  highlights,
   pills,
 }: ExperienceProps) {
   return (
-    <div className="z-10 rounded-xl transition-colors duration-300 ease-in-out md:p-8 md:hover:bg-slate-800/70 md:hover:shadow-xl">
-      <div className="flex flex-row">
-        <h2 className="text-2xl font-medium tracking-tight text-slate-200">
-          {jobTitle}
-        </h2>
-        <div className="flex flex-grow" />
-        <Anchor href={jobLink.href} target="_blank">
-          <h2 className="text-right text-2xl font-medium tracking-tight">
+    <article className="relative border-l border-slate-700 pl-7 sm:pl-9">
+      <div className="absolute -left-[5px] top-2 h-[9px] w-[9px] rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(103,232,249,0.8)]" />
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <h3 className="text-xl font-semibold tracking-tight text-slate-100 sm:text-2xl">
+            {jobTitle}
+          </h3>
+          <ExternalLink
+            href={jobLink.href}
+            className="mt-1 inline-block font-semibold text-cyan-200"
+          >
             {jobLink.name}
-          </h2>
-        </Anchor>
+          </ExternalLink>
+        </div>
+        <p className="shrink-0 font-mono text-xs uppercase tracking-wider text-slate-500 sm:pt-2">
+          {date}
+        </p>
       </div>
 
-      <h3 className="text-sm leading-normal text-slate-400">{date}</h3>
-
-      <Markdown
-        components={{
-          p: ({ children }) => (
-            <p className="my-4 leading-normal text-slate-400">{children}</p>
-          ),
-          strong: ({ children }) => (
-            <strong className="font-semibold text-slate-200">{children}</strong>
-          ),
-          a: ({ href, children }) => (
-            <a
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold hover:text-slate-200"
+      <ul className="mt-6 space-y-3 text-base leading-7 text-slate-400">
+        {highlights.map((highlight) => (
+          <li className="relative pl-5" key={highlight}>
+            <span aria-hidden="true" className="absolute left-0 top-3 h-1 w-1 rounded-full bg-pink-400" />
+            <Markdown
+              components={{
+                p: ({ children }) => <span>{children}</span>,
+                strong: ({ children }) => (
+                  <strong className="font-semibold text-slate-100">
+                    {children}
+                  </strong>
+                ),
+                a: ({ href, children }) => (
+                  <ExternalLink
+                    href={href ?? "#"}
+                    className="font-semibold text-cyan-200"
+                  >
+                    {children}
+                  </ExternalLink>
+                ),
+              }}
             >
-              {children}
-            </a>
-          ),
-        }}
-      >
-        {description}
-      </Markdown>
-      <div className="pointer-events-none flex flex-wrap gap-2">
+              {highlight}
+            </Markdown>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-6 flex flex-wrap gap-2">
         {pills?.map((x, i) => <Pill key={`${x}-${i}`}>{x}</Pill>)}
       </div>
-    </div>
+    </article>
   );
 }

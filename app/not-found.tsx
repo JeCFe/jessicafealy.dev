@@ -1,19 +1,23 @@
-import { Anchor, Info } from "@jecfe/react-design-system";
+import { siteData } from "@/data";
 
 export default function NotFound() {
   return (
-    <div className="flex h-screen flex-col items-center justify-center text-slate-200">
-      <Info className="size-32 fill-red-600" />
-      <h1 className="flex text-center text-7xl font-bold leading-tight md:text-8xl">
-        404 - Not Found
-      </h1>
-
-      <p className="mt-4 flex text-center text-xl text-slate-400">
-        Requested resources was moved or deleted
+    <main className="flex min-h-screen flex-col items-center justify-center px-6 text-center text-slate-200">
+      <p className="font-mono text-sm font-semibold uppercase tracking-[0.24em] text-pink-300">
+        Lost in the stack
       </p>
-      <Anchor href="/" className="pt-8 text-2xl">
-        Escape
-      </Anchor>
-    </div>
+      <h1 className="mt-5 bg-gradient-to-r from-pink-300 to-cyan-300 bg-clip-text text-6xl font-semibold tracking-tight text-transparent md:text-8xl">
+        {siteData.notFound.title}
+      </h1>
+      <p className="mt-5 max-w-md text-lg leading-8 text-slate-400">
+        {siteData.notFound.description}
+      </p>
+      <a
+        href="/"
+        className="mt-8 rounded-full bg-cyan-300 px-6 py-3 font-semibold text-slate-950 transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+      >
+        {siteData.notFound.linkLabel}
+      </a>
+    </main>
   );
 }
