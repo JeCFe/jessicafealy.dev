@@ -8,7 +8,11 @@
         "href": "https://www.rocketscience.gg/"
       },
       "date": "Apr 2025 - Present",
-      "body": "Working across some of the biggest names in the gaming industry, taking on both technical and leadership responsibilities. Led a frontend team to design and build a brand-new hosting platform dashboard from the ground up. Worked on orchestration layers to bridge into legacy and modern systems across organisations. Operating across the full stack with a focus on delivery, code quality, and supporting the wider team.",
+      "highlights": [
+        "Led a frontend team to design and deliver a new hosting platform dashboard from the ground up.",
+        "Built orchestration services that connect modern cloud platforms with legacy systems across organisations.",
+        "Worked across the stack while raising the bar for delivery, code quality and team support."
+      ],
       "pills": ["Java", "Next.js", "TypeScript", "AWS", "GCP", "Terraform"]
     },
     {
@@ -18,7 +22,11 @@
         "href": "https://www.bjss.com/"
       },
       "date": "Sept 2023 - Apr 2025",
-      "body": "Designed, refined, and developed several key systems and infrastructures working alongside both BJSS and client teams to bring the client's vision to life. Operated within a multi-capability team, providing support and guidance to junior engineers, and producing low-level designs for mission-critical systems. Working in all capabilities from creating frontend applications, backend services and databases - utilising TDD, automation and unit testing to ensure code confidence and regression resilience.",
+      "highlights": [
+        "Helped deliver critical national flood-warning infrastructure capable of sending **40,000+ messages across three channels in under an hour**.",
+        "Reduced message creation time from **tens of minutes to tens of seconds**.",
+        "Designed mission-critical systems, mentored junior engineers and delivered tested frontend, backend and database solutions. [Read the case study](https://www.linkedin.com/posts/jessicaclarafealy_how-bjss-and-nrw-are-safeguarding-wales-activity-7298022225394216961-icQ_)."
+      ],
       "pills": [
         "C#",
         "Dotnet",
@@ -36,7 +44,11 @@
         "href": "https://www.bjss.com/academy"
       },
       "date": "Sept 2022 - Sept 2023",
-      "body": "Began with a 4-week intensive training course led by senior BJSS engineers, covering a wide range of technologies, consultancy skills, presentation skills, and agile principles. Was then placed on a major public sector client, developing React internal and Ruby on Rails external frontend applications, and Java API backend microservices. Moved on to another major public sector client, developing a multitude of C# backend services, internal and external Next.js frontend applications including a React design system, regularly providing sprint review demos and becoming a key client contact for several project areas.",
+      "highlights": [
+        "Delivered React and Ruby on Rails applications alongside Java API microservices for a major public-sector client.",
+        "Built C# services, Next.js applications and a shared React design system for another national client.",
+        "Became a key client contact, regularly leading sprint reviews and communicating delivery progress."
+      ],
       "pills": [
         "C#",
         "Dotnet",

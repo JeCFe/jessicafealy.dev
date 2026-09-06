@@ -19,15 +19,9 @@ export function GridOverlay() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-30"
+      className="pointer-events-none fixed inset-0 z-30 opacity-70 motion-reduce:hidden"
       style={{
-        backgroundImage: `
-          linear-gradient(to right, rgba(6, 182, 212, 0.1) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(6, 182, 212, 0.1) 1px, transparent 1px)
-        `,
-        backgroundSize: "30px 30px",
-        maskImage: `radial-gradient(circle 290px at ${pos.x}px ${pos.y}px, black 0%, transparent 100%)`,
-        WebkitMaskImage: `radial-gradient(circle 290px at ${pos.x}px ${pos.y}px, black 0%, transparent 100%)`,
+        background: `radial-gradient(circle 340px at ${pos.x}px ${pos.y}px, rgba(34, 211, 238, 0.09), rgba(217, 70, 239, 0.035) 42%, transparent 72%)`,
       }}
     />
   );

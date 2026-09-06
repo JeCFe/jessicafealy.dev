@@ -1,82 +1,63 @@
-import { Github, LinkedIn } from "@/assets";
+import { Github } from "@/assets";
 import { siteData } from "@/data";
-import Link from "next/link";
 import Markdown from "react-markdown";
-import { Navigation, PageId } from "..";
-
-const socialIcons = {
-  github: {
-    icon: Github,
-    className: "inline-block h-20 w-20 fill-pink-500 hover:animate-pulse",
-  },
-  linkedin: {
-    icon: LinkedIn,
-    className: "inline-block h-20 w-20 fill-cyan-500 hover:animate-pulse",
-  },
-};
+import { ExternalLink, Navigation, PageId } from "..";
 
 export function Introduction({ currentId }: { currentId: PageId }) {
   return (
-    <div className="top-0 flex max-h-screen flex-col justify-between pt-12 md:sticky md:h-screen md:w-auto md:py-24">
+    <header className="top-0 flex flex-col pt-20 lg:sticky lg:h-screen lg:py-24">
       <div className="flex flex-col">
-        <h1 className="text-5xl font-bold tracking-tight text-slate-200 md:text-7xl">
+        <p className="mb-5 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
+          {siteData.hero.eyebrow}
+        </p>
+        <h1 className="bg-gradient-to-br from-white via-slate-100 to-slate-500 bg-clip-text text-5xl font-semibold tracking-[-0.055em] text-transparent sm:text-6xl lg:text-7xl">
           {siteData.hero.name}
         </h1>
-        <h2 className="mt-3 text-2xl font-medium tracking-tight text-slate-200">
+        <h2 className="mt-5 text-xl font-medium tracking-tight text-slate-200 sm:text-2xl">
           {siteData.hero.role}
         </h2>
         <Markdown
           components={{
             p: ({ children }) => (
-              <h3 className="max-w-s mt-4 max-w-xs text-lg leading-normal text-slate-400">
+              <p className="mt-5 max-w-md text-base leading-7 text-slate-400 sm:text-lg">
                 {children}
-              </h3>
+              </p>
             ),
             strong: ({ children }) => (
-              <strong className="font-semibold text-slate-200">
+              <strong className="font-semibold text-slate-100">
                 {children}
               </strong>
-            ),
-            a: ({ href, children }) => (
-              <a
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-bold hover:text-slate-200"
-              >
-                {children}
-              </a>
             ),
           }}
         >
           {siteData.hero.summary}
         </Markdown>
-      </div>
-      <Navigation currentId={currentId} />
-      <div className="flex flex-col justify-end">
-        <div className="flex w-full justify-start space-x-12 pt-2 md:justify-center md:pt-0">
-          {siteData.socialLinks.map((link) => {
-            const social =
-              socialIcons[link.platform as keyof typeof socialIcons];
-
-            if (!social) return null;
-
-            const Icon = social.icon;
-
-            return (
-              <Link
-                className="flex flex-col"
-                aria-label={link.label}
-                href={link.href}
-                target="_blank"
-                key={`${link.platform}-${link.href}`}
-              >
-                <Icon alt={link.iconAlt} className={social.className} />
-              </Link>
-            );
-          })}
+        <p className="mt-8 max-w-sm text-sm leading-6 text-slate-500">
+          {siteData.hero.actionsIntro}
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <ExternalLink
+            href={siteData.hero.tertiaryAction.href}
+            className="flex items-center gap-2 rounded-full bg-cyan-300 px-5 py-3 text-sm font-semibold text-slate-950 !no-underline transition-colors hover:bg-white hover:text-slate-950"
+          >
+            <Github
+              aria-hidden="true"
+              width={20}
+              height={20}
+              className="h-5 w-5 fill-current"
+              style={{ height: 20, width: 20 }}
+            />
+            {siteData.hero.tertiaryAction.label}
+          </ExternalLink>
+          <ExternalLink
+            href={siteData.hero.secondaryAction.href}
+            className="rounded-full border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-300 !no-underline hover:border-pink-400 hover:text-pink-200"
+          >
+            {siteData.hero.secondaryAction.label}
+          </ExternalLink>
         </div>
       </div>
-    </div>
+      <Navigation currentId={currentId} />
+    </header>
   );
 }

@@ -1,42 +1,23 @@
 import { siteData } from "@/data";
-import { Anchor, Info } from "@jecfe/react-design-system";
-import Markdown from "react-markdown";
 
 export default function NotFound() {
   return (
-    <div className="flex h-screen flex-col items-center justify-center text-slate-200">
-      <Info className="size-32 fill-red-600" />
-      <h1 className="flex text-center text-7xl font-bold leading-tight md:text-8xl">
+    <main className="flex min-h-screen flex-col items-center justify-center px-6 text-center text-slate-200">
+      <p className="font-mono text-sm font-semibold uppercase tracking-[0.24em] text-pink-300">
+        Lost in the stack
+      </p>
+      <h1 className="mt-5 bg-gradient-to-r from-pink-300 to-cyan-300 bg-clip-text text-6xl font-semibold tracking-tight text-transparent md:text-8xl">
         {siteData.notFound.title}
       </h1>
-
-      <Markdown
-        components={{
-          p: ({ children }) => (
-            <p className="mt-4 flex text-center text-xl text-slate-400">
-              {children}
-            </p>
-          ),
-          strong: ({ children }) => (
-            <strong className="font-semibold text-slate-200">{children}</strong>
-          ),
-          a: ({ href, children }) => (
-            <a
-              href={href}
-              className="font-bold hover:text-slate-200"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              {children}
-            </a>
-          ),
-        }}
-      >
+      <p className="mt-5 max-w-md text-lg leading-8 text-slate-400">
         {siteData.notFound.description}
-      </Markdown>
-      <Anchor href="/" className="pt-8 text-2xl">
+      </p>
+      <a
+        href="/"
+        className="mt-8 rounded-full bg-cyan-300 px-6 py-3 font-semibold text-slate-950 transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+      >
         {siteData.notFound.linkLabel}
-      </Anchor>
-    </div>
+      </a>
+    </main>
   );
 }

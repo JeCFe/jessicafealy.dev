@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Jessica Fealy",
-    "description": "A Fullstack Engineer Portfolio"
+    "description": "Full Stack Software Engineer building secure, scalable and accessible products."
   },
   "analytics": {
     "domain": "jessicafealy.dev"
@@ -9,32 +9,22 @@
   "hero": {
     "name": "Jessica Fealy",
     "role": "Full Stack Software Engineer",
-    "summary": "Developing secure, scalable, and accessible applications. Championing DE&I through mentorship & inclusive practices."
-  },
-  "socialLinks": [
-    {
-      "platform": "github",
-      "href": "https://github.com/JeCFe",
-      "label": "Github link",
-      "iconAlt": "Github logo"
+    "eyebrow": "Cardiff, Wales · Software engineering",
+    "summary": "I build **secure, scalable and accessible products**—and help engineering teams do their best work through thoughtful leadership and mentorship.",
+    "actionsIntro": "Explore the code behind my work on GitHub, or connect with me on LinkedIn.",
+    "secondaryAction": {
+      "label": "Let's connect",
+      "href": "https://uk.linkedin.com/in/jessicaclarafealy"
     },
-    {
-      "platform": "linkedin",
-      "href": "https://uk.linkedin.com/in/jessicaclarafealy",
-      "label": "LinkedIn link",
-      "iconAlt": "LinkedIn logo"
+    "tertiaryAction": {
+      "label": "View GitHub",
+      "href": "https://github.com/JeCFe"
     }
-  ],
-  "projectStatusDescriptions": {
-    "active": "Actively maintained with continued feature delivery.",
-    "maintain": "Critical maintenance only with no plans for new features.",
-    "paused": "On pause with plans to resume development in the future.",
-    "closed": "No longer maintained with no plans for new features."
   },
   "accessibility": {
     "backToTop": "Back to top",
     "toggleNavigation": "Toggle navigation menu",
-    "toggleImprovements": "Toggle improvements list",
+    "closeNavigation": "Close navigation menu",
     "projectLinks": {
       "git": "View source code on GitHub",
       "web": "View live website",
@@ -45,7 +35,7 @@
   },
   "notFound": {
     "title": "404 - Not Found",
-    "description": "Requested resources was moved or deleted",
-    "linkLabel": "Escape"
+    "description": "The page you're looking for has moved or no longer exists.",
+    "linkLabel": "Return home"
   }
 }

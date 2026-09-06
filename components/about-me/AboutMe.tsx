@@ -1,17 +1,15 @@
 import { aboutData } from "@/data";
 import Markdown from "react-markdown";
-import { PageId } from "..";
+import { ExternalLink, PageId, SectionHeading } from "..";
 
 export function AboutMe({ id }: { id: PageId }) {
   return (
-    <div id={id}>
-      <h2 className="w-full text-2xl font-bold tracking-tight text-slate-200 underline decoration-1 underline-offset-8 md:text-3xl">
-        {aboutData.heading}
-      </h2>
+    <section className="scroll-mt-24" id={id}>
+      <SectionHeading eyebrow="01">{aboutData.heading}</SectionHeading>
       <Markdown
         components={{
           p: ({ children }) => (
-            <p className="mt-4 text-lg leading-normal text-slate-400">
+            <p className="mt-5 text-base leading-8 text-slate-400 sm:text-lg">
               {children}
             </p>
           ),
@@ -19,19 +17,14 @@ export function AboutMe({ id }: { id: PageId }) {
             <strong className="font-semibold text-slate-200">{children}</strong>
           ),
           a: ({ href, children }) => (
-            <a
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold hover:text-slate-200"
-            >
+            <ExternalLink href={href ?? "#"} className="font-semibold text-cyan-200">
               {children}
-            </a>
+            </ExternalLink>
           ),
         }}
       >
         {aboutData.body}
       </Markdown>
-    </div>
+    </section>
   );
 }

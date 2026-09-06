@@ -17,7 +17,7 @@ import {
 } from "@/assets";
 import { cva } from "class-variance-authority";
 
-export const proficiencyLogo = cva("w-20 h-20", {
+export const proficiencyLogo = cva("h-9 w-9 shrink-0", {
   variants: { white: { true: "fill-white" } },
 });
 

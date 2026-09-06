@@ -6,7 +6,6 @@ import {
   GridOverlay,
   Introduction,
   Jecfe,
-  MiddleDivider,
   PageId,
   Proficiencies,
 } from "@/components";
@@ -50,14 +49,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div id="absolute">
+    <div id="absolute" className="relative overflow-clip">
       <GridOverlay />
       <Jecfe />
-      <div className="mx-auto max-w-screen-xl px-6 py-12 pt-20 md:px-12  lg:px-24 lg:py-0">
-        <div className="md:flex md:justify-between md:gap-4">
+      <main className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
+        <div className="grid gap-20 lg:grid-cols-[minmax(280px,0.72fr)_minmax(0,1.28fr)] lg:gap-24">
           <Introduction currentId={activeSection} />
-          <MiddleDivider />
-          <div className="flex flex-col md:py-24">
+          <div className="flex min-w-0 flex-col pt-20 lg:py-24">
             <AboutMe id="about" />
             <Proficiencies id="proficiencies" />
             <Experience id="experience" />
@@ -65,10 +63,16 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="pointer-events-none flex w-full items-center justify-center pt-12 md:hidden">
-          <JcfeLogo height="54" />
+        <div className="pointer-events-none flex w-full items-center justify-center pb-12 lg:hidden">
+          <JcfeLogo
+            aria-hidden="true"
+            width={48}
+            height={48}
+            className="h-12 w-12"
+            style={{ height: 48, width: 48 }}
+          />
         </div>
-      </div>
+      </main>
     </div>
   );
 }

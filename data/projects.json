@@ -2,10 +2,10 @@
   "heading": "Projects",
   "items": [
     {
-      "date": "Sept 2021 - May 2022",
-      "type": "closed",
       "heading": "Secure Chat Server",
-      "body": "C# Secure chat server, using asynchronous (RSA) and synchronous (AES) cryptographic techniques and other secure programming practices to create a secure means of communication between 2 nodes through a server machine. Additionally, admin users were able to log in and interact on the server machine console, to perform protected actions such as admin account management, viewing logs, and server restart - these credentials were stored on a MongoDB cloud instance.",
+      "image": "/projects/secure-chat.jpg",
+      "imageAlt": "Abstract encrypted communication network connecting two secure nodes through a central server",
+      "body": "A secure C# chat server that combines RSA and AES encryption to protect communication between two clients. It also provides authenticated administration for account management, audit logs and controlled server restarts, backed by MongoDB.",
       "link": [
         {
           "href": "https://github.com/JeCFe/Final-Year-Project",
@@ -16,10 +16,10 @@
       "order": 0
     },
     {
-      "date": "Nov 2021 - Jul 2022",
       "heading": "Custom Macropad",
-      "type": "paused",
-      "body": "A project that allowed exploration of both hardware and software, using an Ender 3 Pro 3D printer and TinkerCAD I created a variety of designs for macropads that revolved around using the Raspberry Pi Pico microprocessor to decode mechanical key switches into programmable code. Using AdaFruit CircuitPython I built code that would take GPIO inputs and process them into simulated keyboard inputs, using this to perform shortcuts, control media, open applications, and control of windows.",
+      "image": "/projects/macropad.jpg",
+      "imageAlt": "Six-key illuminated custom macropad with visible circuit details",
+      "body": "A programmable macropad spanning hardware, firmware and fabrication. I designed and 3D-printed the enclosure, then used a Raspberry Pi Pico and CircuitPython to turn mechanical switches into configurable shortcuts, media controls and application commands.",
       "link": [
         {
           "href": "https://github.com/JeCFe/Custom-Marcopad",
@@ -40,16 +40,13 @@
         "3D Modeling",
         "3D Printing"
       ],
-      "improvements": [
-        "React site to allow better customisation / JSON generation"
-      ],
       "order": 1
     },
     {
-      "date": "Nov 2023 - Ongoing",
-      "type": "active",
       "heading": "Next Dotnet Auth0 Template",
-      "body": "A template to allow for a quick start for a full stack project that requires a Next.js TypeScript frontend and a C# .Net backend using Auth0 as the authorisation provider. This quick-start solution is established with authenticated APIs to the backend using Next.js middleware and server calls, as well as Eslint and Prettier rules to ensure code quality and consistent code styling across projects. CICD pipelines configured to ensure that the project is buildable, and has all tests (units and automation) passing both on PRs and on the main branch; once all tests pass on the main branch, there is a pipeline that handles automatic Azure deployment using ACR and ACA. ",
+      "image": "/projects/auth0-template.jpg",
+      "imageAlt": "Abstract secure application gateway connecting frontend and backend systems",
+      "body": "A production-minded starter for Next.js and .NET applications using Auth0. It includes authenticated server calls, shared quality rules, automated tests and CI/CD pipelines that deploy containers to Azure only after every check passes.",
       "link": [
         {
           "type": "web",
@@ -65,14 +62,13 @@
         }
       ],
       "pills": ["C#", "TypeScript", "Next.js", "Auth0", "Azure", "Cypress"],
-      "improvements": ["Continuous iterations and improvements"],
       "order": 2
     },
     {
-      "date": "Nov 2021 - Jan 2023",
       "heading": "Visualised Sorter",
-      "type": "maintain",
-      "body": "An adaptation of an early approach for a visualised sorter made using React. First iteration was made on this project as an introductory learning into React and JavaScript, with this new approach I have rewritten the code into TypeScript and Tailwind using best coding practices, striving for better abstractions and readability. Using signalling to allow the cancellation of the sorting animations mid-flow, was a major bug with the first iteration that was managed in the new one. Current support array sorting methods include Merge, Quick, Bubble, Heap, Insertion, and Selection sort, each one uses an array of render bars at different heights to sort with animations to show each step.",
+      "image": "/projects/visualised-sorter.jpg",
+      "imageAlt": "Luminous bars moving from an unsorted pattern into ascending order",
+      "body": "An interactive visualisation of six sorting algorithms, rebuilt in TypeScript with clearer abstractions and cancellable animations. It turns Merge, Quick, Bubble, Heap, Insertion and Selection sort into step-by-step visual sequences.",
       "link": [
         {
           "type": "web",
@@ -92,10 +88,10 @@
       "order": 3
     },
     {
-      "date": "Dec 2023 - Ongoing",
       "heading": "React Design System",
-      "type": "active",
-      "body": "An opinionated react based design system, using React, Tailwind, Class Variance Authority and Storybook. Design system set out to be adopted across personal projects, ideally to be an iterative approach where the design system is capable of changing to better fit future needs. Using Github Actions for CICD pipelines set to update the Storybook deployment when a PR is merged onto main, and package deployment whenever a new release is made.",
+      "image": "/projects/design-system.jpg",
+      "imageAlt": "Abstract collection of modular interface components and design tokens",
+      "body": "An accessible React design system built with Tailwind, Class Variance Authority and Storybook. Automated GitHub Actions publish Storybook on merge and release the package for reuse across projects.",
       "link": [
         {
           "type": "deployed",
@@ -117,18 +113,13 @@
         "Npm Package",
         "Tailwind"
       ],
-      "improvements": [
-        "Completing Github issues as they arise",
-        "Continuous iterations and improvements",
-        "Improved accessibility confirmed via automation testing"
-      ],
       "order": 4
     },
     {
-      "date": "May 2024 - Ongoing",
       "heading": "Book Repo",
-      "type": "active",
-      "body": "Book Repo, is an on going full stack project that aims to allow the management, organisation, and visualisation of a users book collection. With ability to track goals and user defined targets for book consumption, and to incorporate AI tools to recommend books based on a users existing library. This project is built utilising OpenLibrary public APIs, Azure for deployment and data storage, and Auth0 as an authorisation integration.",
+      "image": "/projects/book-repo.jpg",
+      "imageAlt": "Abstract digital library formed from books, glass panels and connected data points",
+      "body": "A full-stack product for organising and exploring a personal book collection, tracking reading goals and discovering recommendations. It combines Open Library data with Auth0 authentication and Azure-hosted application services and storage.",
       "link": [
         { "type": "web", "href": "https://book-repo.jessicafealy.dev" },
         { "type": "git", "href": "https://github.com/JeCFe/book-repo" }
@@ -144,7 +135,6 @@
         "C#",
         ".Net 8"
       ],
-      "improvements": ["Feature delivery is still ongoing"],
       "order": 5
     }
   ]
