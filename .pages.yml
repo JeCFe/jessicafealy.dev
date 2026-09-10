@@ -116,11 +116,6 @@ content:
             type: string
             required: true
             description: Use {name} where the proficiency name should appear.
-          - name: projectImageLoadingLabel
-            label: Project Image Loading Label
-            type: string
-            required: true
-            description: Use {name} where the project name should appear.
           - name: projectLinks
             label: Project Link Labels
             type: object

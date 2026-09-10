@@ -28,7 +28,6 @@
     "primaryNavigation": "Primary navigation",
     "opensInNewTab": "opens in a new tab",
     "proficiencyLinkLabel": "Learn more about {name}",
-    "projectImageLoadingLabel": "Loading image for {name}",
     "projectLinks": {
       "git": "View source code on GitHub",
       "web": "View live website",

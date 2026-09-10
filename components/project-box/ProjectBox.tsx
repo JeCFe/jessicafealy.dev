@@ -1,10 +1,7 @@
-"use client";
-
 import { Code, DeployedCode, Design, OpenWeb } from "@/assets";
 import { siteData } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { MarkdownContent, Pill } from "..";
 
 const customOrder = ["design", "deployed", "web", "git"];
@@ -51,8 +48,8 @@ export const ProjectBox = ({
   body,
   pills,
 }: ProjectBoxProps) => {
-  const [isImageLoading, setIsImageLoading] = useState(true);
-  const hasImage = typeof image === "string" && image.trim().length > 0;
+  const projectImage = image?.trim();
+  const hasImage = Boolean(projectImage);
   const usesWideImage = hasImage && imageLayout === "wide";
 
   return (
@@ -64,7 +61,7 @@ export const ProjectBox = ({
             : "grid-cols-1"
         }`}
       >
-        {hasImage ? (
+        {projectImage ? (
           <div
             className={`relative overflow-hidden border-b border-slate-700/70 ${
               usesWideImage
@@ -72,23 +69,8 @@ export const ProjectBox = ({
                 : "min-h-56 md:min-h-full md:border-b-0 md:border-r"
             }`}
           >
-            {isImageLoading ? (
-              <div
-                className="absolute inset-0 z-10 flex items-center justify-center bg-slate-950/70"
-                role="status"
-                aria-label={siteData.accessibility.projectImageLoadingLabel.replace(
-                  "{name}",
-                  heading,
-                )}
-              >
-                <span
-                  aria-hidden="true"
-                  className="h-8 w-8 animate-spin rounded-full border-2 border-slate-700 border-t-pink-400 motion-reduce:animate-none"
-                />
-              </div>
-            ) : null}
             <Image
-              src={image}
+              src={projectImage}
               alt={imageAlt ?? ""}
               fill
               loading="lazy"
@@ -97,11 +79,7 @@ export const ProjectBox = ({
                   ? "(min-width: 1024px) 760px, 100vw"
                   : "(min-width: 768px) 320px, 100vw"
               }
-              className={`object-cover object-center transition-opacity duration-300 ${
-                isImageLoading ? "opacity-0" : "opacity-100"
-              }`}
-              onLoad={() => setIsImageLoading(false)}
-              onError={() => setIsImageLoading(false)}
+              className="object-cover object-center"
             />
             <div
               aria-hidden="true"
