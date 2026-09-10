@@ -1,4 +1,5 @@
 import { siteData } from "@/data";
+import Link from "next/link";
 
 const NotFound = () => {
   return (
@@ -12,12 +13,12 @@ const NotFound = () => {
       <p className="mt-5 max-w-md text-lg leading-8 text-slate-400">
         {siteData.notFound.description}
       </p>
-      <a
+      <Link
         href="/"
         className="mt-8 rounded-full bg-cyan-300 px-6 py-3 font-semibold text-slate-950 transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
       >
         {siteData.notFound.linkLabel}
-      </a>
+      </Link>
     </main>
   );
 };

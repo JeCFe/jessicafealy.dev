@@ -23,15 +23,6 @@ content:
             label: Site Description
             type: text
             required: true
-      - name: analytics
-        label: Analytics
-        type: object
-        required: true
-        fields:
-          - name: domain
-            label: Plausible Domain
-            type: string
-            required: true
       - name: footer
         label: Footer
         type: object

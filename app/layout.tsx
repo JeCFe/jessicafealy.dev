@@ -1,6 +1,5 @@
 import { siteData } from "@/data";
 import type { Metadata } from "next";
-import PlausibleProvider from "next-plausible";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -31,14 +30,7 @@ const poppins = Poppins({
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
-      <head>
-        <PlausibleProvider
-          trackOutboundLinks
-          enabled
-          domain={siteData.analytics.domain}
-        />
-      </head>
+    <html lang="en" data-scroll-behavior="smooth">
       <body
         className={`${poppins.variable} min-h-screen flex-col font-poppins text-slate-200 antialiased`}
       >

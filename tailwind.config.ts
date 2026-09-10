@@ -17,6 +17,5 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("@codaworks/react-glow/tailwind")],
 };
 export default config;

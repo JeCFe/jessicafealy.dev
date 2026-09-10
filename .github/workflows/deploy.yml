@@ -15,18 +15,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - run: echo -e "\n//npm.pkg.github.com/:_authToken-${{ secrets.GITHUB_TOKEN }}" >> ./.npmrc
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "22"
 
       - name: Install dependencies
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm install
+        run: npm ci
 
       - name: Build with Next.js
         run: npm run build
