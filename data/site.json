@@ -27,6 +27,11 @@
     "backToTop": "Back to top",
     "toggleNavigation": "Toggle navigation menu",
     "closeNavigation": "Close navigation menu",
+    "mobileNavigation": "Mobile navigation",
+    "primaryNavigation": "Primary navigation",
+    "opensInNewTab": "opens in a new tab",
+    "proficiencyLinkLabel": "Learn more about {name}",
+    "projectImageLoadingLabel": "Loading image for {name}",
     "projectLinks": {
       "git": "View source code on GitHub",
       "web": "View live website",
@@ -36,6 +41,7 @@
     }
   },
   "notFound": {
+    "eyebrow": "Lost in the stack",
     "title": "404 - Not Found",
     "description": "The page you're looking for has moved or no longer exists.",
     "linkLabel": "Return home"

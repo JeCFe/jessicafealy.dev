@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center px-6 text-center text-slate-200">
       <p className="font-mono text-sm font-semibold uppercase tracking-[0.24em] text-pink-300">
-        Lost in the stack
+        {siteData.notFound.eyebrow}
       </p>
       <h1 className="mt-5 bg-gradient-to-r from-pink-300 to-cyan-300 bg-clip-text text-6xl font-semibold tracking-tight text-transparent md:text-8xl">
         {siteData.notFound.title}

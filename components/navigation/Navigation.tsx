@@ -185,7 +185,7 @@ export function Navigation({ currentId }: { currentId: PageId }) {
       </button>
       <nav
         id="mobile-nav"
-        aria-label="Mobile navigation"
+        aria-label={siteData.accessibility.mobileNavigation}
         aria-hidden={!isOpen}
         className={mobileNav({ isOpen })}
       >
@@ -194,7 +194,7 @@ export function Navigation({ currentId }: { currentId: PageId }) {
         </div>
       </nav>
       <nav
-        aria-label="Primary"
+        aria-label={siteData.accessibility.primaryNavigation}
         className="hidden items-start justify-center space-y-2 md:flex md:flex-col"
       >
         <NavItems currentId={currentId} handleClick={handleClick} />

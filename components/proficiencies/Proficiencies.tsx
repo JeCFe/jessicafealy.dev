@@ -1,4 +1,4 @@
-import { proficiencyData } from "@/data";
+import { proficiencyData, siteData } from "@/data";
 import Link from "next/link";
 import { proficiencyIcons, proficiencyLogo } from ".";
 import { PageId, SectionHeading } from "..";
@@ -22,7 +22,10 @@ export function Proficiencies({ id }: { id: PageId }) {
               key={`${proficiency.icon}-${proficiency.href}`}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Learn more about ${proficiency.name} (opens in a new tab)`}
+              aria-label={`${siteData.accessibility.proficiencyLinkLabel.replace(
+                "{name}",
+                proficiency.name,
+              )} (${siteData.accessibility.opensInNewTab})`}
               className="group flex min-h-20 items-center gap-3 rounded-2xl border border-slate-700/70 bg-slate-900/50 px-4 py-3 text-sm font-medium text-slate-300 transition-colors hover:border-cyan-400/60 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
             >
               <Icon

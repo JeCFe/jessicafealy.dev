@@ -77,7 +77,10 @@ export function ProjectBox({
               <div
                 className="absolute inset-0 z-10 flex items-center justify-center bg-slate-950/70"
                 role="status"
-                aria-label={`Loading image for ${heading}`}
+                aria-label={siteData.accessibility.projectImageLoadingLabel.replace(
+                  "{name}",
+                  heading,
+                )}
               >
                 <span
                   aria-hidden="true"
@@ -131,7 +134,7 @@ export function ProjectBox({
                     href={projectLink.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${label} (opens in a new tab)`}
+                    aria-label={`${label} (${siteData.accessibility.opensInNewTab})`}
                     title={label}
                     className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-cyan-300 transition-colors hover:border-cyan-300 hover:bg-cyan-300 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
                   >

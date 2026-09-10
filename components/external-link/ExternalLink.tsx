@@ -1,3 +1,4 @@
+import { siteData } from "@/data";
 import { AnchorHTMLAttributes, ReactNode } from "react";
 
 type ExternalLinkProps = Omit<
@@ -40,7 +41,7 @@ export function ExternalLink({
           <path d="M6 5h5v5" />
         </svg>
       ) : null}
-      <span className="sr-only"> (opens in a new tab)</span>
+      <span className="sr-only"> ({siteData.accessibility.opensInNewTab})</span>
     </a>
   );
 }

@@ -108,6 +108,28 @@ content:
             label: Close Navigation
             type: string
             required: true
+          - name: mobileNavigation
+            label: Mobile Navigation
+            type: string
+            required: true
+          - name: primaryNavigation
+            label: Primary Navigation
+            type: string
+            required: true
+          - name: opensInNewTab
+            label: Opens in a New Tab
+            type: string
+            required: true
+          - name: proficiencyLinkLabel
+            label: Proficiency Link Label
+            type: string
+            required: true
+            description: Use {name} where the proficiency name should appear.
+          - name: projectImageLoadingLabel
+            label: Project Image Loading Label
+            type: string
+            required: true
+            description: Use {name} where the project name should appear.
           - name: projectLinks
             label: Project Link Labels
             type: object
@@ -136,19 +158,27 @@ content:
       - name: notFound
         label: Not-found Page
         type: object
+        required: true
         fields:
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+            required: true
           - name: title
             label: Heading
             type: string
+            required: true
           - name: description
             label: Description
             type: rich-text
+            required: true
             options:
               format: markdown
               media: false
           - name: linkLabel
             label: Home Link Label
             type: string
+            required: true
 
   - name: about
     label: About
