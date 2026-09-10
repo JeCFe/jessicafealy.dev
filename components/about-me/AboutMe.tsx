@@ -1,6 +1,5 @@
-import { MarkdownContent } from "@/components/markdown-content";
 import { aboutData } from "@/data";
-import { PageId, SectionHeading } from "..";
+import { MarkdownContent, PageId, SectionHeading } from "..";
 
 export const AboutMe = ({ id }: { id: PageId }) => {
   return (

@@ -1,5 +1,4 @@
-import { MarkdownContent } from "@/components/markdown-content";
-import { ExternalLink, Pill } from "..";
+import { ExternalLink, MarkdownContent, Pill } from "..";
 
 export type ExperienceProps = {
   jobTitle: string;

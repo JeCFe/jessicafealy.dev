@@ -1,6 +1,6 @@
-import { ExternalLink } from "@/components/external-link";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { ExternalLink } from "..";
 
 type MarkdownContentVariant = "body" | "introduction" | "project" | "inline";
 

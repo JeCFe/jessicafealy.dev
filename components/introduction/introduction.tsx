@@ -1,9 +1,8 @@
 import { Github } from "@/assets";
-import { MarkdownContent } from "@/components/markdown-content";
 import { siteData } from "@/data";
-import { ExternalLink, Navigation, PageId } from "..";
+import { ExternalLink, MarkdownContent, Navigation } from "..";
 
-export const Introduction = ({ currentId }: { currentId: PageId }) => {
+export const Introduction = () => {
   return (
     <header className="top-0 flex flex-col pt-20 lg:sticky lg:h-screen lg:py-24">
       <div className="flex flex-col">
@@ -42,7 +41,7 @@ export const Introduction = ({ currentId }: { currentId: PageId }) => {
           </ExternalLink>
         </div>
       </div>
-      <Navigation currentId={currentId} />
+      <Navigation />
     </header>
   );
 };

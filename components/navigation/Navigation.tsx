@@ -1,14 +1,17 @@
+"use client";
+
 import { navData, siteData } from "@/data";
 import { ArrowUp } from "@jecfe/react-design-system";
 import { cva } from "class-variance-authority";
 import { useEffect, useState } from "react";
+import type { PageId } from "..";
 
-export type PageId =
-  | "about"
-  | "proficiencies"
-  | "experience"
-  | "absolute"
-  | "projects";
+const sectionIds: PageId[] = [
+  "about",
+  "proficiencies",
+  "experience",
+  "projects",
+];
 
 const navLink = cva(
   "h-px w-6 bg-slate-600 transition-all duration-300 group-hover:w-10 group-hover:bg-cyan-300",
@@ -113,8 +116,34 @@ const NavItems = ({
   );
 };
 
-export const Navigation = ({ currentId }: { currentId: PageId }) => {
+export const Navigation = () => {
+  const [currentId, setCurrentId] = useState<PageId>("absolute");
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      let currentActiveSection: PageId | null = null;
+
+      sectionIds.forEach((id) => {
+        const element = document.getElementById(id);
+        if (!element) return;
+
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 150 && rect.bottom >= 0) {
+          currentActiveSection = id;
+        }
+      });
+
+      if (currentActiveSection !== null) {
+        setCurrentId(currentActiveSection);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return;

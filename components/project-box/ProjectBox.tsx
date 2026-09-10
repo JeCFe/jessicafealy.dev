@@ -1,12 +1,11 @@
 "use client";
 
 import { Code, DeployedCode, Design, OpenWeb } from "@/assets";
-import { MarkdownContent } from "@/components/markdown-content";
 import { siteData } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Pill } from "..";
+import { MarkdownContent, Pill } from "..";
 
 const customOrder = ["design", "deployed", "web", "git"];
 
