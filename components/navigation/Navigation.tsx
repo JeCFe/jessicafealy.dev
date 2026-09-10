@@ -5,6 +5,7 @@ import { cva } from "class-variance-authority";
 import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { PageId } from "..";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
 
 const sectionIds: PageId[] = [
   "about",
@@ -19,18 +20,6 @@ const navLink = cva(
     variants: {
       active: {
         true: "w-10 bg-cyan-300",
-      },
-    },
-  },
-);
-
-const mobileNav = cva(
-  "fixed inset-0 z-20 overflow-y-auto bg-slate-950/95 px-5 pb-8 pt-28 backdrop-blur transition-opacity duration-200 md:hidden",
-  {
-    variants: {
-      isOpen: {
-        true: "visible opacity-100",
-        false: "pointer-events-none invisible opacity-0",
       },
     },
   },
@@ -146,20 +135,16 @@ export const Navigation = () => {
   }, []);
 
   useEffect(() => {
-    if (!isOpen) return;
-
-    const previousOverflow = document.body.style.overflow;
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setIsOpen(false);
+    const desktopQuery = window.matchMedia("(min-width: 768px)");
+    const closeOnDesktop = () => {
+      if (desktopQuery.matches) setIsOpen(false);
     };
 
-    document.body.style.overflow = "hidden";
-    document.addEventListener("keydown", handleEscape);
+    desktopQuery.addEventListener("change", closeOnDesktop);
     return () => {
-      document.body.style.overflow = previousOverflow;
-      document.removeEventListener("keydown", handleEscape);
+      desktopQuery.removeEventListener("change", closeOnDesktop);
     };
-  }, [isOpen]);
+  }, []);
 
   const handleClick = (id: PageId) => {
     const element = document.getElementById(id);
@@ -183,45 +168,50 @@ export const Navigation = () => {
       >
         <ArrowUp aria-hidden="true" className="text-cyan-500" />
       </button>
-      <button
-        aria-expanded={isOpen}
-        aria-controls="mobile-nav"
-        aria-label={
-          isOpen
-            ? siteData.accessibility.closeNavigation
-            : siteData.accessibility.toggleNavigation
-        }
-        className="group fixed left-5 top-5 z-30 flex h-12 w-12 cursor-pointer items-center justify-center rounded-xl border border-slate-800 bg-slate-950/90 backdrop-blur focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 md:hidden"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <span aria-hidden="true" className="relative block h-5 w-6">
-          <span
-            className={`absolute left-0 top-0 h-0.5 w-6 bg-slate-200 transition-transform ${
-              isOpen ? "translate-y-[9px] rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`absolute left-0 top-[9px] h-0.5 w-6 bg-slate-200 transition-opacity ${
-              isOpen ? "opacity-0" : "opacity-100"
-            }`}
-          />
-          <span
-            className={`absolute bottom-0 left-0 h-0.5 w-6 bg-slate-200 transition-transform ${
-              isOpen ? "-translate-y-[9px] -rotate-45" : ""
-            }`}
-          />
-        </span>
-      </button>
-      <nav
-        id="mobile-nav"
-        aria-label={siteData.accessibility.mobileNavigation}
-        aria-hidden={!isOpen}
-        className={mobileNav({ isOpen })}
-      >
-        <div className="flex w-full max-w-md flex-col gap-3">
-          <NavItems currentId={currentId} handleClick={handleClick} mobile />
-        </div>
-      </nav>
+      <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <SheetTrigger asChild>
+          <button
+            aria-label={
+              isOpen
+                ? siteData.accessibility.closeNavigation
+                : siteData.accessibility.toggleNavigation
+            }
+            className="group fixed left-5 top-5 z-30 flex h-12 w-12 cursor-pointer items-center justify-center rounded-xl border border-slate-800 bg-slate-950/90 backdrop-blur focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 md:hidden"
+          >
+            <span aria-hidden="true" className="relative block h-5 w-6">
+              <span
+                className={`absolute left-0 top-0 h-0.5 w-6 bg-slate-200 transition-transform ${
+                  isOpen ? "translate-y-[9px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-[9px] h-0.5 w-6 bg-slate-200 transition-opacity ${
+                  isOpen ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`absolute bottom-0 left-0 h-0.5 w-6 bg-slate-200 transition-transform ${
+                  isOpen ? "-translate-y-[9px] -rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
+        </SheetTrigger>
+        <SheetContent className="px-5 pb-8 pt-28 md:hidden">
+          <SheetTitle className="sr-only">
+            {siteData.accessibility.mobileNavigation}
+          </SheetTitle>
+          <nav aria-label={siteData.accessibility.mobileNavigation}>
+            <div className="flex w-full max-w-md flex-col gap-3">
+              <NavItems
+                currentId={currentId}
+                handleClick={handleClick}
+                mobile
+              />
+            </div>
+          </nav>
+        </SheetContent>
+      </Sheet>
       <nav
         aria-label={siteData.accessibility.primaryNavigation}
         className="hidden items-start justify-center space-y-2 md:flex md:flex-col"
