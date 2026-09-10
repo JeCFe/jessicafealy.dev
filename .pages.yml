@@ -13,122 +13,126 @@ content:
       - name: metadata
         label: Search and Browser Metadata
         type: object
+        required: true
         fields:
           - name: title
             label: Site Title
             type: string
+            required: true
           - name: description
             label: Site Description
             type: text
+            required: true
       - name: analytics
         label: Analytics
         type: object
+        required: true
         fields:
           - name: domain
             label: Plausible Domain
             type: string
+            required: true
+      - name: footer
+        label: Footer
+        type: object
+        required: true
+        fields:
+          - name: copyrightName
+            label: Copyright Name
+            type: string
+            required: true
       - name: hero
         label: Introduction
         type: object
+        required: true
         fields:
           - name: name
             label: Name
             type: string
+            required: true
           - name: role
             label: Role
             type: string
+            required: true
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+            required: true
           - name: summary
             label: Summary
             type: rich-text
+            required: true
             options:
               format: markdown
               media: false
-      - name: socialLinks
-        label: Social Links
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{platform}"
-        fields:
-          - name: platform
-            label: Platform
-            type: select
-            options:
-              values:
-                - name: github
-                  label: GitHub
-                - name: linkedin
-                  label: LinkedIn
-          - name: href
-            label: Profile URL
-            type: string
-          - name: label
-            label: Accessible Link Label
-            type: string
-          - name: iconAlt
-            label: Icon Alt Text
-            type: string
-      - name: projectStatusDescriptions
-        label: Project Status Descriptions
-        type: object
-        fields:
-          - name: active
-            label: Active
-            type: rich-text
-            options:
-              format: markdown
-              media: false
-          - name: maintain
-            label: Maintenance Only
-            type: rich-text
-            options:
-              format: markdown
-              media: false
-          - name: paused
-            label: Paused
-            type: rich-text
-            options:
-              format: markdown
-              media: false
-          - name: closed
-            label: Closed
-            type: rich-text
-            options:
-              format: markdown
-              media: false
+          - name: secondaryAction
+            label: Secondary Action
+            type: object
+            required: true
+            fields:
+              - name: label
+                label: Label
+                type: string
+                required: true
+              - name: href
+                label: URL
+                type: string
+                required: true
+          - name: tertiaryAction
+            label: Tertiary Action
+            type: object
+            required: true
+            fields:
+              - name: label
+                label: Label
+                type: string
+                required: true
+              - name: href
+                label: URL
+                type: string
+                required: true
       - name: accessibility
         label: Accessibility Labels
         type: object
+        required: true
         fields:
           - name: backToTop
             label: Back-to-top Button
             type: string
+            required: true
           - name: toggleNavigation
             label: Navigation Toggle
             type: string
-          - name: toggleImprovements
-            label: Improvements Toggle
+            required: true
+          - name: closeNavigation
+            label: Close Navigation
             type: string
+            required: true
           - name: projectLinks
             label: Project Link Labels
             type: object
+            required: true
             fields:
               - name: git
                 label: Source Code
                 type: string
+                required: true
               - name: web
                 label: Website
                 type: string
+                required: true
               - name: deployed
                 label: Deployed Package
                 type: string
+                required: true
               - name: design
                 label: Design
                 type: string
+                required: true
               - name: fallback
                 label: Other Link
                 type: string
+                required: true
       - name: notFound
         label: Not-found Page
         type: object
@@ -282,6 +286,7 @@ content:
       - name: heading
         label: Heading
         type: string
+        required: true
       - name: items
         label: Projects
         type: object
@@ -293,32 +298,35 @@ content:
           - name: heading
             label: Name
             type: string
-          - name: date
-            label: Dates
+            required: true
+          - name: image
+            label: Project Image
+            type: image
+            description: Optional. Use a screenshot or other representative image.
+          - name: imageAlt
+            label: Project Image Alt Text
             type: string
-            description: A display range such as “Nov 2023 - Ongoing”.
-          - name: type
-            label: Status
+            description: Required when a project image is set.
+          - name: imageLayout
+            label: Image Layout
             type: select
             options:
               values:
-                - name: active
-                  label: Active
-                - name: maintain
-                  label: Maintenance Only
-                - name: paused
-                  label: Paused
-                - name: closed
-                  label: Closed
+                - name: side
+                  label: Side-by-side
+                - name: wide
+                  label: Full-width
           - name: body
             label: Description
             type: rich-text
+            required: true
             options:
               format: markdown
               media: false
           - name: link
             label: Links
             type: object
+            required: true
             list:
               collapsible:
                 collapsed: true
@@ -327,6 +335,7 @@ content:
               - name: type
                 label: Link Type
                 type: select
+                required: true
                 options:
                   values:
                     - name: design
@@ -340,18 +349,13 @@ content:
               - name: href
                 label: URL
                 type: string
+                required: true
           - name: pills
             label: Technologies
             type: string
             list: true
-          - name: improvements
-            label: Planned Improvements
-            type: rich-text
-            list: true
-            options:
-              format: markdown
-              media: false
           - name: order
             label: Display Order
             type: number
+            required: true
             description: Higher numbers are shown first.
