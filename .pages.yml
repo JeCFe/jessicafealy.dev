@@ -241,23 +241,31 @@ content:
           - name: jobTitle
             label: Job Title
             type: string
+            required: true
           - name: jobLink
             label: Employer
             type: object
+            required: true
             fields:
               - name: name
                 label: Name
                 type: string
+                required: true
               - name: href
                 label: Website URL
                 type: string
+                required: true
           - name: date
             label: Dates
             type: string
+            required: true
             description: A display range such as “Apr 2025 - Present”.
-          - name: body
-            label: Description
+          - name: highlights
+            label: Highlights
             type: rich-text
+            list: true
+            required: true
+            description: Each item becomes one bullet point. Markdown is supported.
             options:
               format: markdown
               media: false
