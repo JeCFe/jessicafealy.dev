@@ -3,7 +3,7 @@
 import { navData, siteData } from "@/data";
 import { cva } from "class-variance-authority";
 import { ArrowUp } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { PageId } from "..";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
 
@@ -13,6 +13,13 @@ const sectionIds: PageId[] = [
   "experience",
   "projects",
 ];
+
+const pageIds: PageId[] = ["absolute", ...sectionIds];
+
+const getPageIdFromHash = (hash: string) => {
+  const id = hash.slice(1);
+  return pageIds.find((pageId) => pageId === id);
+};
 
 const navLink = cva(
   "h-px w-6 bg-slate-600 transition-all duration-300 group-hover:w-10 group-hover:bg-cyan-300",
@@ -109,6 +116,14 @@ export const Navigation = () => {
   const [currentId, setCurrentId] = useState<PageId>("absolute");
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  const scrollToSection = useCallback((id: PageId, behavior: ScrollBehavior) => {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    element.scrollIntoView({ behavior });
+    setCurrentId(id);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       let currentActiveSection: PageId | null = null;
@@ -125,6 +140,8 @@ export const Navigation = () => {
 
       if (currentActiveSection !== null) {
         setCurrentId(currentActiveSection);
+      } else if (window.scrollY < 150) {
+        setCurrentId("absolute");
       }
     };
 
@@ -133,6 +150,21 @@ export const Navigation = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    const scrollToHash = () => {
+      const id = getPageIdFromHash(window.location.hash);
+      if (id) scrollToSection(id, "auto");
+    };
+
+    scrollToHash();
+    window.addEventListener("hashchange", scrollToHash);
+    window.addEventListener("popstate", scrollToHash);
+    return () => {
+      window.removeEventListener("hashchange", scrollToHash);
+      window.removeEventListener("popstate", scrollToHash);
+    };
+  }, [scrollToSection]);
 
   useEffect(() => {
     const desktopQuery = window.matchMedia("(min-width: 768px)");
@@ -146,16 +178,21 @@ export const Navigation = () => {
     };
   }, []);
 
-  const handleClick = (id: PageId) => {
-    const element = document.getElementById(id);
-    if (element) {
+  const handleClick = useCallback(
+    (id: PageId) => {
       const reduceMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches;
-      element.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+      scrollToSection(id, reduceMotion ? "auto" : "smooth");
+
+      if (window.location.hash !== `#${id}`) {
+        window.history.pushState(null, "", `#${id}`);
+      }
+
       setIsOpen(false);
-    }
-  };
+    },
+    [scrollToSection],
+  );
 
   return (
     <div className="my-4 md:mt-16">
