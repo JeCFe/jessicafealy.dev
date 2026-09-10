@@ -52,7 +52,7 @@ type NavItem = {
 
 const navItems: NavItem[] = navData as NavItem[]; // Need actual type guarding / checking
 
-function NavItems({
+const NavItems = ({
   currentId,
   handleClick,
   mobile = false,
@@ -60,7 +60,7 @@ function NavItems({
   currentId: PageId;
   handleClick: (id: PageId) => void;
   mobile?: boolean;
-}) {
+}) => {
   return (
     <>
       {navItems.map((x, index) => {
@@ -111,9 +111,9 @@ function NavItems({
       })}
     </>
   );
-}
+};
 
-export function Navigation({ currentId }: { currentId: PageId }) {
+export const Navigation = ({ currentId }: { currentId: PageId }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -201,4 +201,4 @@ export function Navigation({ currentId }: { currentId: PageId }) {
       </nav>
     </div>
   );
-}
+};

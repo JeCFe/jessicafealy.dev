@@ -10,13 +10,13 @@ type ExternalLinkProps = Omit<
   showArrow?: boolean;
 };
 
-export function ExternalLink({
+export const ExternalLink = ({
   href,
   children,
   className = "",
   showArrow = true,
   ...props
-}: ExternalLinkProps) {
+}: ExternalLinkProps) => {
   return (
     <a
       href={href}
@@ -44,4 +44,4 @@ export function ExternalLink({
       <span className="sr-only"> ({siteData.accessibility.opensInNewTab})</span>
     </a>
   );
-}
+};

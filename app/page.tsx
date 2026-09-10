@@ -13,7 +13,7 @@ import { Project } from "@/components/projects";
 import { siteData } from "@/data";
 import { useEffect, useState } from "react";
 
-export default function Home() {
+const Home = () => {
   const [activeSection, setActiveSection] = useState<PageId>("absolute");
 
   useEffect(() => {
@@ -78,4 +78,6 @@ export default function Home() {
       </main>
     </div>
   );
-}
+};
+
+export default Home;

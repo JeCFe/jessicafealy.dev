@@ -1,7 +1,7 @@
 import { experienceData } from "@/data";
 import { ExperienceBox, ExperienceProps, PageId, SectionHeading } from "..";
 
-export function Experience({ id }: { id: PageId }) {
+export const Experience = ({ id }: { id: PageId }) => {
   const data: ExperienceProps[] = experienceData.items;
 
   return (
@@ -14,4 +14,4 @@ export function Experience({ id }: { id: PageId }) {
       </div>
     </section>
   );
-}
+};

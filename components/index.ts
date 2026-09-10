@@ -3,6 +3,7 @@ export * from "./experience-box";
 export * from "./external-link";
 export * from "./introduction";
 export * from "./jecfe";
+export * from "./markdown-content";
 export * from "./navigation";
 export * from "./pill";
 export * from "./proficiencies";

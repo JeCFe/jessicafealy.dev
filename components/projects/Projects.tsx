@@ -1,7 +1,7 @@
 import { projectData } from "@/data";
 import { PageId, ProjectBox, ProjectBoxProps, SectionHeading } from "..";
 
-export function Project({ id }: { id: PageId }) {
+export const Project = ({ id }: { id: PageId }) => {
   const data: ProjectBoxProps[] = projectData.items as ProjectBoxProps[];
 
   return (
@@ -16,4 +16,4 @@ export function Project({ id }: { id: PageId }) {
       </div>
     </section>
   );
-}
+};

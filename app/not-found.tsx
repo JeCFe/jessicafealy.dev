@@ -1,6 +1,6 @@
 import { siteData } from "@/data";
 
-export default function NotFound() {
+const NotFound = () => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center px-6 text-center text-slate-200">
       <p className="font-mono text-sm font-semibold uppercase tracking-[0.24em] text-pink-300">
@@ -20,4 +20,6 @@ export default function NotFound() {
       </a>
     </main>
   );
-}
+};
+
+export default NotFound;

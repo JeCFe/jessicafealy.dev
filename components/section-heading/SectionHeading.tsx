@@ -1,10 +1,10 @@
-export function SectionHeading({
+export const SectionHeading = ({
   eyebrow,
   children,
 }: {
   eyebrow: string;
   children: React.ReactNode;
-}) {
+}) => {
   return (
     <div className="mb-8 flex items-center gap-4">
       <span className="font-mono text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300">
@@ -16,4 +16,4 @@ export function SectionHeading({
       </h2>
     </div>
   );
-}
+};

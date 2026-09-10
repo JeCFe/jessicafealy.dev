@@ -1,4 +1,4 @@
-import Markdown from "react-markdown";
+import { MarkdownContent } from "@/components/markdown-content";
 import { ExternalLink, Pill } from "..";
 
 export type ExperienceProps = {
@@ -12,13 +12,13 @@ export type ExperienceProps = {
   pills?: string[];
 };
 
-export function ExperienceBox({
+export const ExperienceBox = ({
   jobLink,
   jobTitle,
   date,
   highlights,
   pills,
-}: ExperienceProps) {
+}: ExperienceProps) => {
   return (
     <article className="relative border-l border-slate-700 pl-7 sm:pl-9">
       <div className="absolute -left-[5px] top-2 h-[9px] w-[9px] rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(103,232,249,0.8)]" />
@@ -42,27 +42,11 @@ export function ExperienceBox({
       <ul className="mt-6 space-y-3 text-base leading-7 text-slate-400">
         {highlights.map((highlight) => (
           <li className="relative pl-5" key={highlight}>
-            <span aria-hidden="true" className="absolute left-0 top-3 h-1 w-1 rounded-full bg-pink-400" />
-            <Markdown
-              components={{
-                p: ({ children }) => <span>{children}</span>,
-                strong: ({ children }) => (
-                  <strong className="font-semibold text-slate-100">
-                    {children}
-                  </strong>
-                ),
-                a: ({ href, children }) => (
-                  <ExternalLink
-                    href={href ?? "#"}
-                    className="font-semibold text-cyan-200"
-                  >
-                    {children}
-                  </ExternalLink>
-                ),
-              }}
-            >
-              {highlight}
-            </Markdown>
+            <span
+              aria-hidden="true"
+              className="absolute left-0 top-3 h-1 w-1 rounded-full bg-pink-400"
+            />
+            <MarkdownContent content={highlight} variant="inline" />
           </li>
         ))}
       </ul>
@@ -71,4 +55,4 @@ export function ExperienceBox({
       </div>
     </article>
   );
-}
+};

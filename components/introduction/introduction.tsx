@@ -1,9 +1,9 @@
 import { Github } from "@/assets";
+import { MarkdownContent } from "@/components/markdown-content";
 import { siteData } from "@/data";
-import Markdown from "react-markdown";
 import { ExternalLink, Navigation, PageId } from "..";
 
-export function Introduction({ currentId }: { currentId: PageId }) {
+export const Introduction = ({ currentId }: { currentId: PageId }) => {
   return (
     <header className="top-0 flex flex-col pt-20 lg:sticky lg:h-screen lg:py-24">
       <div className="flex flex-col">
@@ -16,22 +16,10 @@ export function Introduction({ currentId }: { currentId: PageId }) {
         <h2 className="mt-5 text-xl font-medium tracking-tight text-slate-200 sm:text-2xl">
           {siteData.hero.role}
         </h2>
-        <Markdown
-          components={{
-            p: ({ children }) => (
-              <p className="mt-5 max-w-md text-base leading-7 text-slate-400 sm:text-lg">
-                {children}
-              </p>
-            ),
-            strong: ({ children }) => (
-              <strong className="font-semibold text-slate-100">
-                {children}
-              </strong>
-            ),
-          }}
-        >
-          {siteData.hero.summary}
-        </Markdown>
+        <MarkdownContent
+          content={siteData.hero.summary}
+          variant="introduction"
+        />
         <div className="mt-8 flex flex-wrap gap-3">
           <ExternalLink
             href={siteData.hero.tertiaryAction.href}
@@ -57,4 +45,4 @@ export function Introduction({ currentId }: { currentId: PageId }) {
       <Navigation currentId={currentId} />
     </header>
   );
-}
+};

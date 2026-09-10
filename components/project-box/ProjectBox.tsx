@@ -1,12 +1,12 @@
 "use client";
 
 import { Code, DeployedCode, Design, OpenWeb } from "@/assets";
+import { MarkdownContent } from "@/components/markdown-content";
 import { siteData } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import Markdown from "react-markdown";
-import { ExternalLink, Pill } from "..";
+import { Pill } from "..";
 
 const customOrder = ["design", "deployed", "web", "git"];
 
@@ -15,12 +15,12 @@ type ProjectLink = {
   type: string;
 };
 
-function compareString(a: ProjectLink, b: ProjectLink) {
+const compareString = (a: ProjectLink, b: ProjectLink) => {
   const indexA = customOrder.indexOf(a.type);
   const indexB = customOrder.indexOf(b.type);
   if (indexA === -1 || indexB === -1) return 0;
   return indexA - indexB;
-}
+};
 
 const projectLinkLabels: Record<string, string> =
   siteData.accessibility.projectLinks;
@@ -43,7 +43,7 @@ export type ProjectBoxProps = {
   order: number;
 };
 
-export function ProjectBox({
+export const ProjectBox = ({
   heading,
   link,
   image,
@@ -51,7 +51,7 @@ export function ProjectBox({
   imageLayout = "side",
   body,
   pills,
-}: ProjectBoxProps) {
+}: ProjectBoxProps) => {
   const [isImageLoading, setIsImageLoading] = useState(true);
   const hasImage = typeof image === "string" && image.trim().length > 0;
   const usesWideImage = hasImage && imageLayout === "wide";
@@ -145,30 +145,7 @@ export function ProjectBox({
             </div>
           </div>
 
-          <Markdown
-            components={{
-              p: ({ children }) => (
-                <p className="mt-4 text-sm leading-7 text-slate-400 sm:text-base">
-                  {children}
-                </p>
-              ),
-              strong: ({ children }) => (
-                <strong className="font-semibold text-slate-100">
-                  {children}
-                </strong>
-              ),
-              a: ({ href, children }) => (
-                <ExternalLink
-                  href={href ?? "#"}
-                  className="font-semibold text-cyan-200"
-                >
-                  {children}
-                </ExternalLink>
-              ),
-            }}
-          >
-            {body}
-          </Markdown>
+          <MarkdownContent content={body} variant="project" />
 
           <div className="mt-6 flex flex-wrap gap-2">
             {pills?.map((pill) => <Pill key={pill}>{pill}</Pill>)}
@@ -177,4 +154,4 @@ export function ProjectBox({
       </div>
     </article>
   );
-}
+};

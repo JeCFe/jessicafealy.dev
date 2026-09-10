@@ -3,7 +3,7 @@ import Link from "next/link";
 import { proficiencyIcons, proficiencyLogo } from ".";
 import { PageId, SectionHeading } from "..";
 
-export function Proficiencies({ id }: { id: PageId }) {
+export const Proficiencies = ({ id }: { id: PageId }) => {
   return (
     <section className="mt-24 scroll-mt-24" id={id}>
       <SectionHeading eyebrow="02">{proficiencyData.heading}</SectionHeading>
@@ -44,4 +44,4 @@ export function Proficiencies({ id }: { id: PageId }) {
       </div>
     </section>
   );
-}
+};

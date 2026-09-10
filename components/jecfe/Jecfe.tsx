@@ -1,6 +1,6 @@
 import { JcfeLogoWhite } from "@/assets";
 
-export function Jecfe() {
+export const Jecfe = () => {
   return (
     <div className="pointer-events-none absolute right-6 top-6 z-10 opacity-70 sm:right-8 sm:top-8">
       <JcfeLogoWhite
@@ -12,4 +12,4 @@ export function Jecfe() {
       />
     </div>
   );
-}
+};
