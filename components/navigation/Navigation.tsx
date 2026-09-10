@@ -1,8 +1,8 @@
 "use client";
 
 import { navData, siteData } from "@/data";
-import { ArrowUp } from "@jecfe/react-design-system";
 import { cva } from "class-variance-authority";
+import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { PageId } from "..";
 
@@ -181,7 +181,7 @@ export const Navigation = () => {
         })}
         onClick={() => handleClick("absolute")}
       >
-        <ArrowUp aria-hidden="true" className="fill-cyan-500" />
+        <ArrowUp aria-hidden="true" className="text-cyan-500" />
       </button>
       <button
         aria-expanded={isOpen}
