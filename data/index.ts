@@ -8,6 +8,7 @@ const navData = [
   { text: aboutData.heading, id: "about" },
   { text: proficiencyData.heading, id: "proficiencies" },
   { text: experienceData.heading, id: "experience" },
+  { text: "Professional Projects", id: "professional-projects" },
   { text: projectData.heading, id: "projects" },
 ];
 

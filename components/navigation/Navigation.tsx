@@ -11,6 +11,7 @@ const sectionIds: PageId[] = [
   "about",
   "proficiencies",
   "experience",
+  "professional-projects",
   "projects",
 ];
 
@@ -49,20 +50,20 @@ type NavItem = {
   id: PageId;
 };
 
-const navItems: NavItem[] = navData as NavItem[]; // Need actual type guarding / checking
-
 const NavItems = ({
+  items,
   currentId,
   handleClick,
   mobile = false,
 }: {
+  items: NavItem[];
   currentId: PageId;
   handleClick: (id: PageId) => void;
   mobile?: boolean;
 }) => {
   return (
     <>
-      {navItems.map((x, index) => {
+      {items.map((x, index) => {
         const isActive = currentId === x.id;
 
         return (
@@ -112,17 +113,27 @@ const NavItems = ({
   );
 };
 
-export const Navigation = () => {
+export const Navigation = ({
+  hasProfessionalProjects,
+}: {
+  hasProfessionalProjects: boolean;
+}) => {
   const [currentId, setCurrentId] = useState<PageId>("absolute");
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const navItems = (navData as NavItem[]).filter(
+    ({ id }) => id !== "professional-projects" || hasProfessionalProjects,
+  );
 
-  const scrollToSection = useCallback((id: PageId, behavior: ScrollBehavior) => {
-    const element = document.getElementById(id);
-    if (!element) return;
+  const scrollToSection = useCallback(
+    (id: PageId, behavior: ScrollBehavior) => {
+      const element = document.getElementById(id);
+      if (!element) return;
 
-    element.scrollIntoView({ behavior });
-    setCurrentId(id);
-  }, []);
+      element.scrollIntoView({ behavior });
+      setCurrentId(id);
+    },
+    [],
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -241,6 +252,7 @@ export const Navigation = () => {
           <nav aria-label={siteData.accessibility.mobileNavigation}>
             <div className="flex w-full max-w-md flex-col gap-3">
               <NavItems
+                items={navItems}
                 currentId={currentId}
                 handleClick={handleClick}
                 mobile
@@ -253,7 +265,11 @@ export const Navigation = () => {
         aria-label={siteData.accessibility.primaryNavigation}
         className="hidden items-start justify-center space-y-2 md:flex md:flex-col"
       >
-        <NavItems currentId={currentId} handleClick={handleClick} />
+        <NavItems
+          items={navItems}
+          currentId={currentId}
+          handleClick={handleClick}
+        />
       </nav>
     </div>
   );

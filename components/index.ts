@@ -8,9 +8,11 @@ import { Jecfe } from "./jecfe";
 import { MarkdownContent } from "./markdown-content";
 import { Navigation } from "./navigation";
 import { Pill } from "./pill";
+import { ProfessionalProjects } from "./professional-projects";
 import { Proficiencies } from "./proficiencies";
 import { ProjectBox } from "./project-box";
 import type { ProjectBoxProps } from "./project-box/ProjectBox";
+import { ProjectContent } from "./project-content";
 import { Project } from "./projects";
 import { SectionHeading } from "./section-heading";
 
@@ -25,9 +27,11 @@ export {
   MarkdownContent,
   Navigation,
   Pill,
+  ProfessionalProjects,
   Proficiencies,
   Project,
   ProjectBox,
+  ProjectContent,
   SectionHeading,
 };
 export type { ExperienceProps, ProjectBoxProps };

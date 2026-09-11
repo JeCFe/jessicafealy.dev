@@ -3,4 +3,5 @@ export type PageId =
   | "proficiencies"
   | "experience"
   | "absolute"
+  | "professional-projects"
   | "projects";

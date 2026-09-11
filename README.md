@@ -18,9 +18,23 @@ Pages CMS is configured in [`.pages.yml`](.pages.yml). It exposes the site conte
 
 - `site.json` for navigation, accessibility labels, and global copy.
 - `about.json`, `proficiencies.json`, and `experience.json` for homepage sections.
-- `projects.json` for professional projects and the featured-project carousel.
+- `projects.json` for personal projects.
+- `professional-projects/` for professional-project carousel entries and write-ups.
 
-Images uploaded through Pages CMS are saved in `public/images/` and referenced in content as `/images/<filename>`. Other static assets can live under `public/` and are referenced from the site with their public path.
+Images uploaded through Pages CMS are saved in `public/images/`. Videos are saved in `public/videos/`. Both are referenced from content using their public paths.
+
+### Professional projects
+
+Create a Professional Project entry in Pages CMS, then fill in its title, URL slug and carousel summary. New entries default to draft.
+
+- Set the status to Published to include the project in the built site.
+- Enable Show in Carousel to display it on the homepage.
+- Enable Write-up Page to generate `/projects/<slug>` and make its carousel slide clickable.
+- Use Display Order to control the carousel order. Higher numbers appear first.
+- Add an optional project image and alt text for the carousel and page header. It does not use a caption.
+- Build the write-up from reorderable Markdown, image and video blocks. Content images require alt text and a caption; content videos require a caption.
+
+Project images and videos are displayed at a 4:3 aspect ratio with rounded corners. Projects without an image use the default carousel placeholder.
 
 After editing locally, run `npm run lint` and `npm run build` before committing.
 

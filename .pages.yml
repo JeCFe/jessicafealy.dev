@@ -1,7 +1,17 @@
-# Tells Pages CMS where to upload images
+# Tells Pages CMS where to upload media
 media:
-  input: public/images
-  output: /images
+  - name: images
+    label: Images
+    input: public/images
+    output: /images
+    categories: [image]
+    rename: safe
+  - name: videos
+    label: Videos
+    input: public/videos
+    output: /videos
+    categories: [video]
+    rename: safe
 
 # Defines the editable portfolio content
 content:
@@ -319,6 +329,8 @@ content:
             label: Project Image
             type: image
             description: Optional. Use a screenshot or other representative image.
+            options:
+              media: images
           - name: imageAlt
             label: Project Image Alt Text
             type: string
@@ -375,3 +387,124 @@ content:
             type: number
             required: true
             description: Higher numbers are shown first.
+
+  - name: professionalProjects
+    label: Professional Projects
+    type: collection
+    path: data/professional-projects
+    format: json
+    exclude: [types.ts]
+    filename: "{fields.slug}.json"
+    view:
+      fields: [title, status, showInCarousel, hasWriteUp, order]
+      primary: title
+      sort: order
+      order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        description: Lowercase words separated by hyphens. This becomes the page URL.
+      - name: carouselSummary
+        label: Carousel Summary
+        type: text
+        required: true
+      - name: image
+        label: Project Image
+        type: image
+        options:
+          media: images
+      - name: imageAlt
+        label: Project Image Alt Text
+        type: string
+        description: Required when a project image is set.
+      - name: status
+        label: Status
+        type: select
+        required: true
+        default: draft
+        options:
+          values:
+            - name: draft
+              label: Draft
+            - name: published
+              label: Published
+      - name: showInCarousel
+        label: Show in Carousel
+        type: boolean
+        default: false
+      - name: order
+        label: Display Order
+        type: number
+        default: 0
+        description: Higher numbers are shown first.
+      - name: hasWriteUp
+        label: Enable Write-up Page
+        type: boolean
+        default: false
+      - name: pageSummary
+        label: Page Summary
+        type: text
+      - name: linkLabel
+        label: External Link Label
+        type: string
+      - name: linkHref
+        label: External Link URL
+        type: string
+      - name: content
+        label: Write-up Content
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - name: markdown
+            label: Markdown
+            fields:
+              - name: content
+                label: Content
+                type: rich-text
+                required: true
+                options:
+                  format: markdown
+                  media: false
+          - name: image
+            label: Image
+            fields:
+              - name: image
+                label: Image
+                type: image
+                required: true
+                options:
+                  media: images
+              - name: alt
+                label: Alt Text
+                type: string
+                required: true
+              - name: caption
+                label: Caption
+                type: text
+                required: true
+          - name: video
+            label: Video
+            fields:
+              - name: video
+                label: Video File
+                type: file
+                required: true
+                options:
+                  media: videos
+                  categories: [video]
+              - name: poster
+                label: Poster Image
+                type: image
+                options:
+                  media: images
+              - name: caption
+                label: Caption
+                type: text
+                required: true
