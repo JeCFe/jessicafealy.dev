@@ -18,9 +18,9 @@ const Home = () => {
 
   return (
     <div id="absolute" className="relative overflow-clip">
-      <Jecfe />
       <main className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16">
-        <div className="grid gap-20 lg:grid-cols-[minmax(280px,0.72fr)_minmax(0,1.28fr)] lg:gap-24">
+        <div className="mx-auto grid w-full max-w-2xl gap-20 lg:max-w-none lg:grid-cols-[minmax(280px,0.72fr)_minmax(0,1.28fr)] lg:gap-24">
+          <Jecfe />
           <Introduction hasProfessionalProjects={hasProfessionalProjects} />
           <div className="flex min-w-0 flex-col pt-20 lg:py-24">
             <AboutMe id="about" />
