@@ -1,4 +1,9 @@
-import { ExternalLink, ProjectContent } from "@/components";
+import {
+  ExternalLink,
+  MarkdownContent,
+  ProjectContent,
+  Typography,
+} from "@/components";
 import { getProjectBySlug, getProjectWriteUps } from "@/content";
 import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
@@ -53,13 +58,14 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 
       <article className="mt-12">
         <header>
-          <h1 className="bg-gradient-to-br from-white via-slate-100 to-slate-500 bg-clip-text pb-2 text-4xl font-semibold tracking-[-0.045em] text-transparent sm:text-6xl">
+          <Typography
+            as="h1"
+            className="bg-gradient-to-br from-white via-slate-100 to-slate-500 bg-clip-text pb-2 !text-transparent"
+          >
             {project.title}
-          </h1>
+          </Typography>
           {project.pageSummary ? (
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-400">
-              {project.pageSummary}
-            </p>
+            <MarkdownContent content={project.pageSummary} />
           ) : null}
           {project.linkHref ? (
             <ExternalLink
@@ -72,13 +78,13 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
         </header>
 
         {project.image ? (
-          <div className="relative mt-12 aspect-[4/3] overflow-hidden rounded-2xl">
+          <div className="relative mt-12 aspect-[5/3] w-full overflow-hidden rounded-2xl">
             <Image
               src={project.image}
               alt={project.imageAlt ?? ""}
               fill
               priority
-              sizes="(min-width: 1024px) 896px, 100vw"
+              sizes="(min-width: 1024px) 896px, (min-width: 640px) calc(100vw - 80px), calc(100vw - 48px)"
               className="object-cover"
             />
           </div>

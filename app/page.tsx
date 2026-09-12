@@ -7,6 +7,7 @@ import {
   ProfessionalProjects,
   Proficiencies,
   Project,
+  Typography,
 } from "@/components";
 import { getCarouselProjects } from "@/content";
 import { siteData } from "@/data";
@@ -46,8 +47,10 @@ const Home = () => {
           />
         </div>
 
-        <footer className="border-t border-slate-800/80 py-8 text-center font-mono text-xs tracking-[0.14em] text-slate-500">
-          &copy; {new Date().getFullYear()} {siteData.footer.copyrightName}
+        <footer className="border-t border-slate-800/80 py-8 text-center">
+          <Typography as="small">
+            &copy; {new Date().getFullYear()} {siteData.footer.copyrightName}
+          </Typography>
         </footer>
       </main>
     </div>

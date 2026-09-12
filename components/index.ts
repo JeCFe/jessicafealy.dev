@@ -15,6 +15,7 @@ import type { ProjectBoxProps } from "./project-box/ProjectBox";
 import { ProjectContent } from "./project-content";
 import { Project } from "./projects";
 import { SectionHeading } from "./section-heading";
+import { Typography } from "./typography";
 
 export type { PageId } from "./page-id";
 export {
@@ -33,5 +34,6 @@ export {
   ProjectBox,
   ProjectContent,
   SectionHeading,
+  Typography,
 };
 export type { ExperienceProps, ProjectBoxProps };

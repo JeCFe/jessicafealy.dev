@@ -1,4 +1,4 @@
-import { ExternalLink, MarkdownContent, Pill } from "..";
+import { ExternalLink, MarkdownContent, Pill, Typography } from "..";
 
 export type ExperienceProps = {
   jobTitle: string;
@@ -23,9 +23,7 @@ export const ExperienceBox = ({
       <div className="absolute -left-[5px] top-2 h-[9px] w-[9px] rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(103,232,249,0.8)]" />
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <h3 className="text-xl font-semibold tracking-tight text-slate-100 sm:text-2xl">
-            {jobTitle}
-          </h3>
+          <Typography as="h3">{jobTitle}</Typography>
           <ExternalLink
             href={jobLink.href}
             className="mt-1 inline-block font-semibold text-cyan-200"
@@ -33,12 +31,15 @@ export const ExperienceBox = ({
             {jobLink.name}
           </ExternalLink>
         </div>
-        <p className="shrink-0 font-mono text-xs uppercase tracking-wider text-slate-500 sm:pt-2">
+        <Typography
+          as="small"
+          className="shrink-0 uppercase tracking-wider sm:pt-2"
+        >
           {date}
-        </p>
+        </Typography>
       </div>
 
-      <ul className="mt-6 space-y-3 text-base leading-7 text-slate-400">
+      <Typography as="ul" className="mt-6 space-y-3">
         {highlights.map((highlight) => (
           <li className="relative pl-5" key={highlight}>
             <span
@@ -48,7 +49,7 @@ export const ExperienceBox = ({
             <MarkdownContent content={highlight} variant="inline" />
           </li>
         ))}
-      </ul>
+      </Typography>
       <div className="mt-6 flex flex-wrap gap-2">
         {pills?.map((x, i) => <Pill key={`${x}-${i}`}>{x}</Pill>)}
       </div>

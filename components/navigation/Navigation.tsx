@@ -100,7 +100,7 @@ const NavItems = ({
                   ? mobile
                     ? "text-pink-300"
                     : "text-cyan-300"
-                  : "text-slate-600"
+                  : "text-slate-400"
               }`}
             >
               0{index + 1}

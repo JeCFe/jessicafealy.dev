@@ -3,7 +3,7 @@ import { siteData } from "@/data";
 import { ArrowRight, ImageOff } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { MarkdownContent, Pill } from "..";
+import { MarkdownContent, Pill, Typography } from "..";
 
 const customOrder = ["design", "deployed", "web", "git"];
 
@@ -117,9 +117,7 @@ export const ProjectBox = ({
 
         <div className="p-6 sm:p-8">
           <div className="flex items-start justify-between gap-4">
-            <h3 className="text-2xl font-semibold tracking-tight text-slate-100">
-              {heading}
-            </h3>
+            <Typography as="h3">{heading}</Typography>
             <div className="flex shrink-0 gap-2">
               {[...link].sort(compareString).map((projectLink, index) => {
                 const Icon =
@@ -149,7 +147,7 @@ export const ProjectBox = ({
             </div>
           </div>
 
-          <MarkdownContent content={body} variant="project" />
+          <MarkdownContent content={body} />
 
           {actionLabel ? (
             <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-cyan-300">

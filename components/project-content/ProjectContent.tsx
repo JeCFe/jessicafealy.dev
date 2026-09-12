@@ -1,6 +1,6 @@
 import type { ProfessionalProjectBlock } from "@/content";
 import Image from "next/image";
-import { MarkdownContent } from "..";
+import { MarkdownContent, Typography } from "..";
 
 const ProjectContentBlock = ({
   block,
@@ -19,13 +19,13 @@ const ProjectContentBlock = ({
             src={block.image}
             alt={block.alt}
             fill
-            sizes="(min-width: 1024px) 896px, 100vw"
+            sizes="(min-width: 1024px) 896px, (min-width: 640px) calc(100vw - 80px), calc(100vw - 48px)"
             className="object-cover"
           />
         </div>
-        <figcaption className="mt-3 text-sm leading-6 text-slate-500">
+        <Typography as="figcaption" className="mt-3">
           {block.caption}
-        </figcaption>
+        </Typography>
       </figure>
     );
   }
@@ -41,9 +41,9 @@ const ProjectContentBlock = ({
         <source src={block.video} />
         Your browser does not support embedded videos.
       </video>
-      <figcaption className="mt-3 text-sm leading-6 text-slate-500">
+      <Typography as="figcaption" className="mt-3">
         {block.caption}
-      </figcaption>
+      </Typography>
     </figure>
   );
 };

@@ -1,6 +1,6 @@
 import type { ProfessionalProject } from "@/content";
 import Link from "next/link";
-import { ProjectBox } from "..";
+import { ProjectBox, Typography } from "..";
 import {
   Carousel,
   CarouselContent,
@@ -50,9 +50,7 @@ export const ProfessionalProjects = ({
     <section className="mt-24 scroll-mt-24" id={id}>
       <Carousel opts={{ align: "start" }} aria-label="Professional projects">
         <div className="mb-8 flex items-center justify-between gap-6">
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-100 md:text-4xl">
-            Professional Projects
-          </h2>
+          <Typography as="h2">Professional Projects</Typography>
           {projects.length > 1 ? (
             <div className="flex shrink-0 gap-2">
               <CarouselPrevious />
