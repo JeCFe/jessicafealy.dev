@@ -4,7 +4,6 @@ import { ExperienceBox } from "./experience-box";
 import type { ExperienceProps } from "./experience-box/ExperienceBox";
 import { ExternalLink } from "./external-link";
 import { Introduction } from "./introduction";
-import { Jecfe } from "./jecfe";
 import { MarkdownContent } from "./markdown-content";
 import { Navigation } from "./navigation";
 import { Pill } from "./pill";
@@ -24,7 +23,6 @@ export {
   ExperienceBox,
   ExternalLink,
   Introduction,
-  Jecfe,
   MarkdownContent,
   Navigation,
   Pill,
