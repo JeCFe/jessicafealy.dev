@@ -1,1 +1,0 @@
-export { ProfessionalProjects } from "./ProfessionalProjects";

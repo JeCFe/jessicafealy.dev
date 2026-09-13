@@ -12,6 +12,7 @@ import {
   useContext,
   useEffect,
   useState,
+  type ButtonHTMLAttributes,
   type HTMLAttributes,
 } from "react";
 
@@ -137,34 +138,40 @@ CarouselItem.displayName = "CarouselItem";
 const controlClassName =
   "flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition-colors hover:border-cyan-300 hover:bg-cyan-300 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 disabled:cursor-not-allowed disabled:opacity-40";
 
-export const CarouselPrevious = () => {
-  const { canScrollPrevious, scrollPrevious } = useCarousel();
+const CarouselControl = ({
+  direction,
+  className,
+  ...props
+}: Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "children" | "onClick" | "disabled"
+> & {
+  direction: "previous" | "next";
+}) => {
+  const { canScrollPrevious, canScrollNext, scrollPrevious, scrollNext } =
+    useCarousel();
+  const previous = direction === "previous";
+  const Icon = previous ? ChevronLeft : ChevronRight;
 
   return (
     <button
+      {...props}
       type="button"
-      className={controlClassName}
-      disabled={!canScrollPrevious}
-      onClick={scrollPrevious}
+      className={cn(controlClassName, className)}
+      disabled={!(previous ? canScrollPrevious : canScrollNext)}
+      onClick={previous ? scrollPrevious : scrollNext}
     >
-      <ChevronLeft aria-hidden="true" className="h-5 w-5" />
-      <span className="sr-only">Previous slide</span>
+      <Icon aria-hidden="true" className="h-5 w-5" />
+      <span className="sr-only">
+        {previous ? "Previous slide" : "Next slide"}
+      </span>
     </button>
   );
 };
 
-export const CarouselNext = () => {
-  const { canScrollNext, scrollNext } = useCarousel();
-
-  return (
-    <button
-      type="button"
-      className={controlClassName}
-      disabled={!canScrollNext}
-      onClick={scrollNext}
-    >
-      <ChevronRight aria-hidden="true" className="h-5 w-5" />
-      <span className="sr-only">Next slide</span>
-    </button>
-  );
-};
+export const CarouselControls = (props: HTMLAttributes<HTMLDivElement>) => (
+  <div {...props}>
+    <CarouselControl direction="previous" />
+    <CarouselControl direction="next" />
+  </div>
+);

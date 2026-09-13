@@ -1,7 +1,3 @@
-export type PageId =
-  | "about"
-  | "proficiencies"
-  | "experience"
-  | "absolute"
-  | "professional-projects"
-  | "projects";
+import type { SectionId } from "@/data";
+
+export type PageId = SectionId | "absolute";

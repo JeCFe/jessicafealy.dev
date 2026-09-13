@@ -1,67 +1,63 @@
+import { cn } from "@/lib";
+import type { ReactNode } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { ExternalLink, Typography } from "..";
+import { ExternalLink, Typography, type TypographyTag } from "..";
 
-type MarkdownContentVariant = "body" | "inline" | "introduction";
+const renderTypography = (as: TypographyTag, className?: string) => {
+  const MarkdownTypography = ({ children }: { children?: ReactNode }) => (
+    <Typography as={as} className={className}>
+      {children}
+    </Typography>
+  );
+  return MarkdownTypography;
+};
+
+const typographyComponents = {
+  h1: renderTypography("h1", "mt-10"),
+  h2: renderTypography("h2", "mt-10"),
+  h3: renderTypography("h3", "mt-8"),
+  h4: renderTypography("h4", "mt-6"),
+  h5: renderTypography("h5", "mt-6"),
+  h6: renderTypography("h6", "mt-6"),
+  strong: renderTypography("strong"),
+  em: renderTypography("em"),
+  del: renderTypography("del"),
+  ol: renderTypography("ol", "mt-5 list-decimal space-y-2 pl-5"),
+  blockquote: renderTypography("blockquote", "mt-6"),
+  pre: renderTypography(
+    "pre",
+    "mt-6 overflow-x-auto rounded-xl border border-slate-700 bg-slate-950 p-4",
+  ),
+  th: renderTypography("th", "border border-slate-700 bg-slate-800 px-3 py-2"),
+};
+
+type MarkdownContentVariant = "body" | "inline";
 
 type MarkdownContentProps = {
   content: string;
   variant?: MarkdownContentVariant;
+  paragraphClassName?: string;
 };
 
 export const MarkdownContent = ({
   content,
   variant = "body",
+  paragraphClassName,
 }: MarkdownContentProps) => {
   return (
     <Markdown
       remarkPlugins={[remarkGfm]}
       components={{
-        h1: ({ children }) => (
-          <Typography as="h1" className="mt-10">
+        ...typographyComponents,
+        p: ({ children }) => (
+          <Typography
+            as={variant === "inline" ? "span" : "p"}
+            className={cn(variant !== "inline" && "mt-5", paragraphClassName)}
+          >
             {children}
           </Typography>
         ),
-        h2: ({ children }) => (
-          <Typography as="h2" className="mt-10">
-            {children}
-          </Typography>
-        ),
-        h3: ({ children }) => (
-          <Typography as="h3" className="mt-8">
-            {children}
-          </Typography>
-        ),
-        h4: ({ children }) => (
-          <Typography as="h4" className="mt-6">
-            {children}
-          </Typography>
-        ),
-        h5: ({ children }) => (
-          <Typography as="h5" className="mt-6">
-            {children}
-          </Typography>
-        ),
-        h6: ({ children }) => (
-          <Typography as="h6" className="mt-6">
-            {children}
-          </Typography>
-        ),
-        p: ({ children }) =>
-          variant === "inline" ? (
-            <Typography as="span">{children}</Typography>
-          ) : variant === "introduction" ? (
-            <Typography className="mt-5 max-w-md !leading-7">
-              {children}
-            </Typography>
-          ) : (
-            <Typography className="mt-5">{children}</Typography>
-          ),
-        strong: ({ children }) => (
-          <Typography as="strong">{children}</Typography>
-        ),
-        em: ({ children }) => <Typography as="em">{children}</Typography>,
-        del: ({ children }) => <Typography as="del">{children}</Typography>,
         a: ({ href, children }) => (
           <ExternalLink
             href={href ?? "#"}
@@ -82,28 +78,10 @@ export const MarkdownContent = ({
             {children}
           </Typography>
         ),
-        ol: ({ children }) => (
-          <Typography as="ol" className="mt-5 list-decimal space-y-2 pl-5">
-            {children}
-          </Typography>
-        ),
         li: ({ children, className }) => (
           <li className={`pl-1 ${className ?? ""}`}>{children}</li>
         ),
-        blockquote: ({ children }) => (
-          <Typography as="blockquote" className="mt-6">
-            {children}
-          </Typography>
-        ),
         hr: () => <hr className="my-8 border-slate-700" />,
-        pre: ({ children }) => (
-          <Typography
-            as="pre"
-            className="mt-6 overflow-x-auto rounded-xl border border-slate-700 bg-slate-950 p-4"
-          >
-            {children}
-          </Typography>
-        ),
         code: ({ children, className }) => (
           <Typography
             as="code"
@@ -118,14 +96,6 @@ export const MarkdownContent = ({
               {children}
             </Typography>
           </div>
-        ),
-        th: ({ children }) => (
-          <Typography
-            as="th"
-            className="border border-slate-700 bg-slate-800 px-3 py-2"
-          >
-            {children}
-          </Typography>
         ),
         td: ({ children }) => (
           <td className="border border-slate-700 px-3 py-2 align-top">

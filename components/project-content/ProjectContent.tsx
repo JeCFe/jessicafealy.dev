@@ -1,6 +1,5 @@
 import type { ProfessionalProjectBlock } from "@/content";
-import Image from "next/image";
-import { MarkdownContent, Typography } from "..";
+import { ContentImage, MarkdownContent, Typography } from "..";
 
 const ProjectContentBlock = ({
   block,
@@ -11,36 +10,26 @@ const ProjectContentBlock = ({
     return <MarkdownContent content={block.content} />;
   }
 
-  if (block.type === "image") {
-    return (
-      <figure>
-        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-          <Image
-            src={block.image}
-            alt={block.alt}
-            fill
-            sizes="(min-width: 1024px) 896px, (min-width: 640px) calc(100vw - 80px), calc(100vw - 48px)"
-            className="object-cover"
-          />
-        </div>
-        <Typography as="figcaption" className="mt-3">
-          {block.caption}
-        </Typography>
-      </figure>
-    );
-  }
-
   return (
     <figure>
-      <video
-        controls
-        preload="metadata"
-        poster={block.poster ?? undefined}
-        className="aspect-[4/3] w-full rounded-2xl bg-slate-950 object-contain"
-      >
-        <source src={block.video} />
-        Your browser does not support embedded videos.
-      </video>
+      {block.type === "image" ? (
+        <ContentImage
+          src={block.image}
+          alt={block.alt}
+          frameClassName="aspect-[4/3] rounded-2xl"
+          sizes="(min-width: 1024px) 896px, (min-width: 640px) calc(100vw - 80px), calc(100vw - 48px)"
+        />
+      ) : (
+        <video
+          controls
+          preload="metadata"
+          poster={block.poster ?? undefined}
+          className="aspect-[4/3] w-full rounded-2xl bg-slate-950 object-contain"
+        >
+          <source src={block.video} />
+          Your browser does not support embedded videos.
+        </video>
+      )}
       <Typography as="figcaption" className="mt-3">
         {block.caption}
       </Typography>

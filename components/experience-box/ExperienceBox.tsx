@@ -1,4 +1,4 @@
-import { ExternalLink, MarkdownContent, Pill, Typography } from "..";
+import { ExternalLink, MarkdownContent, PillList, Typography } from "..";
 
 export type ExperienceProps = {
   jobTitle: string;
@@ -50,9 +50,7 @@ export const ExperienceBox = ({
           </li>
         ))}
       </Typography>
-      <div className="mt-6 flex flex-wrap gap-2">
-        {pills?.map((x, i) => <Pill key={`${x}-${i}`}>{x}</Pill>)}
-      </div>
+      <PillList items={pills} />
     </article>
   );
 };

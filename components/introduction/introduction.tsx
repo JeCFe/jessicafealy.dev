@@ -20,7 +20,10 @@ export const Introduction = () => {
           {hero.role}
         </h2>
 
-        <MarkdownContent content={hero.summary} variant="introduction" />
+        <MarkdownContent
+          content={hero.summary}
+          paragraphClassName="max-w-md !leading-7"
+        />
 
         <div className="mt-8 flex flex-wrap gap-3">
           <ExternalLink

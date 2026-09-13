@@ -1,4 +1,5 @@
 import {
+  ContentImage,
   ExternalLink,
   MarkdownContent,
   ProjectContent,
@@ -7,7 +8,6 @@ import {
 import { getProjectBySlug, getProjectWriteUps } from "@/content";
 import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -75,16 +75,13 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
         </header>
 
         {project.image ? (
-          <div className="relative mt-12 aspect-[8/5] w-full overflow-hidden rounded-3xl">
-            <Image
-              src={project.image}
-              alt={project.imageAlt ?? ""}
-              fill
-              priority
-              sizes="(min-width: 1024px) 896px, (min-width: 640px) calc(100vw - 80px), calc(100vw - 48px)"
-              className="object-cover"
-            />
-          </div>
+          <ContentImage
+            src={project.image}
+            alt={project.imageAlt ?? ""}
+            frameClassName="mt-12 aspect-[8/5] w-full rounded-3xl"
+            priority
+            sizes="(min-width: 1024px) 896px, (min-width: 640px) calc(100vw - 80px), calc(100vw - 48px)"
+          />
         ) : null}
 
         <ProjectContent blocks={project.content ?? []} />

@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+import { cn } from "@/lib";
+import type { ReactNode } from "react";
 
 export const Pill = ({ children }: { children: ReactNode }) => {
   return (
@@ -7,3 +8,18 @@ export const Pill = ({ children }: { children: ReactNode }) => {
     </span>
   );
 };
+
+export const PillList = ({
+  items,
+  className,
+}: {
+  items?: readonly string[];
+  className?: string;
+}) =>
+  items?.length ? (
+    <div className={cn("mt-6 flex flex-wrap gap-2", className)}>
+      {items.map((item, index) => (
+        <Pill key={`${item}-${index}`}>{item}</Pill>
+      ))}
+    </div>
+  ) : null;

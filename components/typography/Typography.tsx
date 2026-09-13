@@ -27,8 +27,10 @@ const styles = {
   code: "text-[0.9em] text-cyan-100",
 };
 
+export type TypographyTag = keyof typeof styles;
+
 type TypographyProps = HTMLAttributes<HTMLElement> & {
-  as?: keyof typeof styles;
+  as?: TypographyTag;
 };
 
 export const Typography = ({

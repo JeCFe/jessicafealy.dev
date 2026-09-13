@@ -10,7 +10,9 @@ const navData = [
   { text: experienceData.heading, id: "experience" },
   { text: "Professional Projects", id: "professional-projects" },
   { text: projectData.heading, id: "projects" },
-];
+] as const;
+
+export type SectionId = (typeof navData)[number]["id"];
 
 export {
   aboutData,

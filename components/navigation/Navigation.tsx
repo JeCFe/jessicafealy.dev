@@ -2,19 +2,12 @@
 
 import { navData, siteData } from "@/data";
 import { cva } from "class-variance-authority";
-import { ArrowUp } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import type { PageId } from "..";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
 
-const sectionIds: PageId[] = [
-  "about",
-  "proficiencies",
-  "experience",
-  "professional-projects",
-  "projects",
-];
+const sectionIds = navData.map(({ id }) => id);
 
 const pageIds: PageId[] = ["absolute", ...sectionIds];
 
@@ -34,18 +27,6 @@ const navLink = cva(
   },
 );
 
-const uppies = cva(
-  "fixed bottom-6 right-6 z-20 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-pink-400/70 bg-slate-950/90 shadow-lg transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink-300",
-  {
-    variants: {
-      show: {
-        true: "opacity-100",
-        false: "pointer-events-none invisible opacity-0",
-      },
-    },
-  },
-);
-
 type NavItem = {
   text: string;
   id: PageId;
@@ -57,7 +38,7 @@ const NavItems = ({
   handleClick,
   mobile = false,
 }: {
-  items: NavItem[];
+  items: readonly NavItem[];
   currentId: PageId;
   handleClick: (id: PageId) => void;
   mobile?: boolean;
@@ -118,7 +99,6 @@ export const Navigation = () => {
   const router = useRouter();
   const [currentId, setCurrentId] = useState<PageId>("absolute");
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const navItems = navData as NavItem[];
 
   const scrollToSection = useCallback(
     (id: PageId, behavior: ScrollBehavior) => {
@@ -210,16 +190,6 @@ export const Navigation = () => {
 
   return (
     <div className="my-4 md:mt-16">
-      <button
-        aria-label={siteData.accessibility.backToTop}
-        className={uppies({
-          show: currentId !== "about" && currentId !== "absolute",
-        })}
-        onClick={() => handleClick("absolute")}
-        type="button"
-      >
-        <ArrowUp aria-hidden="true" className="text-cyan-500" />
-      </button>
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
           <button
@@ -256,7 +226,7 @@ export const Navigation = () => {
           <nav aria-label={siteData.accessibility.mobileNavigation}>
             <div className="flex w-full max-w-md flex-col gap-3">
               <NavItems
-                items={navItems}
+                items={navData}
                 currentId={currentId}
                 handleClick={handleClick}
                 mobile
@@ -270,7 +240,7 @@ export const Navigation = () => {
         className="hidden items-start justify-center space-y-2 md:flex md:flex-col"
       >
         <NavItems
-          items={navItems}
+          items={navData}
           currentId={currentId}
           handleClick={handleClick}
         />
