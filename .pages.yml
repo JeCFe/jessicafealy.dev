@@ -248,10 +248,6 @@ content:
                   label: TypeScript
                 - name: xunit
                   label: xUnit
-          - name: iconAlt
-            label: Icon Alt Text
-            type: string
-
   - name: experience
     label: Experience
     type: file

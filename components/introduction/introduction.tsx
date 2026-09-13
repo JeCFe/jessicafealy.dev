@@ -12,7 +12,7 @@ export const Introduction = () => {
           {hero.eyebrow}
         </p>
 
-        <h1 className="bg-gradient-to-br from-white via-slate-100 to-slate-500 bg-clip-text pb-2 text-5xl font-semibold tracking-[-0.055em] text-transparent sm:text-6xl lg:text-7xl">
+        <h1 className="pb-2 text-5xl font-semibold tracking-[-0.055em] sm:text-6xl lg:text-7xl">
           {hero.name}
         </h1>
 

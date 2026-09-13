@@ -26,7 +26,7 @@ export const ExternalLink = ({
       {...props}
     >
       {children}
-      {showArrow ? (
+      {showArrow && (
         <svg
           aria-hidden="true"
           viewBox="0 0 16 16"
@@ -40,7 +40,7 @@ export const ExternalLink = ({
           <path d="M5 11 11 5" />
           <path d="M6 5h5v5" />
         </svg>
-      ) : null}
+      )}
       <span className="sr-only"> ({siteData.accessibility.opensInNewTab})</span>
     </a>
   );

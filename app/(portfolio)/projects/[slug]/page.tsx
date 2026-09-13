@@ -58,10 +58,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 
       <article className="mt-12">
         <header>
-          <Typography
-            as="h1"
-            className="bg-gradient-to-br from-white via-slate-100 to-slate-500 bg-clip-text pb-2 !text-transparent"
-          >
+          <Typography as="h1" className="pb-2">
             {project.title}
           </Typography>
           {project.pageSummary && (
