@@ -1,4 +1,5 @@
 import type { ProfessionalProjectBlock } from "@/content";
+import { professionalProjectsData } from "@/data";
 import { ContentImage, MarkdownContent, Typography } from "..";
 
 const ProjectContentBlock = ({
@@ -27,7 +28,7 @@ const ProjectContentBlock = ({
           className="aspect-[4/3] w-full rounded-2xl bg-slate-950 object-contain"
         >
           <source src={block.video} />
-          Your browser does not support embedded videos.
+          {professionalProjectsData.videoFallback}
         </video>
       )}
       <Typography as="figcaption" className="mt-3">

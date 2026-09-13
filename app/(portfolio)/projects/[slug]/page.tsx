@@ -6,6 +6,7 @@ import {
   Typography,
 } from "@/components";
 import { getProjectBySlug, getProjectWriteUps } from "@/content";
+import { professionalProjectsData, siteData } from "@/data";
 import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -35,7 +36,7 @@ export const generateMetadata = async ({
   if (!project) return {};
 
   return {
-    title: `${project.title} | Jessica Fealy`,
+    title: `${project.title} | ${siteData.hero.name}`,
     description: project.pageSummary ?? project.carouselSummary,
   };
 };
@@ -53,7 +54,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
         className="inline-flex items-center gap-2 rounded-sm font-mono text-xs font-semibold uppercase tracking-[0.14em] text-cyan-300 transition-colors hover:text-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
       >
         <ArrowLeft aria-hidden="true" className="h-4 w-4" />
-        Professional projects
+        {professionalProjectsData.backLinkLabel}
       </Link>
 
       <article className="mt-12">
@@ -69,7 +70,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
               href={project.linkHref}
               className="mt-7 inline-block rounded-full border border-slate-700 px-5 py-3 text-sm font-semibold text-cyan-200 !no-underline hover:border-cyan-300"
             >
-              {project.linkLabel ?? "Visit project"}
+              {project.linkLabel ?? professionalProjectsData.defaultLinkLabel}
             </ExternalLink>
           )}
         </header>

@@ -12,6 +12,7 @@ import { getCarouselProjects } from "@/content";
 import {
   aboutData,
   experienceData,
+  professionalProjectsData,
   proficiencyData,
   projectData,
 } from "@/data";
@@ -50,10 +51,10 @@ const Home = () => {
       </Section>
       <Section
         id="professional-projects"
-        heading="Professional projects"
+        heading={professionalProjectsData.heading}
         eyebrow="04"
       >
-        <ContentCarousel label="Professional projects">
+        <ContentCarousel {...professionalProjectsData.carousel}>
           {professionalProjects.map((project) => {
             const card = (
               <ContentCard
@@ -65,7 +66,7 @@ const Home = () => {
                 footer={
                   project.hasWriteUp ? (
                     <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-cyan-300">
-                      Continue reading
+                      {professionalProjectsData.readMoreLabel}
                       <ArrowRight
                         aria-hidden="true"
                         className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"

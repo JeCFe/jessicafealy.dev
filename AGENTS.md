@@ -54,6 +54,8 @@ Pages CMS edits JSON content through `.pages.yml`.
   `data/index.ts` exports JSON data and assembles navigation entries.
 - `data/professional-projects/`: one JSON file per professional project, plus
   `types.ts` for project and content-block types.
+- `data/professional-projects.json`: CMS-managed professional-project section copy,
+  navigation and shared labels; keep it outside the individual project collection.
 - `content/index.ts`: filesystem loading, validation, ordering and publication
   filtering for professional projects.
 - `.pages.yml`: CMS fields, collections and media configuration.

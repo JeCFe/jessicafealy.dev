@@ -140,6 +140,7 @@ const controlClassName =
 
 const CarouselControl = ({
   direction,
+  label,
   className,
   ...props
 }: Omit<
@@ -147,6 +148,7 @@ const CarouselControl = ({
   "children" | "onClick" | "disabled"
 > & {
   direction: "previous" | "next";
+  label: string;
 }) => {
   const { canScrollPrevious, canScrollNext, scrollPrevious, scrollNext } =
     useCarousel();
@@ -162,16 +164,21 @@ const CarouselControl = ({
       onClick={previous ? scrollPrevious : scrollNext}
     >
       <Icon aria-hidden="true" className="h-5 w-5" />
-      <span className="sr-only">
-        {previous ? "Previous slide" : "Next slide"}
-      </span>
+      <span className="sr-only">{label}</span>
     </button>
   );
 };
 
-export const CarouselControls = (props: HTMLAttributes<HTMLDivElement>) => (
+export const CarouselControls = ({
+  previousLabel,
+  nextLabel,
+  ...props
+}: HTMLAttributes<HTMLDivElement> & {
+  previousLabel: string;
+  nextLabel: string;
+}) => (
   <div {...props}>
-    <CarouselControl direction="previous" />
-    <CarouselControl direction="next" />
+    <CarouselControl direction="previous" label={previousLabel} />
+    <CarouselControl direction="next" label={nextLabel} />
   </div>
 );

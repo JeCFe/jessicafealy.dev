@@ -384,6 +384,58 @@ content:
             required: true
             description: Higher numbers are shown first.
 
+  - name: professionalProjectSettings
+    label: Professional Projects Settings
+    type: file
+    path: data/professional-projects.json
+    fields:
+      - name: heading
+        label: Section Heading
+        type: string
+        required: true
+      - name: navigationLabel
+        label: Navigation Label
+        type: string
+        required: true
+        description: Used in both desktop and mobile navigation.
+      - name: readMoreLabel
+        label: Read-more Label
+        type: string
+        required: true
+        description: Shown on carousel cards with a write-up page.
+      - name: backLinkLabel
+        label: Back Link Label
+        type: string
+        required: true
+        description: Links from each write-up back to the homepage section.
+      - name: defaultLinkLabel
+        label: Default Project Link Label
+        type: string
+        required: true
+        description: Used when a project has an external URL but no custom link label.
+      - name: videoFallback
+        label: Video Fallback Text
+        type: text
+        required: true
+        description: Shown when a browser does not support embedded videos.
+      - name: carousel
+        label: Carousel Accessibility Labels
+        type: object
+        required: true
+        fields:
+          - name: label
+            label: Carousel Label
+            type: string
+            required: true
+          - name: previousLabel
+            label: Previous Slide Button
+            type: string
+            required: true
+          - name: nextLabel
+            label: Next Slide Button
+            type: string
+            required: true
+
   - name: professionalProjects
     label: Professional Projects
     type: collection
