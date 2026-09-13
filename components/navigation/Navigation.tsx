@@ -16,16 +16,14 @@ const getPageIdFromHash = (hash: string) => {
   return pageIds.find((pageId) => pageId === id);
 };
 
-const navLink = cva(
-  "h-px w-6 bg-slate-600 transition-all duration-300 group-hover:w-10 group-hover:bg-cyan-300",
-  {
-    variants: {
-      active: {
-        true: "w-10 bg-cyan-300",
-      },
+const navLink = cva("h-px shrink-0 transition-all duration-300", {
+  variants: {
+    active: {
+      true: "w-10 bg-pink-300",
+      false: "w-6 bg-slate-600 group-hover:w-10 group-hover:bg-cyan-300",
     },
   },
-);
+});
 
 type NavItem = {
   text: string;
@@ -53,40 +51,20 @@ const NavItems = ({
             key={`${x.id}`}
             href={`#${x.id}`}
             aria-current={isActive ? "location" : undefined}
-            className={`group flex items-center font-mono uppercase transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 ${
+            className={`group flex items-center font-mono uppercase transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink-300 ${
               mobile
-                ? `min-h-14 w-full gap-4 rounded-md px-2 py-3 text-sm tracking-[0.12em] ${
-                    isActive
-                      ? "text-pink-300"
-                      : "text-slate-400 hover:text-white"
-                  }`
-                : `gap-3 rounded-sm py-1 text-xs tracking-[0.16em] ${
-                    isActive ? "text-white" : "text-slate-400 hover:text-white"
-                  }`
+                ? "min-h-14 w-full gap-4 rounded-md px-2 py-3 text-sm tracking-[0.12em]"
+                : "gap-3 rounded-sm py-1 text-xs tracking-[0.16em]"
+            } ${
+              isActive ? "text-pink-300" : "text-slate-400 hover:text-cyan-300"
             }`}
             onClick={(e) => {
               e.preventDefault();
               handleClick(x.id);
             }}
           >
-            <span
-              className={
-                mobile && isActive
-                  ? "h-px w-10 bg-pink-400"
-                  : navLink({ active: isActive })
-              }
-            />
-            <span
-              className={`text-[0.65rem] ${
-                isActive
-                  ? mobile
-                    ? "text-pink-300"
-                    : "text-cyan-300"
-                  : "text-slate-400"
-              }`}
-            >
-              0{index + 1}
-            </span>
+            <span className={navLink({ active: isActive })} />
+            <span className="text-[0.65rem]">0{index + 1}</span>
             <span>{x.text}</span>
           </a>
         );

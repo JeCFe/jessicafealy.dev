@@ -50,7 +50,7 @@ export const ContentCard = ({
             frameClassName={cn(
               "border-b border-slate-700/70",
               usesWideImage
-                ? "aspect-[8/5] min-h-0"
+                ? "aspect-[16/9] min-h-0"
                 : "min-h-56 md:min-h-full md:border-b-0 md:border-r",
             )}
             sizes={

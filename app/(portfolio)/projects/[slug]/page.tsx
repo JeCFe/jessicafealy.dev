@@ -79,7 +79,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
           <ContentImage
             src={project.image}
             alt={project.imageAlt ?? ""}
-            frameClassName="mt-12 aspect-[8/5] w-full rounded-3xl"
+            frameClassName="mt-12 aspect-[16/9] w-full rounded-3xl"
             priority
             sizes="(min-width: 1024px) 896px, (min-width: 640px) calc(100vw - 80px), calc(100vw - 48px)"
           />
