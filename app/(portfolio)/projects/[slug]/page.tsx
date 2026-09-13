@@ -47,7 +47,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
   if (!project) notFound();
 
   return (
-    <main className="mx-auto min-h-screen max-w-5xl px-6 py-12 sm:px-10 sm:py-16 lg:px-16 lg:py-24">
+    <div className="min-h-screen py-12 sm:py-16 lg:py-24">
       <Link
         href="/#professional-projects"
         className="inline-flex items-center gap-2 rounded-sm font-mono text-xs font-semibold uppercase tracking-[0.14em] text-cyan-300 transition-colors hover:text-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
@@ -64,21 +64,21 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
           >
             {project.title}
           </Typography>
-          {project.pageSummary ? (
+          {project.pageSummary && (
             <MarkdownContent content={project.pageSummary} />
-          ) : null}
-          {project.linkHref ? (
+          )}
+          {project.linkHref && (
             <ExternalLink
               href={project.linkHref}
               className="mt-7 inline-block rounded-full border border-slate-700 px-5 py-3 text-sm font-semibold text-cyan-200 !no-underline hover:border-cyan-300"
             >
               {project.linkLabel ?? "Visit project"}
             </ExternalLink>
-          ) : null}
+          )}
         </header>
 
         {project.image ? (
-          <div className="relative mt-12 aspect-[5/3] w-full overflow-hidden rounded-2xl">
+          <div className="relative mt-12 aspect-[8/5] w-full overflow-hidden rounded-3xl">
             <Image
               src={project.image}
               alt={project.imageAlt ?? ""}
@@ -92,7 +92,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 
         <ProjectContent blocks={project.content ?? []} />
       </article>
-    </main>
+    </div>
   );
 };
 

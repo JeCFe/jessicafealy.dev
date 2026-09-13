@@ -1,6 +1,6 @@
 import type { ProfessionalProject } from "@/content";
 import Link from "next/link";
-import { ProjectBox, Typography } from "..";
+import { ProjectBox, SectionHeading } from "..";
 import {
   Carousel,
   CarouselContent,
@@ -44,21 +44,16 @@ export const ProfessionalProjects = ({
   projects: ProfessionalProject[];
   id: "professional-projects";
 }) => {
-  if (projects.length === 0) return null;
-
   return (
     <section className="mt-24 scroll-mt-24" id={id}>
+      <SectionHeading eyebrow="04">Professional projects</SectionHeading>
       <Carousel opts={{ align: "start" }} aria-label="Professional projects">
-        <div className="mb-8 flex items-center justify-between gap-6">
-          <Typography as="h2">Professional Projects</Typography>
-          {projects.length > 1 ? (
-            <div className="flex shrink-0 gap-2">
-              <CarouselPrevious />
-              <CarouselNext />
-            </div>
-          ) : null}
+        <div className="mt-6 flex justify-end gap-2">
+          <CarouselPrevious className="static size-11 translate-y-0 border-slate-600 bg-slate-900 text-slate-200 hover:border-cyan-300 hover:bg-slate-800 hover:text-cyan-300" />
+          <CarouselNext className="static size-11 translate-y-0 border-slate-600 bg-slate-900 text-slate-200 hover:border-cyan-300 hover:bg-slate-800 hover:text-cyan-300" />
         </div>
-        <CarouselContent>
+
+        <CarouselContent className="mt-4">
           {projects.map((project) => (
             <CarouselItem key={project.slug}>
               <ProjectSlide project={project} />

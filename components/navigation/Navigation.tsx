@@ -3,6 +3,7 @@
 import { navData, siteData } from "@/data";
 import { cva } from "class-variance-authority";
 import { ArrowUp } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import type { PageId } from "..";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
@@ -113,16 +114,11 @@ const NavItems = ({
   );
 };
 
-export const Navigation = ({
-  hasProfessionalProjects,
-}: {
-  hasProfessionalProjects: boolean;
-}) => {
+export const Navigation = () => {
+  const router = useRouter();
   const [currentId, setCurrentId] = useState<PageId>("absolute");
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const navItems = (navData as NavItem[]).filter(
-    ({ id }) => id !== "professional-projects" || hasProfessionalProjects,
-  );
+  const navItems = navData as NavItem[];
 
   const scrollToSection = useCallback(
     (id: PageId, behavior: ScrollBehavior) => {
@@ -191,6 +187,13 @@ export const Navigation = ({
 
   const handleClick = useCallback(
     (id: PageId) => {
+      const element = document.getElementById(id);
+      if (!element) {
+        setIsOpen(false);
+        router.push(`/#${id}`);
+        return;
+      }
+
       const reduceMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches;
@@ -202,7 +205,7 @@ export const Navigation = ({
 
       setIsOpen(false);
     },
-    [scrollToSection],
+    [router, scrollToSection],
   );
 
   return (
@@ -213,6 +216,7 @@ export const Navigation = ({
           show: currentId !== "about" && currentId !== "absolute",
         })}
         onClick={() => handleClick("absolute")}
+        type="button"
       >
         <ArrowUp aria-hidden="true" className="text-cyan-500" />
       </button>

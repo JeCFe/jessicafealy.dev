@@ -4,19 +4,8 @@ import Link from "next/link";
 
 const NotFound = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center px-6 text-center text-slate-200">
-      <Typography
-        as="small"
-        className="font-semibold uppercase tracking-widest !text-pink-300"
-      >
-        {siteData.notFound.eyebrow}
-      </Typography>
-      <Typography
-        as="h1"
-        className="mt-5 bg-gradient-to-r from-pink-300 to-cyan-300 bg-clip-text !text-transparent"
-      >
-        {siteData.notFound.title}
-      </Typography>
+    <div className="flex min-h-screen flex-col items-center justify-center px-6 py-20 text-center text-slate-200 sm:px-10 lg:px-16 lg:py-24">
+      <Typography as="h1">{siteData.notFound.title}</Typography>
       <div className="max-w-md">
         <MarkdownContent content={siteData.notFound.description} />
       </div>
@@ -26,7 +15,7 @@ const NotFound = () => {
       >
         {siteData.notFound.linkLabel}
       </Link>
-    </main>
+    </div>
   );
 };
 
