@@ -1,14 +1,17 @@
 {
   "metadata": {
     "title": "Jessica Fealy",
-    "description": "Full Stack Software Engineer building secure, scalable and accessible products."
+    "description": "Senior Full Stack Software Engineer building secure, scalable and accessible products."
   },
   "footer": {
     "copyrightName": "Jessica Fealy"
   },
+  "analytics": {
+    "domain": "jessicafealy.dev"
+  },
   "hero": {
     "name": "Jessica Fealy",
-    "role": "Full Stack Software Engineer",
+    "role": "Senior Software Engineer",
     "eyebrow": "Cardiff, Wales · Software engineer",
     "summary": "Developing **secure, scalable, and accessible applications**. Championing DE&I through mentorship & inclusive practices.",
     "secondaryAction": {

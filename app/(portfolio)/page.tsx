@@ -49,6 +49,7 @@ const Home = () => {
           ))}
         </div>
       </Section>
+      {professionalProjects.si}
       <Section
         id="professional-projects"
         heading={professionalProjectsData.heading}

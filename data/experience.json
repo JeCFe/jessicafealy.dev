@@ -2,12 +2,21 @@
   "heading": "Experience",
   "items": [
     {
+      "jobTitle": "Senior Software Engineer",
+      "jobLink": {
+        "name": "Rocket Science Group - Terminal Velocity",
+        "href": "https://www.rocketscience.gg/"
+      },
+      "date": "Sept 2026 - Present",
+      "highlights": []
+    },
+    {
       "jobTitle": "Software Engineer",
       "jobLink": {
         "name": "Rocket Science Group - Terminal Velocity",
         "href": "https://www.rocketscience.gg/"
       },
-      "date": "Apr 2025 - Present",
+      "date": "Apr 2025 - Sept 2026",
       "highlights": [
         "Led a frontend team to design and deliver a new hosting platform dashboard from the ground up.",
         "Built orchestration services that connect modern cloud platforms with legacy systems across organisations.",
