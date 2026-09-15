@@ -7,13 +7,15 @@
         "name": "Rocket Science Group - Terminal Velocity",
         "href": "https://www.rocketscience.gg/"
       },
-      "date": "Apr 2025 - Present",
-      "highlights": [
-        "Led a frontend team to design and deliver a new hosting platform dashboard from the ground up.",
-        "Built orchestration services that connect modern cloud platforms with legacy systems across organisations.",
-        "Worked across the stack while raising the bar for delivery, code quality and team support."
-      ],
-      "pills": ["Java", "Next.js", "TypeScript", "AWS", "GCP", "Terraform"]
+      "date": "Apr 2025 - Sept 2026",
+      "pills": [
+        "Java",
+        "Next.js",
+        "TypeScript",
+        "AWS",
+        "GCP",
+        "Terraform"
+      ]
     },
     {
       "jobTitle": "Software Engineer",
@@ -22,11 +24,6 @@
         "href": "https://www.bjss.com/"
       },
       "date": "Sept 2023 - Apr 2025",
-      "highlights": [
-        "Helped deliver critical national flood-warning infrastructure capable of sending **40,000+ messages across three channels in under an hour**.",
-        "Reduced message creation time from **tens of minutes to tens of seconds**.",
-        "Designed mission-critical systems, mentored junior engineers and delivered tested frontend, backend and database solutions. [Read the case study](https://www.linkedin.com/posts/jessicaclarafealy_how-bjss-and-nrw-are-safeguarding-wales-activity-7298022225394216961-icQ_)."
-      ],
       "pills": [
         "C#",
         "Dotnet",
@@ -44,11 +41,6 @@
         "href": "https://www.bjss.com/academy"
       },
       "date": "Sept 2022 - Sept 2023",
-      "highlights": [
-        "Delivered React and Ruby on Rails applications alongside Java API microservices for a major public-sector client.",
-        "Built C# services, Next.js applications and a shared React design system for another national client.",
-        "Became a key client contact, regularly leading sprint reviews and communicating delivery progress."
-      ],
       "pills": [
         "C#",
         "Dotnet",
@@ -62,6 +54,14 @@
         "Azure",
         "AWS"
       ]
+    },
+    {
+      "jobTitle": "Senior Software Engineer",
+      "jobLink": {
+        "name": "Rocket Science Group - Terminal Velocity",
+        "href": "https://www.rocketscience.gg/"
+      },
+      "date": "Sept 2026 - Present"
     }
   ]
 }
