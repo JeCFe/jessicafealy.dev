@@ -2,6 +2,14 @@
   "heading": "Experience",
   "items": [
     {
+      "jobTitle": "Senior Software Engineer",
+      "jobLink": {
+        "name": "Rocket Science Group - Terminal Velocity",
+        "href": "https://www.rocketscience.gg/"
+      },
+      "date": "Sept 2026 - Present"
+    },
+    {
       "jobTitle": "Software Engineer",
       "jobLink": {
         "name": "Rocket Science Group - Terminal Velocity",
@@ -54,14 +62,6 @@
         "Azure",
         "AWS"
       ]
-    },
-    {
-      "jobTitle": "Senior Software Engineer",
-      "jobLink": {
-        "name": "Rocket Science Group - Terminal Velocity",
-        "href": "https://www.rocketscience.gg/"
-      },
-      "date": "Sept 2026 - Present"
     }
   ]
 }
