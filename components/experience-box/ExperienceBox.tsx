@@ -4,6 +4,7 @@ export type ExperienceProps = {
   employer: {
     name: string;
     href: string;
+    employmentSummary?: string;
   };
   roles: ExperienceRole[];
 };
@@ -48,16 +49,24 @@ export const ExperienceBox = ({ employer, roles }: ExperienceProps) => {
   return (
     <article className="relative border-l border-slate-700 pl-7 sm:pl-9">
       <div className="absolute -left-[5px] top-2 h-[9px] w-[9px] rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(103,232,249,0.8)]" />
+      <header className="mb-8">
+        <ExternalLink
+          href={employer.href}
+          className="inline-block font-poppins text-lg font-semibold leading-tight text-cyan-200 sm:text-2xl"
+        >
+          {employer.name}
+        </ExternalLink>
+        {employer.employmentSummary && (
+          <Typography as="small" className="mt-2 block">
+            {employer.employmentSummary}
+          </Typography>
+        )}
+      </header>
+
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-          <Typography as="h3">{currentRole.jobTitle}</Typography>
-          <ExternalLink
-            href={employer.href}
-            className="mt-1 inline-block font-semibold text-cyan-200"
-          >
-            {employer.name}
-          </ExternalLink>
-        </div>
+        <Typography as="h3" className="!text-xl">
+          {currentRole.jobTitle}
+        </Typography>
         <Typography
           as="small"
           className="shrink-0 uppercase tracking-wider sm:pt-2"
@@ -74,7 +83,9 @@ export const ExperienceBox = ({ employer, roles }: ExperienceProps) => {
           key={`${role.jobTitle}-${role.date}`}
         >
           <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-            <Typography as="h3">{role.jobTitle}</Typography>
+            <Typography as="h3" className="!text-xl">
+              {role.jobTitle}
+            </Typography>
             <Typography
               as="small"
               className="shrink-0 uppercase tracking-wider sm:pt-2"

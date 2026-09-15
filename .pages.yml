@@ -277,6 +277,10 @@ content:
                 label: Website URL
                 type: string
                 required: true
+              - name: employmentSummary
+                label: Employment Summary
+                type: string
+                description: Optional detail shown below the employer, such as “Full-time · 2 yrs 8 mos”.
           - name: roles
             label: Roles and Promotions
             type: object

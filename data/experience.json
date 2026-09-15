@@ -3,8 +3,9 @@
   "items": [
     {
       "employer": {
-        "name": "Rocket Science Group - Terminal Velocity",
-        "href": "https://www.rocketscience.gg/"
+        "name": "Rocket Science Group",
+        "href": "https://www.rocketscience.gg/",
+        "employmentSummary": "Apr 2025 - Present"
       },
       "roles": [
         {
@@ -27,9 +28,19 @@
     {
       "employer": {
         "name": "BJSS",
-        "href": "https://www.bjss.com/"
+        "href": "https://www.bjss.com/",
+        "employmentSummary": "Sept 2022 - Apr 2025"
       },
       "roles": [
+        {
+          "jobTitle": "Squad Lead",
+          "context": "Secondary role alongside Software Engineer",
+          "date": "Dec 2024 - Apr 2025",
+          "highlights": [
+            "Line managed an internal squad of approximately six people.",
+            "Provided pastoral support, including review periods and absence management."
+          ]
+        },
         {
           "jobTitle": "Software Engineer",
           "date": "Sept 2023 - Apr 2025",
