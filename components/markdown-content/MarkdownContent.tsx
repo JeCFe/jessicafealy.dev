@@ -1,12 +1,39 @@
 import { cn } from "@/lib";
-import type { ReactNode } from "react";
+import { Children, isValidElement, type ReactNode } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ExternalLink, Typography, type TypographyTag } from "..";
 
+const getHeadingText = (children: ReactNode): string =>
+  Children.toArray(children)
+    .map((child) => {
+      if (typeof child === "string" || typeof child === "number") {
+        return String(child);
+      }
+
+      if (isValidElement<{ children?: ReactNode }>(child)) {
+        return getHeadingText(child.props.children);
+      }
+
+      return "";
+    })
+    .join("");
+
+const getHeadingId = (children: ReactNode): string =>
+  getHeadingText(children)
+    .toLowerCase()
+    .trim()
+    .replace(/[’']/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
 const renderTypography = (as: TypographyTag, className?: string) => {
   const MarkdownTypography = ({ children }: { children?: ReactNode }) => (
-    <Typography as={as} className={className}>
+    <Typography
+      as={as}
+      id={as.startsWith("h") ? getHeadingId(children) : undefined}
+      className={className}
+    >
       {children}
     </Typography>
   );
@@ -58,14 +85,22 @@ export const MarkdownContent = ({
             {children}
           </Typography>
         ),
-        a: ({ href, children }) => (
-          <ExternalLink
-            href={href ?? "#"}
-            className="font-semibold text-cyan-200"
-          >
-            {children}
-          </ExternalLink>
-        ),
+        a: ({ href, children }) =>
+          href?.startsWith("#") ? (
+            <a
+              href={href}
+              className="rounded-sm font-semibold text-cyan-200 underline decoration-cyan-400/60 decoration-2 underline-offset-4 transition-colors hover:decoration-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+            >
+              {children}
+            </a>
+          ) : (
+            <ExternalLink
+              href={href ?? "#"}
+              className="font-semibold text-cyan-200"
+            >
+              {children}
+            </ExternalLink>
+          ),
         ul: ({ children, className }) => (
           <Typography
             as="ul"
