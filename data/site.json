@@ -1,32 +1,19 @@
 {
   "metadata": {
     "title": "Jessica Fealy",
-    "description": "Full Stack Software Engineer building secure, scalable and accessible products."
+    "description": "Senior Full Stack Software Engineer building secure, scalable and accessible products."
   },
   "analytics": {
     "domain": "jessicafealy.dev"
   },
-  "footer": {
-    "copyrightName": "Jessica Fealy"
-  },
   "hero": {
     "name": "Jessica Fealy",
-    "role": "Full Stack Software Engineer",
-    "eyebrow": "Cardiff, Wales · Software engineer",
-    "summary": "Developing **secure, scalable, and accessible applications**. Championing DE&I through mentorship & inclusive practices.",
-    "secondaryAction": {
-      "label": "Let's connect",
-      "href": "https://uk.linkedin.com/in/jessicaclarafealy"
-    },
-    "tertiaryAction": {
-      "label": "View GitHub",
-      "href": "https://github.com/JeCFe"
-    }
+    "role": "Senior Software Engineer",
+    "summary": "Developing **secure, scalable, and accessible applications**. Championing DE&I through mentorship & inclusive practices."
   },
   "accessibility": {
     "backToTop": "Back to top",
     "toggleNavigation": "Toggle navigation menu",
-    "closeNavigation": "Close navigation menu",
     "projectLinks": {
       "git": "View source code on GitHub",
       "web": "View live website",
