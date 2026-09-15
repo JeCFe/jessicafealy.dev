@@ -257,18 +257,14 @@ content:
         label: Heading
         type: string
       - name: items
-        label: Roles
+        label: Employers
         type: object
         list:
           collapsible:
             collapsed: true
-            summary: "{jobTitle} — {jobLink.name}"
+            summary: "{employer.name}"
         fields:
-          - name: jobTitle
-            label: Job Title
-            type: string
-            required: true
-          - name: jobLink
+          - name: employer
             label: Employer
             type: object
             required: true
@@ -281,24 +277,41 @@ content:
                 label: Website URL
                 type: string
                 required: true
-          - name: date
-            label: Dates
-            type: string
-            required: true
-            description: A display range such as “Apr 2025 - Present”.
-          - name: highlights
-            label: Highlights
-            type: rich-text
+          - name: roles
+            label: Roles and Promotions
+            type: object
             list: true
             required: true
-            description: Each item becomes one bullet point. Markdown is supported.
-            options:
-              format: markdown
-              media: false
-          - name: pills
-            label: Technologies
-            type: string
-            list: true
+            collapsible:
+              collapsed: true
+              summary: "{jobTitle}"
+            fields:
+              - name: jobTitle
+                label: Job Title
+                type: string
+                required: true
+              - name: context
+                label: Role Context
+                type: string
+                description: Optional programme, team or division name.
+              - name: date
+                label: Dates
+                type: string
+                required: true
+                description: A display range such as “Apr 2025 - Present”.
+              - name: highlights
+                label: Highlights
+                type: rich-text
+                list: true
+                required: true
+                description: Each item becomes one bullet point. Markdown is supported.
+                options:
+                  format: markdown
+                  media: false
+              - name: pills
+                label: Technologies
+                type: string
+                list: true
 
   - name: projects
     label: Projects

@@ -44,12 +44,11 @@ const Home = () => {
           {experienceData.items.map((experience, index) => (
             <ExperienceBox
               {...experience}
-              key={`${experience.jobTitle}-${index}`}
+              key={`${experience.employer.name}-${index}`}
             />
           ))}
         </div>
       </Section>
-      {professionalProjects.si}
       <Section
         id="professional-projects"
         heading={professionalProjectsData.heading}
