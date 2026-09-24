@@ -264,6 +264,12 @@ content:
             collapsed: true
             summary: "{employer.name}"
         fields:
+          - name: published
+            label: Published
+            type: boolean
+            required: true
+            default: true
+            description: Turn off to hide this employer from the site without deleting it.
           - name: employer
             label: Employer
             type: object

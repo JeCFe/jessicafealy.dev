@@ -41,12 +41,14 @@ const Home = () => {
       </Section>
       <Section id="experience" heading={experienceData.heading} eyebrow="03">
         <div className="space-y-12">
-          {experienceData.items.map((experience, index) => (
-            <ExperienceBox
-              {...experience}
-              key={`${experience.employer.name}-${index}`}
-            />
-          ))}
+          {experienceData.items
+            .filter(({ published }) => published)
+            .map((experience, index) => (
+              <ExperienceBox
+                {...experience}
+                key={`${experience.employer.name}-${index}`}
+              />
+            ))}
         </div>
       </Section>
       <Section
