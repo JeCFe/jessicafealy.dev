@@ -3,6 +3,21 @@
   "items": [
     {
       "employer": {
+        "name": "Hirschsprung's Disease UK",
+        "href": "https://www.hirschsprungsdisease.co.uk/",
+        "employmentSummary": "Sept 2026 - Present"
+      },
+      "roles": [
+        {
+          "jobTitle": "Volunteer Senior Software Engineer",
+          "context": "Volunteer role alongside full-time employment",
+          "date": "Present",
+          "highlights": []
+        }
+      ]
+    },
+    {
+      "employer": {
         "name": "Rocket Science Group",
         "href": "https://www.rocketscience.gg/",
         "employmentSummary": "Apr 2025 - Present"
@@ -25,6 +40,7 @@
         }
       ]
     },
+
     {
       "employer": {
         "name": "BJSS",

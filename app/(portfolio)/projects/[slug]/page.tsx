@@ -59,7 +59,7 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 
       <article className="mt-12">
         <header>
-          <Typography as="h1" className="pb-2">
+          <Typography as="h1" className="pb-2 leading-[1.08]">
             {project.title}
           </Typography>
           {project.pageSummary && (
