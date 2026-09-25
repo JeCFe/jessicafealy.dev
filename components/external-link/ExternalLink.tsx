@@ -1,4 +1,5 @@
-import { AnchorHTMLAttributes, ReactNode } from "react";
+import { siteData } from "@/data";
+import type { AnchorHTMLAttributes, ReactNode } from "react";
 
 type ExternalLinkProps = Omit<
   AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -7,25 +8,40 @@ type ExternalLinkProps = Omit<
   href: string;
   children: ReactNode;
   showArrow?: boolean;
+  variant?: "text" | "unstyled";
 };
 
-export function ExternalLink({
+export const ExternalLink = ({
   href,
   children,
-  className = "",
-  showArrow = true,
+  className,
+  variant = "text",
+  showArrow = variant === "text",
+  "aria-label": ariaLabel,
   ...props
-}: ExternalLinkProps) {
+}: ExternalLinkProps) => {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`rounded-sm underline decoration-cyan-400/60 decoration-2 underline-offset-4 transition-colors hover:decoration-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 ${className}`}
+      aria-label={
+        ariaLabel
+          ? `${ariaLabel} (${siteData.accessibility.opensInNewTab})`
+          : undefined
+      }
+      className={[
+        "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300",
+        variant === "text" &&
+          "rounded-sm underline decoration-cyan-400/60 decoration-2 underline-offset-4 transition-colors hover:decoration-cyan-300",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
       {...props}
     >
       {children}
-      {showArrow ? (
+      {showArrow && (
         <svg
           aria-hidden="true"
           viewBox="0 0 16 16"
@@ -39,8 +55,8 @@ export function ExternalLink({
           <path d="M5 11 11 5" />
           <path d="M6 5h5v5" />
         </svg>
-      ) : null}
-      <span className="sr-only"> (opens in a new tab)</span>
+      )}
+      <span className="sr-only"> ({siteData.accessibility.opensInNewTab})</span>
     </a>
   );
-}
+};

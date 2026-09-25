@@ -1,7 +1,17 @@
-# Tells Pages CMS where to upload images
+# Tells Pages CMS where to upload media
 media:
-  input: public/images
-  output: /images
+  - name: images
+    label: Images
+    input: public/images
+    output: /images
+    categories: [image]
+    rename: safe
+  - name: videos
+    label: Videos
+    input: public/videos
+    output: /videos
+    categories: [video]
+    rename: safe
 
 # Defines the editable portfolio content
 content:
@@ -13,138 +23,158 @@ content:
       - name: metadata
         label: Search and Browser Metadata
         type: object
+        required: true
         fields:
           - name: title
             label: Site Title
             type: string
+            required: true
           - name: description
             label: Site Description
             type: text
-      - name: analytics
-        label: Analytics
+            required: true
+      - name: footer
+        label: Footer
         type: object
+        required: true
         fields:
-          - name: domain
-            label: Plausible Domain
+          - name: copyrightName
+            label: Copyright Name
             type: string
+            required: true
       - name: hero
         label: Introduction
         type: object
+        required: true
         fields:
           - name: name
             label: Name
             type: string
+            required: true
           - name: role
             label: Role
             type: string
+            required: true
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+            required: true
           - name: summary
             label: Summary
             type: rich-text
+            required: true
             options:
               format: markdown
               media: false
-      - name: socialLinks
-        label: Social Links
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{platform}"
-        fields:
-          - name: platform
-            label: Platform
-            type: select
-            options:
-              values:
-                - name: github
-                  label: GitHub
-                - name: linkedin
-                  label: LinkedIn
-          - name: href
-            label: Profile URL
-            type: string
-          - name: label
-            label: Accessible Link Label
-            type: string
-          - name: iconAlt
-            label: Icon Alt Text
-            type: string
-      - name: projectStatusDescriptions
-        label: Project Status Descriptions
-        type: object
-        fields:
-          - name: active
-            label: Active
-            type: rich-text
-            options:
-              format: markdown
-              media: false
-          - name: maintain
-            label: Maintenance Only
-            type: rich-text
-            options:
-              format: markdown
-              media: false
-          - name: paused
-            label: Paused
-            type: rich-text
-            options:
-              format: markdown
-              media: false
-          - name: closed
-            label: Closed
-            type: rich-text
-            options:
-              format: markdown
-              media: false
+          - name: secondaryAction
+            label: Secondary Action
+            type: object
+            required: true
+            fields:
+              - name: label
+                label: Label
+                type: string
+                required: true
+              - name: href
+                label: URL
+                type: string
+                required: true
+          - name: tertiaryAction
+            label: Tertiary Action
+            type: object
+            required: true
+            fields:
+              - name: label
+                label: Label
+                type: string
+                required: true
+              - name: href
+                label: URL
+                type: string
+                required: true
       - name: accessibility
         label: Accessibility Labels
         type: object
+        required: true
         fields:
           - name: backToTop
             label: Back-to-top Button
             type: string
+            required: true
           - name: toggleNavigation
             label: Navigation Toggle
             type: string
-          - name: toggleImprovements
-            label: Improvements Toggle
+            required: true
+          - name: closeNavigation
+            label: Close Navigation
             type: string
+            required: true
+          - name: mobileNavigation
+            label: Mobile Navigation
+            type: string
+            required: true
+          - name: primaryNavigation
+            label: Primary Navigation
+            type: string
+            required: true
+          - name: opensInNewTab
+            label: Opens in a New Tab
+            type: string
+            required: true
+          - name: proficiencyLinkLabel
+            label: Proficiency Link Label
+            type: string
+            required: true
+            description: Use {name} where the proficiency name should appear.
           - name: projectLinks
             label: Project Link Labels
             type: object
+            required: true
             fields:
               - name: git
                 label: Source Code
                 type: string
+                required: true
               - name: web
                 label: Website
                 type: string
+                required: true
               - name: deployed
                 label: Deployed Package
                 type: string
+                required: true
               - name: design
                 label: Design
                 type: string
+                required: true
               - name: fallback
                 label: Other Link
                 type: string
+                required: true
       - name: notFound
         label: Not-found Page
         type: object
+        required: true
         fields:
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+            required: true
           - name: title
             label: Heading
             type: string
+            required: true
           - name: description
             label: Description
             type: rich-text
+            required: true
             options:
               format: markdown
               media: false
           - name: linkLabel
             label: Home Link Label
             type: string
+            required: true
 
   - name: about
     label: About
@@ -218,10 +248,6 @@ content:
                   label: TypeScript
                 - name: xunit
                   label: xUnit
-          - name: iconAlt
-            label: Icon Alt Text
-            type: string
-
   - name: experience
     label: Experience
     type: file
@@ -231,40 +257,71 @@ content:
         label: Heading
         type: string
       - name: items
-        label: Roles
+        label: Employers
         type: object
         list:
           collapsible:
             collapsed: true
-            summary: "{jobTitle} — {jobLink.name}"
+            summary: "{employer.name}"
         fields:
-          - name: jobTitle
-            label: Job Title
-            type: string
-          - name: jobLink
+          - name: published
+            label: Published
+            type: boolean
+            required: true
+            default: true
+            description: Turn off to hide this employer from the site without deleting it.
+          - name: employer
             label: Employer
             type: object
+            required: true
             fields:
               - name: name
                 label: Name
                 type: string
+                required: true
               - name: href
                 label: Website URL
                 type: string
-          - name: date
-            label: Dates
-            type: string
-            description: A display range such as “Apr 2025 - Present”.
-          - name: body
-            label: Description
-            type: rich-text
-            options:
-              format: markdown
-              media: false
-          - name: pills
-            label: Technologies
-            type: string
+                required: true
+              - name: employmentSummary
+                label: Employment Summary
+                type: string
+                description: Optional detail shown below the employer, such as “Full-time · 2 yrs 8 mos”.
+          - name: roles
+            label: Roles and Promotions
+            type: object
             list: true
+            required: true
+            collapsible:
+              collapsed: true
+              summary: "{jobTitle}"
+            fields:
+              - name: jobTitle
+                label: Job Title
+                type: string
+                required: true
+              - name: context
+                label: Role Context
+                type: string
+                description: Optional programme, team or division name.
+              - name: date
+                label: Dates
+                type: string
+                required: true
+                description: A display range such as “Apr 2025 - Present”.
+              - name: highlights
+                label: Highlights
+                type: rich-text
+                list: true
+                required: true
+                description: Each item becomes one bullet point. Markdown is supported.
+                options:
+                  format: markdown
+                  media: false
+              - name: pills
+                label: Technologies
+                type: string
+                list: true
 
   - name: projects
     label: Projects
@@ -274,6 +331,7 @@ content:
       - name: heading
         label: Heading
         type: string
+        required: true
       - name: items
         label: Projects
         type: object
@@ -285,32 +343,37 @@ content:
           - name: heading
             label: Name
             type: string
-          - name: date
-            label: Dates
+            required: true
+          - name: image
+            label: Project Image
+            type: image
+            description: Optional. Use a screenshot or other representative image.
+            options:
+              media: images
+          - name: imageAlt
+            label: Project Image Alt Text
             type: string
-            description: A display range such as “Nov 2023 - Ongoing”.
-          - name: type
-            label: Status
+            description: Required when a project image is set.
+          - name: imageLayout
+            label: Image Layout
             type: select
             options:
               values:
-                - name: active
-                  label: Active
-                - name: maintain
-                  label: Maintenance Only
-                - name: paused
-                  label: Paused
-                - name: closed
-                  label: Closed
+                - name: side
+                  label: Side-by-side
+                - name: wide
+                  label: Full-width
           - name: body
             label: Description
             type: rich-text
+            required: true
             options:
               format: markdown
               media: false
           - name: link
             label: Links
             type: object
+            required: true
             list:
               collapsible:
                 collapsed: true
@@ -319,6 +382,7 @@ content:
               - name: type
                 label: Link Type
                 type: select
+                required: true
                 options:
                   values:
                     - name: design
@@ -332,18 +396,186 @@ content:
               - name: href
                 label: URL
                 type: string
+                required: true
           - name: pills
             label: Technologies
             type: string
             list: true
-          - name: improvements
-            label: Planned Improvements
-            type: rich-text
-            list: true
-            options:
-              format: markdown
-              media: false
           - name: order
             label: Display Order
             type: number
+            required: true
             description: Higher numbers are shown first.
+
+  - name: professionalProjectSettings
+    label: Professional Projects Settings
+    type: file
+    path: data/professional-projects.json
+    fields:
+      - name: heading
+        label: Section Heading
+        type: string
+        required: true
+      - name: navigationLabel
+        label: Navigation Label
+        type: string
+        required: true
+        description: Used in both desktop and mobile navigation.
+      - name: readMoreLabel
+        label: Read-more Label
+        type: string
+        required: true
+        description: Shown on carousel cards with a write-up page.
+      - name: backLinkLabel
+        label: Back Link Label
+        type: string
+        required: true
+        description: Links from each write-up back to the homepage section.
+      - name: defaultLinkLabel
+        label: Default Project Link Label
+        type: string
+        required: true
+        description: Used when a project has an external URL but no custom link label.
+      - name: videoFallback
+        label: Video Fallback Text
+        type: text
+        required: true
+        description: Shown when a browser does not support embedded videos.
+      - name: carousel
+        label: Carousel Accessibility Labels
+        type: object
+        required: true
+        fields:
+          - name: label
+            label: Carousel Label
+            type: string
+            required: true
+          - name: previousLabel
+            label: Previous Slide Button
+            type: string
+            required: true
+          - name: nextLabel
+            label: Next Slide Button
+            type: string
+            required: true
+
+  - name: professionalProjects
+    label: Professional Projects
+    type: collection
+    path: data/professional-projects
+    format: json
+    exclude: [types.ts]
+    filename: "{fields.slug}.json"
+    view:
+      fields: [title, status, showInCarousel, hasWriteUp, order]
+      primary: title
+      sort: order
+      order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        description: Lowercase words separated by hyphens. This becomes the page URL.
+      - name: carouselSummary
+        label: Carousel Summary
+        type: text
+        required: true
+      - name: image
+        label: Project Image
+        type: image
+        options:
+          media: images
+      - name: imageAlt
+        label: Project Image Alt Text
+        type: string
+        description: Required when a project image is set.
+      - name: status
+        label: Status
+        type: select
+        required: true
+        default: draft
+        options:
+          values:
+            - name: draft
+              label: Draft
+            - name: published
+              label: Published
+      - name: showInCarousel
+        label: Show in Carousel
+        type: boolean
+        default: false
+      - name: order
+        label: Display Order
+        type: number
+        default: 0
+        description: Higher numbers are shown first.
+      - name: hasWriteUp
+        label: Enable Write-up Page
+        type: boolean
+        default: false
+      - name: pageSummary
+        label: Page Summary
+        type: text
+      - name: linkLabel
+        label: External Link Label
+        type: string
+      - name: linkHref
+        label: External Link URL
+        type: string
+      - name: content
+        label: Write-up Content
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - name: markdown
+            label: Markdown
+            fields:
+              - name: content
+                label: Content
+                type: rich-text
+                required: true
+                options:
+                  format: markdown
+                  media: false
+          - name: image
+            label: Image
+            fields:
+              - name: image
+                label: Image
+                type: image
+                required: true
+                options:
+                  media: images
+              - name: alt
+                label: Alt Text
+                type: string
+                required: true
+              - name: caption
+                label: Caption
+                type: text
+                required: true
+          - name: video
+            label: Video
+            fields:
+              - name: video
+                label: Video File
+                type: file
+                required: true
+                options:
+                  media: videos
+                  categories: [video]
+              - name: poster
+                label: Poster Image
+                type: image
+                options:
+                  media: images
+              - name: caption
+                label: Caption
+                type: text
+                required: true

@@ -1,0 +1,13 @@
+{
+  "heading": "Professional projects",
+  "navigationLabel": "Professional Projects",
+  "readMoreLabel": "Continue reading",
+  "backLinkLabel": "Professional projects",
+  "defaultLinkLabel": "Visit project",
+  "videoFallback": "Your browser does not support embedded videos.",
+  "carousel": {
+    "label": "Professional projects",
+    "previousLabel": "Previous slide",
+    "nextLabel": "Next slide"
+  }
+}

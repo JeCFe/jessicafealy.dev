@@ -3,17 +3,34 @@
     "title": "Jessica Fealy",
     "description": "Senior Full Stack Software Engineer building secure, scalable and accessible products."
   },
+  "footer": {
+    "copyrightName": "Jessica Fealy"
+  },
   "analytics": {
     "domain": "jessicafealy.dev"
   },
   "hero": {
     "name": "Jessica Fealy",
     "role": "Senior Software Engineer",
-    "summary": "Developing **secure, scalable, and accessible applications**. Championing DE&I through mentorship & inclusive practices."
+    "eyebrow": "Cardiff, Wales · Software engineer",
+    "summary": "Developing **secure, scalable, and accessible applications**. Championing DE&I through mentorship & inclusive practices.",
+    "secondaryAction": {
+      "label": "Let's connect",
+      "href": "https://uk.linkedin.com/in/jessicaclarafealy"
+    },
+    "tertiaryAction": {
+      "label": "View GitHub",
+      "href": "https://github.com/JeCFe"
+    }
   },
   "accessibility": {
     "backToTop": "Back to top",
     "toggleNavigation": "Toggle navigation menu",
+    "closeNavigation": "Close navigation menu",
+    "mobileNavigation": "Mobile navigation",
+    "primaryNavigation": "Primary navigation",
+    "opensInNewTab": "opens in a new tab",
+    "proficiencyLinkLabel": "Learn more about {name}",
     "projectLinks": {
       "git": "View source code on GitHub",
       "web": "View live website",
@@ -23,6 +40,7 @@
     }
   },
   "notFound": {
+    "eyebrow": "Lost in the stack",
     "title": "404 - Not Found",
     "description": "The page you're looking for has moved or no longer exists.",
     "linkLabel": "Return home"

@@ -2,65 +2,105 @@
   "heading": "Experience",
   "items": [
     {
-      "jobTitle": "Senior Software Engineer",
-      "jobLink": {
-        "name": "Rocket Science Group - Terminal Velocity",
-        "href": "https://www.rocketscience.gg/"
+      "published": false,
+      "employer": {
+        "name": "Hirschsprung's Disease UK",
+        "href": "https://www.hirschsprungsdisease.co.uk/",
+        "employmentSummary": "Sept 2026 - Present"
       },
-      "date": "Sept 2026 - Present"
-    },
-    {
-      "jobTitle": "Software Engineer",
-      "jobLink": {
-        "name": "Rocket Science Group - Terminal Velocity",
-        "href": "https://www.rocketscience.gg/"
-      },
-      "date": "Apr 2025 - Sept 2026",
-      "pills": [
-        "Java",
-        "Next.js",
-        "TypeScript",
-        "AWS",
-        "GCP",
-        "Terraform"
+      "roles": [
+        {
+          "jobTitle": "Volunteer Senior Software Engineer",
+          "context": "Volunteer role alongside full-time employment",
+          "date": "Sept 2026 - Present",
+          "highlights": []
+        }
       ]
     },
     {
-      "jobTitle": "Software Engineer",
-      "jobLink": {
+      "published": true,
+      "employer": {
+        "name": "Rocket Science Group",
+        "href": "https://www.rocketscience.gg/",
+        "employmentSummary": "Apr 2025 - Present"
+      },
+      "roles": [
+        {
+          "jobTitle": "Senior Software Engineer",
+          "date": "Sept 2026 - Present",
+          "highlights": []
+        },
+        {
+          "jobTitle": "Software Engineer",
+          "date": "Apr 2025 - Sept 2026",
+          "highlights": [
+            "Led a frontend team to design and deliver a new hosting platform dashboard from the ground up.",
+            "Built orchestration services that connect modern cloud platforms with legacy systems across organisations.",
+            "Worked across the stack while raising the bar for delivery, code quality and team support."
+          ],
+          "pills": ["Java", "Next.js", "TypeScript", "AWS", "GCP", "Terraform"]
+        }
+      ]
+    },
+
+    {
+      "published": true,
+      "employer": {
         "name": "BJSS",
-        "href": "https://www.bjss.com/"
+        "href": "https://www.bjss.com/",
+        "employmentSummary": "Sept 2022 - Apr 2025"
       },
-      "date": "Sept 2023 - Apr 2025",
-      "pills": [
-        "C#",
-        "Dotnet",
-        "TypeScript",
-        "Next.js",
-        "SWR",
-        "Entity Framework",
-        "Azure"
-      ]
-    },
-    {
-      "jobTitle": "Graduate Software Engineer",
-      "jobLink": {
-        "name": "BJSS Academy",
-        "href": "https://www.bjss.com/academy"
-      },
-      "date": "Sept 2022 - Sept 2023",
-      "pills": [
-        "C#",
-        "Dotnet",
-        "Java",
-        "SpringBoot",
-        "TypeScript",
-        "Next.js",
-        "React",
-        "SWR",
-        "Entity Framework",
-        "Azure",
-        "AWS"
+      "roles": [
+        {
+          "jobTitle": "Squad Lead",
+          "context": "Secondary role alongside Software Engineer",
+          "date": "Dec 2024 - Apr 2025",
+          "highlights": [
+            "Line managed an internal squad of approximately six people.",
+            "Provided pastoral support, including review periods and absence management."
+          ]
+        },
+        {
+          "jobTitle": "Software Engineer",
+          "date": "Sept 2023 - Apr 2025",
+          "highlights": [
+            "Helped deliver critical national flood-warning infrastructure capable of sending **40,000+ messages across three channels in under an hour**.",
+            "Reduced message creation time from **tens of minutes to tens of seconds**.",
+            "Designed mission-critical systems, mentored junior engineers and delivered tested frontend, backend and database solutions. [Read the case study](https://www.linkedin.com/posts/jessicaclarafealy_how-bjss-and-nrw-are-safeguarding-wales-activity-7298022225394216961-icQ_)"
+          ],
+          "pills": [
+            "C#",
+            "Dotnet",
+            "TypeScript",
+            "Next.js",
+            "SWR",
+            "Entity Framework",
+            "Azure"
+          ]
+        },
+        {
+          "jobTitle": "Graduate Software Engineer",
+          "context": "BJSS Academy",
+          "date": "Sept 2022 - Sept 2023",
+          "highlights": [
+            "Delivered React and Ruby on Rails applications alongside Java API microservices for a major public-sector client.",
+            "Built C# services, Next.js applications and a shared React design system for another national client.",
+            "Became a key client contact, regularly leading sprint reviews and communicating delivery progress."
+          ],
+          "pills": [
+            "C#",
+            "Dotnet",
+            "Java",
+            "SpringBoot",
+            "TypeScript",
+            "Next.js",
+            "React",
+            "SWR",
+            "Entity Framework",
+            "Azure",
+            "AWS"
+          ]
+        }
       ]
     }
   ]

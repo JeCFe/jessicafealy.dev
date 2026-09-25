@@ -1,18 +1,21 @@
-# Portfolio Website
+# Jessica Fealy Portfolio
 
-A portfolio website to introduce myself, highlighting proficiencies, projects, and resumé.
+Requires Node.js 20.9 or newer and npm.
 
-The website is being hosted on [https://jessicafealy.dev](https://jessicafealy.dev)
+## Run locally
 
-## Local Run
-
-```bash
-  npm install
-  npm run dev
+```sh
+npm ci
+npm run dev
 ```
 
-## Deployment
+Open the local URL printed by the server, usually http://localhost:3000.
 
-Concurrent deployments to both github pages and Azure static apps:
+## Preview the production build
 
-Github Pages: [https://jessicafealy.dev]("https://jessicafealy.dev")
+```sh
+npm run build
+npm start
+```
+
+This builds the static site into `out/` and serves it locally.
