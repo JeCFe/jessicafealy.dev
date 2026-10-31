@@ -16,10 +16,10 @@ export const PillList = ({
   items?: readonly string[];
   className?: string;
 }) =>
-  items?.length ? (
+  items?.length && (
     <div className={cn("mt-6 flex flex-wrap gap-2", className)}>
       {items.map((item, index) => (
         <Pill key={`${item}-${index}`}>{item}</Pill>
       ))}
     </div>
-  ) : null;
+  );

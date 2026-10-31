@@ -518,9 +518,27 @@ content:
         label: Enable Write-up Page
         type: boolean
         default: false
+      - name: showTableOfContents
+        label: Show Table of Contents
+        type: boolean
+        default: false
       - name: pageSummary
         label: Page Summary
         type: text
+      - name: metadata
+        label: Project Metadata
+        type: object
+        description: Optional details shown below the project image and above the table of contents.
+        fields:
+          - name: role
+            label: Role
+            type: string
+          - name: scope
+            label: Scope
+            type: string
+          - name: techStack
+            label: Tech Stack
+            type: string
       - name: linkLabel
         label: External Link Label
         type: string

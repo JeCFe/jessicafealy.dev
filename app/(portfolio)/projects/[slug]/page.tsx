@@ -1,8 +1,11 @@
 import {
   ContentImage,
   ExternalLink,
+  getMarkdownHeadings,
   MarkdownContent,
   ProjectContent,
+  ProjectMetadata,
+  TableOfContents,
   Typography,
 } from "@/components";
 import { getProjectBySlug, getProjectWriteUps } from "@/content";
@@ -47,6 +50,12 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
 
   if (!project) notFound();
 
+  const tableOfContentsHeadings = (project.content ?? []).flatMap((block) =>
+    block.type === "markdown"
+      ? getMarkdownHeadings(block.content).filter(({ depth }) => depth > 1)
+      : [],
+  );
+
   return (
     <div className="min-h-screen py-12 sm:py-16 lg:py-24">
       <Link
@@ -75,15 +84,22 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
           )}
         </header>
 
-        {project.image ? (
+        {project.image && (
           <ContentImage
             src={project.image}
             alt={project.imageAlt ?? ""}
             frameClassName="mt-12 aspect-[16/9] w-full rounded-3xl"
             priority
+            loading="eager"
             sizes="(min-width: 1024px) 896px, (min-width: 640px) calc(100vw - 80px), calc(100vw - 48px)"
           />
-        ) : null}
+        )}
+
+        {project.metadata && <ProjectMetadata metadata={project.metadata} />}
+
+        {project.showTableOfContents && tableOfContentsHeadings.length > 0 && (
+          <TableOfContents headings={tableOfContentsHeadings} />
+        )}
 
         <ProjectContent blocks={project.content ?? []} />
       </article>
