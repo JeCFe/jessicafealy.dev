@@ -20,12 +20,89 @@ const getHeadingText = (children: ReactNode): string =>
     .join("");
 
 const getHeadingId = (children: ReactNode): string =>
-  getHeadingText(children)
+  getHeadingIdFromText(getHeadingText(children));
+
+export const getHeadingIdFromText = (text: string): string =>
+  text
     .toLowerCase()
     .trim()
     .replace(/[’']/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
+
+export type MarkdownHeading = {
+  title: string;
+  id: string;
+  depth: number;
+};
+
+const cleanHeadingText = (text: string) =>
+  text
+    .replace(/!\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/\[([^\]]+)\]\[[^\]]*\]/g, "$1")
+    .replace(/<[^>]*>/g, "")
+    .replace(/\\([\\`*_{}[\]()#+.!>~-])/g, "$1")
+    .replace(/[\\*_~`]/g, "")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .trim();
+
+export const getMarkdownHeadings = (content: string): MarkdownHeading[] => {
+  const lines = content.split(/\r?\n/);
+  const headings: MarkdownHeading[] = [];
+  let fence: { character: string; length: number } | undefined;
+
+  lines.forEach((line, index) => {
+    const fenceMatch = line.match(/^ {0,3}(`{3,}|~{3,})/);
+    if (fenceMatch) {
+      const marker = fenceMatch[1];
+      if (!fence) {
+        fence = { character: marker[0], length: marker.length };
+      } else if (
+        marker[0] === fence.character &&
+        marker.length >= fence.length
+      ) {
+        fence = undefined;
+      }
+      return;
+    }
+    if (fence) return;
+
+    const lineWithoutQuote = line.replace(/^ {0,3}(?:>\s?)+/, "");
+    const atxHeading = lineWithoutQuote.match(
+      /^ {0,3}(#{1,6})(?:\s+|$)(.*?)\s*#*\s*$/,
+    );
+    if (atxHeading) {
+      const title = cleanHeadingText(atxHeading[2]);
+      if (title) {
+        headings.push({
+          title,
+          id: getHeadingIdFromText(title),
+          depth: atxHeading[1].length,
+        });
+      }
+      return;
+    }
+
+    const setextHeading = lines[index + 1]?.match(/^ {0,3}(=+|-+)\s*$/);
+    if (lineWithoutQuote.trim() && setextHeading) {
+      const title = cleanHeadingText(lineWithoutQuote.trim());
+      if (title) {
+        headings.push({
+          title,
+          id: getHeadingIdFromText(title),
+          depth: setextHeading[1][0] === "=" ? 1 : 2,
+        });
+      }
+    }
+  });
+
+  return headings;
+};
 
 const renderTypography = (as: TypographyTag, className?: string) => {
   const MarkdownTypography = ({ children }: { children?: ReactNode }) => (

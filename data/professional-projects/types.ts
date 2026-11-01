@@ -19,6 +19,12 @@ export type VideoBlock = {
   caption: string;
 };
 
+export type ProjectMetadata = {
+  role?: string | null;
+  scope?: string | null;
+  techStack?: string | null;
+};
+
 export type ProfessionalProjectBlock = MarkdownBlock | ImageBlock | VideoBlock;
 
 export type ProfessionalProject = {
@@ -31,6 +37,8 @@ export type ProfessionalProject = {
   showInCarousel: boolean;
   order: number;
   hasWriteUp: boolean;
+  showTableOfContents: boolean;
+  metadata?: ProjectMetadata | null;
   pageSummary?: string | null;
   linkLabel?: string | null;
   linkHref?: string | null;
