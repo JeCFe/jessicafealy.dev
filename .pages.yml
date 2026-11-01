@@ -256,6 +256,22 @@ content:
       - name: heading
         label: Heading
         type: string
+      - name: labels
+        label: Experience Labels
+        type: object
+        fields:
+          - name: showHighlights
+            label: Collapsed Highlights Label
+            type: string
+            required: true
+          - name: hideHighlights
+            label: Expanded Highlights Label
+            type: string
+            required: true
+          - name: volunteeringHeading
+            label: Volunteering Heading
+            type: string
+            required: true
       - name: items
         label: Employers
         type: object
@@ -270,6 +286,12 @@ content:
             required: true
             default: true
             description: Turn off to hide this employer from the site without deleting it.
+          - name: volunteer
+            label: Volunteer Experience
+            type: boolean
+            required: true
+            default: false
+            description: Show this entry in the smaller volunteering block below paid experience.
           - name: employer
             label: Employer
             type: object
@@ -309,11 +331,27 @@ content:
                 type: string
                 required: true
                 description: A display range such as “Apr 2025 - Present”.
+              - name: additionalRoles
+                label: Additional Roles
+                type: object
+                list: true
+                collapsible:
+                  collapsed: true
+                  summary: "{jobTitle}"
+                fields:
+                  - name: jobTitle
+                    label: Job Title
+                    type: string
+                    required: true
+                  - name: date
+                    label: Dates
+                    type: string
+                    required: true
               - name: highlights
                 label: Highlights
                 type: rich-text
                 list: true
-                required: true
+                required: false
                 description: Each item becomes one bullet point. Markdown is supported.
                 options:
                   format: markdown
@@ -518,9 +556,27 @@ content:
         label: Enable Write-up Page
         type: boolean
         default: false
+      - name: showTableOfContents
+        label: Show Table of Contents
+        type: boolean
+        default: false
       - name: pageSummary
         label: Page Summary
         type: text
+      - name: metadata
+        label: Project Metadata
+        type: object
+        description: Optional details shown below the project image and above the table of contents.
+        fields:
+          - name: role
+            label: Role
+            type: string
+          - name: scope
+            label: Scope
+            type: string
+          - name: techStack
+            label: Tech Stack
+            type: string
       - name: linkLabel
         label: External Link Label
         type: string

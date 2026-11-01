@@ -29,9 +29,9 @@ export const ContentCard = ({
   return (
     <article
       className={cn(
-        "relative overflow-hidden rounded-3xl border border-slate-700/70 bg-slate-900/70 shadow-[0_24px_80px_-44px_rgba(34,211,238,0.5)] backdrop-blur",
+        "relative overflow-hidden rounded-3xl border border-slate-700/70 bg-slate-900/70 backdrop-blur",
         interactive &&
-          "transition-all duration-300 group-hover:border-cyan-300/70 group-hover:shadow-[0_30px_90px_-38px_rgba(34,211,238,0.7)] group-active:scale-[0.99]",
+          "transition-all duration-300 group-hover:border-cyan-300/70 group-active:scale-[0.99]",
       )}
     >
       <div

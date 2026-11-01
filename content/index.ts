@@ -60,11 +60,20 @@ const readProject = (filename: string): ProfessionalProject => {
   if (typeof project.order !== "number" || !Number.isFinite(project.order)) {
     throw new Error(`${filename}: order must be a number.`);
   }
-  for (const name of ["showInCarousel", "hasWriteUp"]) {
+  for (const name of ["showInCarousel", "hasWriteUp", "showTableOfContents"]) {
     project[name] ??= false;
     if (typeof project[name] !== "boolean") {
       throw new Error(`${filename}: ${name} must be a boolean.`);
     }
+  }
+  if (project.metadata != null) {
+    const metadata = validateFields(
+      project.metadata,
+      [],
+      ["role", "scope", "techStack"],
+      `${filename}: metadata`,
+    );
+    project.metadata = Object.values(metadata).some(Boolean) ? metadata : null;
   }
   if (project.image && !project.imageAlt) {
     throw new Error(`${filename}: imageAlt is required when image is set.`);
@@ -119,4 +128,5 @@ export const getProjectBySlug = (slug: string) =>
 export type {
   ProfessionalProject,
   ProfessionalProjectBlock,
+  ProjectMetadata,
 } from "../data/professional-projects/types";

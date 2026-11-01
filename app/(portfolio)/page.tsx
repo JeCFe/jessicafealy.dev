@@ -7,6 +7,7 @@ import {
   Proficiencies,
   ProjectLinks,
   Section,
+  Typography,
 } from "@/components";
 import { getCarouselProjects } from "@/content";
 import {
@@ -42,14 +43,37 @@ const Home = () => {
       <Section id="experience" heading={experienceData.heading} eyebrow="03">
         <div className="space-y-12">
           {experienceData.items
-            .filter(({ published }) => published)
+            .filter(({ published, volunteer }) => published && !volunteer)
             .map((experience, index) => (
               <ExperienceBox
                 {...experience}
+                collapseCurrentRole={index > 0}
+                labels={experienceData.labels}
                 key={`${experience.employer.name}-${index}`}
               />
             ))}
         </div>
+        {experienceData.items.some(
+          ({ published, volunteer }) => published && volunteer,
+        ) && (
+          <div className="mt-16 border-t border-slate-800 pt-8">
+            <Typography as="h3" className="!text-xl text-slate-100">
+              {experienceData.labels.volunteeringHeading}
+            </Typography>
+            <div className="mt-6 space-y-8">
+              {experienceData.items
+                .filter(({ published, volunteer }) => published && volunteer)
+                .map((experience, index) => (
+                  <ExperienceBox
+                    {...experience}
+                    compact
+                    labels={experienceData.labels}
+                    key={`${experience.employer.name}-volunteer-${index}`}
+                  />
+                ))}
+            </div>
+          </div>
+        )}
       </Section>
       <Section
         id="professional-projects"
