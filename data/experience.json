@@ -13,7 +13,9 @@
           "jobTitle": "Volunteer Senior Software Engineer",
           "context": "Volunteer role alongside full-time employment",
           "date": "Sept 2026 - Present",
-          "highlights": []
+          "highlights": [
+            "Temp"
+          ]
         }
       ]
     },
@@ -28,7 +30,9 @@
         {
           "jobTitle": "Senior Software Engineer",
           "date": "Sept 2026 - Present",
-          "highlights": []
+          "highlights": [
+            "Line manager & mentor for several software engineers."
+          ]
         },
         {
           "jobTitle": "Software Engineer",
@@ -38,11 +42,17 @@
             "Built orchestration services that connect modern cloud platforms with legacy systems across organisations.",
             "Worked across the stack while raising the bar for delivery, code quality and team support."
           ],
-          "pills": ["Java", "Next.js", "TypeScript", "AWS", "GCP", "Terraform"]
+          "pills": [
+            "Java",
+            "Next.js",
+            "TypeScript",
+            "AWS",
+            "GCP",
+            "Terraform"
+          ]
         }
       ]
     },
-
     {
       "published": true,
       "employer": {
