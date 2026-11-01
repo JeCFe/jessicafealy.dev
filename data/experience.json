@@ -1,5 +1,9 @@
 {
   "heading": "Experience",
+  "labels": {
+    "showHighlights": "Show highlights",
+    "hideHighlights": "Hide highlights"
+  },
   "items": [
     {
       "published": false,
@@ -13,9 +17,7 @@
           "jobTitle": "Volunteer Senior Software Engineer",
           "context": "Volunteer role alongside full-time employment",
           "date": "Sept 2026 - Present",
-          "highlights": [
-            "Temp"
-          ]
+          "highlights": ["Temp"]
         }
       ]
     },
@@ -47,18 +49,11 @@
           "jobTitle": "Software Engineer",
           "date": "Apr 2025 - Sept 2026",
           "highlights": [
-            "Led the frontend pod as part of the Multiplay migration from Unity To Rocket Science\n\n- Read about this here.\n\n",
+            "Led the frontend pod as part of the Multiplay migration from Unity To Rocket Science\n\n- [Read about this here](/projects/multiplay-migration)\n\n",
             "Architected and led the delivery of an AWS Lambda orchestration service connecting modern Kubernetes workloads with legacy on-premises systems across cross-organizational teams.\n\n- Designed a concurrent Lambda architecture capable of orchestrating hundreds of spike requests simultaneously between services.\n- Implemented graceful error handling within concurrent workers to ensure safe failure recovery and accurate feedback reporting to consumer services.\n\n",
             "Worked across the full stack while raising engineering standards and supporting team growth.\n\n* Standardized delivery workflows and code quality practices across cross-functional engineering teams.\n\n* Provided technical leadership and mentorship to elevate overall pod productivity and system reliability."
           ],
-          "pills": [
-            "Java",
-            "Next.js",
-            "TypeScript",
-            "AWS",
-            "GCP",
-            "Terraform"
-          ]
+          "pills": ["Java", "Next.js", "TypeScript", "AWS", "GCP", "Terraform"]
         }
       ]
     },
@@ -80,7 +75,7 @@
             }
           ],
           "highlights": [
-            "Delivered a national flood warning system\n\n- Responsible for the various message delivery methods capable of sending **40,000+ messages across three channels in under an hour**.\n- Reduced message creation time for flood officers from **tens of minutes** to **tens of seconds**.\n- Produced both internal and external webapps for flood officers and public registration.\n- [Read the case study]([https://www.linkedin.com/posts/jessicaclarafealy_how-bjss-and-nrw-are-safeguarding-wales-activity-7298022225394216961-icQ_](https://www.linkedin.com/posts/jessicaclarafealy_how-bjss-and-nrw-are-safeguarding-wales-activity-7298022225394216961-icQ_))\n\n",
+            "Delivered a national flood warning system [Read the case study](https://www.linkedin.com/posts/jessicaclarafealy_how-bjss-and-nrw-are-safeguarding-wales-activity-7298022225394216961-icQ_)\n\n- Responsible for the various message delivery methods capable of sending **40,000+ messages across three channels in under an hour**.\n- Reduced message creation time for flood officers from **tens of minutes** to **tens of seconds**.\n- Produced both internal and external webapps for flood officers and public registration.",
             "Line managed an internal squad of approximately six people.\n\n- Provided pastoral support, including review periods and absence management.\n\n"
           ],
           "pills": [

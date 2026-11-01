@@ -8,7 +8,7 @@ export type ExperienceProps = {
   };
   roles: ExperienceRole[];
   collapseCurrentRole?: boolean;
-  labels: { showHighlights: string; hideHighlights: string };
+  labels?: { showHighlights: string; hideHighlights: string };
 };
 
 export type ExperienceRole = {
@@ -67,7 +67,7 @@ export const ExperienceBox = ({
         </Typography>
       )}
       {role.highlights.length > 0 &&
-        (collapsed ? (
+        (collapsed && labels ? (
           <details className="group mt-4">
             <summary className="inline-flex w-fit cursor-pointer list-none items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/5 px-3 py-1 font-poppins text-xs font-medium text-cyan-200 transition-colors hover:border-cyan-300/40 hover:bg-cyan-300/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300 [&::-webkit-details-marker]:hidden">
               <span
