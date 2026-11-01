@@ -46,6 +46,8 @@ const Home = () => {
             .map((experience, index) => (
               <ExperienceBox
                 {...experience}
+                collapseCurrentRole={index > 0}
+                labels={experienceData.labels}
                 key={`${experience.employer.name}-${index}`}
               />
             ))}

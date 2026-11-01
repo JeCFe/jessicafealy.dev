@@ -1,5 +1,9 @@
 {
   "heading": "Experience",
+  "labels": {
+    "showHighlights": "Show highlights",
+    "hideHighlights": "Hide highlights"
+  },
   "items": [
     {
       "published": false,
@@ -13,9 +17,7 @@
           "jobTitle": "Volunteer Senior Software Engineer",
           "context": "Volunteer role alongside full-time employment",
           "date": "Sept 2026 - Present",
-          "highlights": [
-            "Temp"
-          ]
+          "highlights": ["Temp"]
         }
       ]
     },
@@ -32,7 +34,7 @@
           "date": "Sept 2026 - Present",
           "highlights": [
             "Line manager & mentor for several software engineers.",
-            "Led a rebranding initiative for a large MMO gaming company\n\n- Managed cross functional product and design stakeholders, negotiating technical constraints to align brand vision with engineering requirements\n- Built a React design system from the ground up that was adopted across client teams, maintaining shared ownership by supporting and encouraging other teams to confidently maintain it\n- Investigated and rebranded core authentication flows to ensure players maintained a consistent experience aligned with the client's new branding\n\n"
+            "Led a rebranding initiative for a large MMO gaming company\n\n- Managed cross functional product and design stakeholders, negotiating technical constraints to align brand vision with engineering requirements\n- Built a React design system from the ground up that was adopted across client teams, maintaining shared ownership by supporting and encouraging other teams to confidently maintain it\n- Investigated and rebranded core flows to ensure players maintained a consistent experience aligned with the client's new branding\n\n"
           ],
           "pills": [
             "React",
@@ -51,14 +53,7 @@
             "Built orchestration services that connect modern cloud platforms with legacy systems across organisations.",
             "Worked across the stack while raising the bar for delivery, code quality and team support."
           ],
-          "pills": [
-            "Java",
-            "Next.js",
-            "TypeScript",
-            "AWS",
-            "GCP",
-            "Terraform"
-          ]
+          "pills": ["Java", "Next.js", "TypeScript", "AWS", "GCP", "Terraform"]
         }
       ]
     },
@@ -71,21 +66,20 @@
       },
       "roles": [
         {
-          "jobTitle": "Squad Lead",
-          "context": "Secondary role alongside Software Engineer",
-          "date": "Dec 2024 - Apr 2025",
-          "highlights": [
-            "Line managed an internal squad of approximately six people.",
-            "Provided pastoral support, including review periods and absence management."
-          ]
-        },
-        {
           "jobTitle": "Software Engineer",
           "date": "Sept 2023 - Apr 2025",
+          "additionalRoles": [
+            {
+              "jobTitle": "Squad Lead",
+              "date": "Dec 2024 - Apr 2025"
+            }
+          ],
           "highlights": [
             "Helped deliver critical national flood-warning infrastructure capable of sending **40,000+ messages across three channels in under an hour**.",
             "Reduced message creation time from **tens of minutes to tens of seconds**.",
-            "Designed mission-critical systems, mentored junior engineers and delivered tested frontend, backend and database solutions. [Read the case study](https://www.linkedin.com/posts/jessicaclarafealy_how-bjss-and-nrw-are-safeguarding-wales-activity-7298022225394216961-icQ_)"
+            "Designed mission-critical systems, mentored junior engineers and delivered tested frontend, backend and database solutions. [Read the case study](https://www.linkedin.com/posts/jessicaclarafealy_how-bjss-and-nrw-are-safeguarding-wales-activity-7298022225394216961-icQ_)",
+            "Line managed an internal squad of approximately six people.",
+            "Provided pastoral support, including review periods and absence management."
           ],
           "pills": [
             "C#",

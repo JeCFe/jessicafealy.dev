@@ -199,6 +199,18 @@ content:
       - name: heading
         label: Heading
         type: string
+      - name: labels
+        label: Experience Labels
+        type: object
+        fields:
+          - name: showHighlights
+            label: Collapsed Highlights Label
+            type: string
+            required: true
+          - name: hideHighlights
+            label: Expanded Highlights Label
+            type: string
+            required: true
       - name: items
         label: Proficiencies
         type: object
@@ -309,6 +321,22 @@ content:
                 type: string
                 required: true
                 description: A display range such as “Apr 2025 - Present”.
+              - name: additionalRoles
+                label: Additional Roles
+                type: object
+                list: true
+                collapsible:
+                  collapsed: true
+                  summary: "{jobTitle}"
+                fields:
+                  - name: jobTitle
+                    label: Job Title
+                    type: string
+                    required: true
+                  - name: date
+                    label: Dates
+                    type: string
+                    required: true
               - name: highlights
                 label: Highlights
                 type: rich-text
