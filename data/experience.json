@@ -32,7 +32,15 @@
           "date": "Sept 2026 - Present",
           "highlights": [
             "Line manager & mentor for several software engineers.",
-            "Led a rebranding initiative for a large MMO gaming company\n\n- Partnered closely with their in-house design team and product manager\n- Built a React design system from the ground up that was adopted across client teams, maintaining shared ownership by supporting and encouraging other teams to confidently maintain it\n- Investigated and rebranded core authentication flows to ensure players maintained a consistent experience aligned with the client's new branding\n\n"
+            "Led a rebranding initiative for a large MMO gaming company\n\n- Managed cross functional product and design stakeholders, negotiating technical constraints to align brand vision with engineering requirements\n- Built a React design system from the ground up that was adopted across client teams, maintaining shared ownership by supporting and encouraging other teams to confidently maintain it\n- Investigated and rebranded core authentication flows to ensure players maintained a consistent experience aligned with the client's new branding\n\n"
+          ],
+          "pills": [
+            "React",
+            "Java",
+            "Terraform",
+            "AWS",
+            "Kubernetes",
+            "TypeScript"
           ]
         },
         {
