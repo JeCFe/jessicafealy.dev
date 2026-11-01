@@ -199,18 +199,6 @@ content:
       - name: heading
         label: Heading
         type: string
-      - name: labels
-        label: Experience Labels
-        type: object
-        fields:
-          - name: showHighlights
-            label: Collapsed Highlights Label
-            type: string
-            required: true
-          - name: hideHighlights
-            label: Expanded Highlights Label
-            type: string
-            required: true
       - name: items
         label: Proficiencies
         type: object
@@ -280,6 +268,10 @@ content:
             label: Expanded Highlights Label
             type: string
             required: true
+          - name: volunteeringHeading
+            label: Volunteering Heading
+            type: string
+            required: true
       - name: items
         label: Employers
         type: object
@@ -294,6 +286,12 @@ content:
             required: true
             default: true
             description: Turn off to hide this employer from the site without deleting it.
+          - name: volunteer
+            label: Volunteer Experience
+            type: boolean
+            required: true
+            default: false
+            description: Show this entry in the smaller volunteering block below paid experience.
           - name: employer
             label: Employer
             type: object
@@ -353,7 +351,7 @@ content:
                 label: Highlights
                 type: rich-text
                 list: true
-                required: true
+                required: false
                 description: Each item becomes one bullet point. Markdown is supported.
                 options:
                   format: markdown
