@@ -30,10 +30,9 @@ export const ProjectLinks = ({ links }: { links: readonly ProjectLink[] }) => (
           <ExternalLink
             key={`${link.type}-${index}`}
             href={link.href}
-            variant="unstyled"
+            variant="icon"
             aria-label={label}
             title={label}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-cyan-300 transition-colors hover:border-cyan-300 hover:bg-cyan-300 hover:text-slate-950"
           >
             <Icon aria-hidden="true" className="h-5 w-5 fill-current" />
           </ExternalLink>

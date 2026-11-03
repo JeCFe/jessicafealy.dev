@@ -1,15 +1,29 @@
 import { siteData } from "@/data";
+import { cn } from "@/lib";
+import { cva, type VariantProps } from "class-variance-authority";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
+import { iconControlVariants } from "../ui/icon-control";
 
-type ExternalLinkProps = Omit<
-  AnchorHTMLAttributes<HTMLAnchorElement>,
-  "href"
-> & {
-  href: string;
-  children: ReactNode;
-  showArrow?: boolean;
-  variant?: "text" | "unstyled";
-};
+const linkVariants = cva(
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300",
+  {
+    variants: {
+      variant: {
+        text: "rounded-sm underline decoration-cyan-400/60 decoration-2 underline-offset-4 transition-colors hover:decoration-cyan-300",
+        icon: iconControlVariants({ tone: "accent" }),
+        unstyled: "",
+      },
+    },
+    defaultVariants: { variant: "text" },
+  },
+);
+
+type ExternalLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> &
+  VariantProps<typeof linkVariants> & {
+    href: string;
+    children: ReactNode;
+    showArrow?: boolean;
+  };
 
 export const ExternalLink = ({
   href,
@@ -30,14 +44,7 @@ export const ExternalLink = ({
           ? `${ariaLabel} (${siteData.accessibility.opensInNewTab})`
           : undefined
       }
-      className={[
-        "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300",
-        variant === "text" &&
-          "rounded-sm underline decoration-cyan-400/60 decoration-2 underline-offset-4 transition-colors hover:decoration-cyan-300",
-        className,
-      ]
-        .filter(Boolean)
-        .join(" ")}
+      className={cn(linkVariants({ variant }), className)}
       {...props}
     >
       {children}

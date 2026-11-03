@@ -1,16 +1,48 @@
 import { cn } from "@/lib";
+import { cva, type VariantProps } from "class-variance-authority";
 import type { ReactNode } from "react";
 import { ContentImage, Typography } from "..";
 
-type ContentCardProps = {
+const cardVariants = cva(
+  "relative overflow-hidden rounded-3xl border border-slate-700/70 bg-slate-900/70 backdrop-blur",
+  {
+    variants: {
+      interactive: {
+        true: "transition-all duration-300 group-hover:border-cyan-300/70 group-active:scale-[0.99]",
+      },
+    },
+  },
+);
+
+const layoutVariants = cva("grid", {
+  variants: {
+    imageLayout: {
+      side: "md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]",
+      wide: "grid-cols-1",
+      none: "grid-cols-1",
+    },
+  },
+});
+
+const imageFrameVariants = cva("border-b border-slate-700/70", {
+  variants: {
+    imageLayout: {
+      side: "min-h-56 md:min-h-full md:border-b-0 md:border-r",
+      wide: "aspect-[16/9] min-h-0",
+    },
+  },
+});
+
+type ContentCardProps = VariantProps<typeof cardVariants> & {
   heading: ReactNode;
   children: ReactNode;
   image?: string | null;
   imageAlt?: string | null;
-  imageLayout?: "side" | "wide";
+  imageLayout?: NonNullable<
+    VariantProps<typeof imageFrameVariants>["imageLayout"]
+  >;
   actions?: ReactNode;
   footer?: ReactNode;
-  interactive?: boolean;
 };
 
 export const ContentCard = ({
@@ -27,32 +59,18 @@ export const ContentCard = ({
   const usesWideImage = imageLayout === "wide";
 
   return (
-    <article
-      className={cn(
-        "relative overflow-hidden rounded-3xl border border-slate-700/70 bg-slate-900/70 backdrop-blur",
-        interactive &&
-          "transition-all duration-300 group-hover:border-cyan-300/70 group-active:scale-[0.99]",
-      )}
-    >
+    <article className={cardVariants({ interactive })}>
       <div
-        className={cn(
-          "grid",
-          imageSrc && !usesWideImage
-            ? "md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]"
-            : "grid-cols-1",
-        )}
+        className={layoutVariants({
+          imageLayout: imageSrc ? imageLayout : "none",
+        })}
       >
         {imageSrc && (
           <ContentImage
             src={imageSrc}
             alt={imageAlt ?? ""}
             loading="lazy"
-            frameClassName={cn(
-              "border-b border-slate-700/70",
-              usesWideImage
-                ? "aspect-[16/9] min-h-0"
-                : "min-h-56 md:min-h-full md:border-b-0 md:border-r",
-            )}
+            frameClassName={imageFrameVariants({ imageLayout })}
             sizes={
               usesWideImage
                 ? "(min-width: 1024px) 760px, 100vw"
