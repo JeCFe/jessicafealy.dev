@@ -63,55 +63,42 @@ const RoleHeading = ({
   </>
 );
 
-export const ExperienceBox = ({
-  employer,
-  roles,
-  collapseCurrentRole = false,
+const ExperienceRoleContent = ({
+  role,
   compact = false,
+  collapsed = false,
   labels,
-}: ExperienceProps) => {
-  const [currentRole, ...previousRoles] = roles;
-
-  if (!currentRole) return null;
-
-  const renderRoleDetails = (role: ExperienceRole, collapsed = false) => (
-    <>
-      {role.context && (
-        <Typography as="small" className="mt-2 block">
-          {role.context}
-        </Typography>
-      )}
-      {role.highlights &&
-        role.highlights.length > 0 &&
-        (collapsed && labels ? (
-          <details className="group mt-4">
-            <summary className="inline-flex w-fit cursor-pointer list-none items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/5 px-3 py-1 font-poppins text-xs font-medium text-cyan-200 transition-colors hover:border-cyan-300/40 hover:bg-cyan-300/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300 [&::-webkit-details-marker]:hidden">
-              <span
-                aria-hidden="true"
-                className="font-mono text-sm leading-none text-cyan-300"
-              >
-                <span className="group-open:hidden">+</span>
-                <span className="hidden group-open:inline">−</span>
-              </span>
-              <span className="group-open:hidden">{labels.showHighlights}</span>
-              <span className="hidden group-open:inline">
-                {labels.hideHighlights}
-              </span>
-            </summary>
-            <Typography as="ul" className="mt-4 space-y-3">
-              {role.highlights.map((highlight) => (
-                <li className="relative pl-5" key={highlight}>
-                  <span
-                    aria-hidden="true"
-                    className="absolute left-0 top-3 h-1 w-1 rounded-full bg-pink-400"
-                  />
-                  <MarkdownContent content={highlight} variant="inline" />
-                </li>
-              ))}
-            </Typography>
-          </details>
-        ) : (
-          <Typography as="ul" className="mt-6 space-y-3">
+}: {
+  role: ExperienceRole;
+  compact?: boolean;
+  collapsed?: boolean;
+  labels?: ExperienceProps["labels"];
+}) => (
+  <>
+    <RoleHeading role={role} compact={compact} />
+    {role.context && (
+      <Typography as="small" className="mt-2 block">
+        {role.context}
+      </Typography>
+    )}
+    {role.highlights &&
+      role.highlights.length > 0 &&
+      (collapsed && labels ? (
+        <details className="group mt-4">
+          <summary className="inline-flex w-fit cursor-pointer list-none items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/5 px-3 py-1 font-poppins text-xs font-medium text-cyan-200 transition-colors hover:border-cyan-300/40 hover:bg-cyan-300/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300 [&::-webkit-details-marker]:hidden">
+            <span
+              aria-hidden="true"
+              className="font-mono text-sm leading-none text-cyan-300"
+            >
+              <span className="group-open:hidden">+</span>
+              <span className="hidden group-open:inline">−</span>
+            </span>
+            <span className="group-open:hidden">{labels.showHighlights}</span>
+            <span className="hidden group-open:inline">
+              {labels.hideHighlights}
+            </span>
+          </summary>
+          <Typography as="ul" className="mt-4 space-y-3">
             {role.highlights.map((highlight) => (
               <li className="relative pl-5" key={highlight}>
                 <span
@@ -122,10 +109,34 @@ export const ExperienceBox = ({
               </li>
             ))}
           </Typography>
-        ))}
-      <PillList items={role.pills} className={collapsed ? "mt-3" : undefined} />
-    </>
-  );
+        </details>
+      ) : (
+        <Typography as="ul" className="mt-6 space-y-3">
+          {role.highlights.map((highlight) => (
+            <li className="relative pl-5" key={highlight}>
+              <span
+                aria-hidden="true"
+                className="absolute left-0 top-3 h-1 w-1 rounded-full bg-pink-400"
+              />
+              <MarkdownContent content={highlight} variant="inline" />
+            </li>
+          ))}
+        </Typography>
+      ))}
+    <PillList items={role.pills} className={collapsed ? "mt-3" : undefined} />
+  </>
+);
+
+export const ExperienceBox = ({
+  employer,
+  roles,
+  collapseCurrentRole = false,
+  compact = false,
+  labels,
+}: ExperienceProps) => {
+  const [currentRole, ...previousRoles] = roles;
+
+  if (!currentRole) return null;
 
   return (
     <article
@@ -154,17 +165,24 @@ export const ExperienceBox = ({
         )}
       </header>
 
-      <RoleHeading role={currentRole} compact={compact} />
-
-      {renderRoleDetails(currentRole, compact || collapseCurrentRole)}
+      <ExperienceRoleContent
+        role={currentRole}
+        compact={compact}
+        collapsed={compact || collapseCurrentRole}
+        labels={labels}
+      />
 
       {previousRoles.map((role) => (
         <section
           className="mt-10 border-t border-slate-800 pt-8"
           key={`${role.jobTitle}-${role.date}`}
         >
-          <RoleHeading role={role} compact={compact} />
-          {renderRoleDetails(role, true)}
+          <ExperienceRoleContent
+            role={role}
+            compact={compact}
+            collapsed
+            labels={labels}
+          />
         </section>
       ))}
     </article>
