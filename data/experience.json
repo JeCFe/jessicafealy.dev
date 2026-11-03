@@ -50,7 +50,7 @@
           "jobTitle": "Software Engineer",
           "date": "Apr 2025 - Sept 2026",
           "highlights": [
-            "Led the frontend pod as part of the Multiplay migration from Unity To Rocket Science\n\n- [Read about this here](/projects/multiplay-migration)\n\n",
+            "Led the frontend pod as part of the Multiplay migration from Unity To Rocket Science\n\n- [Read about this here](/projects/multiplay-preserving-intent-over-implementation)\n\n",
             "Architected and led the delivery of an AWS Lambda orchestration service connecting modern Kubernetes workloads with legacy on-premises systems across cross-organizational teams.\n\n- Designed a concurrent Lambda architecture capable of orchestrating hundreds of spike requests simultaneously between services.\n- Implemented graceful error handling within concurrent workers to ensure safe failure recovery and accurate feedback reporting to consumer services.\n\n",
             "Worked across the full stack while raising engineering standards and supporting team growth.\n\n* Standardized delivery workflows and code quality practices across cross-functional engineering teams.\n\n* Provided technical leadership and mentorship to elevate overall pod productivity and system reliability."
           ],
