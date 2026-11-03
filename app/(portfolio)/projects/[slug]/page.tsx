@@ -91,7 +91,6 @@ const ProjectPage = async ({ params }: ProjectPageProps) => {
             frameClassName="mt-12 aspect-[16/9] w-full rounded-3xl"
             priority
             loading="eager"
-            sizes="(min-width: 1024px) 896px, (min-width: 640px) calc(100vw - 80px), calc(100vw - 48px)"
           />
         )}
 

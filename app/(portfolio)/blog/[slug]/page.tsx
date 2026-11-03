@@ -76,7 +76,6 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
               className="object-contain"
               priority
               loading="eager"
-              sizes="(min-width: 1024px) 896px, (min-width: 640px) calc(100vw - 80px), calc(100vw - 48px)"
             />
             {post.heroCaption && (
               <Typography as="figcaption" className="mt-3">
@@ -101,8 +100,7 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
                 <ContentImage
                   src={block.image}
                   alt={block.alt}
-                  frameClassName="aspect-square w-full max-w-sm rounded-2xl"
-                  sizes="(min-width: 640px) 384px, calc(100vw - 48px)"
+                  frameClassName="aspect-[4/3] w-full rounded-2xl"
                 />
                 <Typography as="figcaption" className="mt-3">
                   {block.caption}
