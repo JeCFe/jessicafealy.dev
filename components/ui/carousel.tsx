@@ -15,6 +15,7 @@ import {
   type ButtonHTMLAttributes,
   type HTMLAttributes,
 } from "react";
+import { iconControlVariants } from "./icon-control";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type CarouselOptions = Parameters<typeof useEmblaCarousel>[0];
@@ -135,9 +136,6 @@ export const CarouselItem = forwardRef<
 ));
 CarouselItem.displayName = "CarouselItem";
 
-const controlClassName =
-  "flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition-colors hover:border-cyan-300 hover:bg-cyan-300 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 disabled:cursor-not-allowed disabled:opacity-40";
-
 const CarouselControl = ({
   direction,
   label,
@@ -159,7 +157,7 @@ const CarouselControl = ({
     <button
       {...props}
       type="button"
-      className={cn(controlClassName, className)}
+      className={cn(iconControlVariants(), className)}
       disabled={!(previous ? canScrollPrevious : canScrollNext)}
       onClick={previous ? scrollPrevious : scrollNext}
     >
