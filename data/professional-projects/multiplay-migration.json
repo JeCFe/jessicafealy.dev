@@ -1,6 +1,6 @@
 {
   "title": "Multiplay: Preserving Intent Over Implementation",
-  "slug": "multiplay-migration",
+  "slug": "multiplay-preserving-intent-over-implementation",
   "carouselSummary": "Rebuilding the Multiplay customer dashboard while learning a long-lived platform, working from API contracts and adapting as the team uncovered what customers needed.",
   "image": "/images/projects/multiplay-logo.png",
   "imageAlt": "The Multiplay logo in white on a black background.",
