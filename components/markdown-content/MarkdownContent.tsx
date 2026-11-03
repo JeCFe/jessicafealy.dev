@@ -1,4 +1,5 @@
 import { cn } from "@/lib";
+import Link from "next/link";
 import { Children, isValidElement, type ReactNode } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -170,6 +171,13 @@ export const MarkdownContent = ({
             >
               {children}
             </a>
+          ) : href?.startsWith("/") && !href.startsWith("//") ? (
+            <Link
+              href={href}
+              className="rounded-sm font-semibold text-cyan-200 underline decoration-cyan-400/60 decoration-2 underline-offset-4 transition-colors hover:decoration-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+            >
+              {children}
+            </Link>
           ) : (
             <ExternalLink
               href={href ?? "#"}
@@ -181,7 +189,7 @@ export const MarkdownContent = ({
         ul: ({ children, className }) => (
           <Typography
             as="ul"
-            className={`mt-5 space-y-2 ${
+            className={`${variant === "inline" ? "mt-0" : "mt-5"} space-y-2 ${
               className?.includes("contains-task-list")
                 ? "list-none pl-0"
                 : "list-disc pl-5"

@@ -10,14 +10,15 @@ body {
   background: radial-gradient(
       circle at 12% 8%,
       rgba(14, 165, 233, 0.09),
-      transparent 28rem
+      transparent 40rem
     ),
     radial-gradient(
       circle at 88% 18%,
-      rgba(217, 70, 239, 0.07),
-      transparent 32rem
+      rgba(217, 70, 239, 0.03),
+      transparent 40rem
     ),
     #080d1b;
+  background-attachment: fixed;
 }
 
 ::selection {
@@ -28,6 +29,10 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  body {
+    background-attachment: scroll;
   }
 
   *,
