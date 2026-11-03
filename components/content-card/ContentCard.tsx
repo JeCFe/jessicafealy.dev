@@ -5,6 +5,7 @@ import { ContentImage, Typography } from "..";
 type ContentCardProps = {
   heading: ReactNode;
   children: ReactNode;
+  eyebrow?: ReactNode;
   image?: string | null;
   imageAlt?: string | null;
   imageLayout?: "side" | "wide";
@@ -16,6 +17,7 @@ type ContentCardProps = {
 export const ContentCard = ({
   heading,
   children,
+  eyebrow,
   image,
   imageAlt,
   imageLayout = "side",
@@ -66,6 +68,7 @@ export const ContentCard = ({
           />
         )}
         <div className="p-6 sm:p-8">
+          {eyebrow}
           <div className="flex items-start justify-between gap-4">
             <Typography as="h3">{heading}</Typography>
             {actions}

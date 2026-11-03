@@ -1,7 +1,8 @@
 "use client";
 
-import { navData, siteData } from "@/data";
+import { blogData, navData, siteData } from "@/data";
 import { cva } from "class-variance-authority";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import type { PageId } from "..";
@@ -28,36 +29,53 @@ const navLink = cva("h-px shrink-0 transition-all duration-300", {
 type NavItem = {
   text: string;
   id: PageId;
+  href?: string;
 };
 
 const NavItems = ({
   items,
   currentId,
   handleClick,
+  onNavigate,
   mobile = false,
 }: {
   items: readonly NavItem[];
   currentId: PageId;
   handleClick: (id: PageId) => void;
+  onNavigate?: () => void;
   mobile?: boolean;
 }) => {
   return (
     <>
       {items.map((x, index) => {
-        const isActive = currentId === x.id;
+        const isActive = !x.href && currentId === x.id;
+        const className = `group flex items-center font-mono uppercase transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink-300 ${
+          mobile
+            ? "min-h-14 w-full gap-4 rounded-md px-2 py-3 text-sm tracking-[0.12em]"
+            : "gap-3 rounded-sm py-1 text-xs tracking-[0.16em]"
+        } ${isActive ? "text-pink-300" : "text-slate-400 hover:text-cyan-300"}`;
+
+        if (x.href) {
+          return (
+            <Link
+              key={x.href}
+              href={x.href}
+              onClick={onNavigate}
+              className={className}
+            >
+              <span className={navLink({ active: false })} />
+              <span className="text-[0.65rem]">0{index + 1}</span>
+              <span>{x.text}</span>
+            </Link>
+          );
+        }
 
         return (
           <a
-            key={`${x.id}`}
+            key={x.id}
             href={`#${x.id}`}
             aria-current={isActive ? "location" : undefined}
-            className={`group flex items-center font-mono uppercase transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink-300 ${
-              mobile
-                ? "min-h-14 w-full gap-4 rounded-md px-2 py-3 text-sm tracking-[0.12em]"
-                : "gap-3 rounded-sm py-1 text-xs tracking-[0.16em]"
-            } ${
-              isActive ? "text-pink-300" : "text-slate-400 hover:text-cyan-300"
-            }`}
+            className={className}
             onClick={(e) => {
               e.preventDefault();
               handleClick(x.id);
@@ -77,6 +95,10 @@ export const Navigation = () => {
   const router = useRouter();
   const [currentId, setCurrentId] = useState<PageId>("absolute");
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const items: NavItem[] = [
+    ...navData,
+    { text: blogData.navigationLabel, id: "absolute", href: "/blog" },
+  ];
 
   const scrollToSection = useCallback(
     (id: PageId, behavior: ScrollBehavior) => {
@@ -204,9 +226,10 @@ export const Navigation = () => {
           <nav aria-label={siteData.accessibility.mobileNavigation}>
             <div className="flex w-full max-w-md flex-col gap-3">
               <NavItems
-                items={navData}
+                items={items}
                 currentId={currentId}
                 handleClick={handleClick}
+                onNavigate={() => setIsOpen(false)}
                 mobile
               />
             </div>
@@ -218,7 +241,7 @@ export const Navigation = () => {
         className="hidden items-start justify-center space-y-2 md:flex md:flex-col"
       >
         <NavItems
-          items={navData}
+          items={items}
           currentId={currentId}
           handleClick={handleClick}
         />
