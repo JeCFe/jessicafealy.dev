@@ -308,7 +308,34 @@ content:
               - name: caption
                 label: Caption
                 type: text
-                required: true
+              - name: size
+                label: Image Size
+                type: select
+                default: full
+                description: Maximum width. Images shrink to fit smaller screens.
+                options:
+                  values:
+                    - name: small
+                      label: Small (384px)
+                    - name: medium
+                      label: Medium (576px)
+                    - name: large
+                      label: Large (768px)
+                    - name: full
+                      label: Full article width
+              - name: alignment
+                label: Image Alignment
+                type: select
+                default: left
+                description: Positions the image and caption together. Most visible with a smaller image size.
+                options:
+                  values:
+                    - name: left
+                      label: Left
+                    - name: center
+                      label: Centre
+                    - name: right
+                      label: Right
 
   - name: proficiencies
     label: Proficiencies

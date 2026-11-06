@@ -182,10 +182,16 @@ const readBlogPost = (filename: string): BlogPost => {
         }
         break;
       case "image":
-        for (const field of ["image", "alt", "caption"] as const) {
-          const fieldValue = block[field];
-          if (typeof fieldValue !== "string" || !fieldValue.trim()) {
-            throw new Error(`${blockSource}: ${field} is required.`);
+        validateFields(block, ["image", "alt"], ["caption"], blockSource);
+        for (const [field, options] of [
+          ["size", ["small", "medium", "large", "full"]],
+          ["alignment", ["left", "center", "right"]],
+        ] as const) {
+          const value = block[field];
+          if (value != null && !options.some((option) => option === value)) {
+            throw new Error(
+              `${blockSource}: ${field} must be one of ${options.join(", ")}.`,
+            );
           }
         }
         break;

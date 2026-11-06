@@ -9,7 +9,9 @@ export type BlogImageBlock = {
   type: "image";
   image: string;
   alt: string;
-  caption: string;
+  caption?: string | null;
+  size?: "small" | "medium" | "large" | "full" | null;
+  alignment?: "left" | "center" | "right" | null;
 };
 
 export type BlogPostBlock = BlogMarkdownBlock | BlogImageBlock;

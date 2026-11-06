@@ -1,6 +1,8 @@
 import { ContentImage, MarkdownContent, Typography } from "@/components";
+import type { BlogImageBlock } from "@/content";
 import { getBlogPostBySlug, getPublishedBlogPosts } from "@/content";
 import { blogData, siteData } from "@/data";
+import { cn } from "@/lib";
 import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -8,6 +10,22 @@ import { notFound } from "next/navigation";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
+};
+
+const imageSizeClasses: Record<NonNullable<BlogImageBlock["size"]>, string> = {
+  small: "max-w-sm",
+  medium: "max-w-xl",
+  large: "max-w-3xl",
+  full: "max-w-none",
+};
+
+const imageAlignmentClasses: Record<
+  NonNullable<BlogImageBlock["alignment"]>,
+  string
+> = {
+  left: "mr-auto",
+  center: "mx-auto",
+  right: "ml-auto",
 };
 
 export const dynamicParams = false;
@@ -96,15 +114,24 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
             }
 
             return (
-              <figure className="mt-8" key={`image-${index}`}>
+              <figure
+                className={cn(
+                  "mt-8 w-full",
+                  imageSizeClasses[block.size ?? "full"],
+                  imageAlignmentClasses[block.alignment ?? "left"],
+                )}
+                key={`image-${index}`}
+              >
                 <ContentImage
                   src={block.image}
                   alt={block.alt}
                   frameClassName="aspect-[4/3] w-full rounded-2xl"
                 />
-                <Typography as="figcaption" className="mt-3">
-                  {block.caption}
-                </Typography>
+                {block.caption && (
+                  <Typography as="figcaption" className="mt-3">
+                    {block.caption}
+                  </Typography>
+                )}
               </figure>
             );
           })}
