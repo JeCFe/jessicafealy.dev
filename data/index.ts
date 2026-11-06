@@ -1,4 +1,5 @@
 import aboutData from "./about.json";
+import blogData from "./blog.json";
 import experienceData from "./experience.json";
 import professionalProjectsData from "./professional-projects.json";
 import proficiencyData from "./proficiencies.json";
@@ -20,6 +21,7 @@ export type SectionId = (typeof navData)[number]["id"];
 
 export {
   aboutData,
+  blogData,
   experienceData,
   navData,
   professionalProjectsData,

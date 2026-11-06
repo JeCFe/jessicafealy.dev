@@ -191,6 +191,152 @@ content:
           format: markdown
           media: false
 
+  - name: blogSettings
+    label: Blog Settings
+    type: file
+    path: data/blog.json
+    fields:
+      - name: heading
+        label: Page Heading
+        type: string
+        required: true
+      - name: intro
+        label: Introduction
+        type: text
+        required: true
+      - name: navigationLabel
+        label: Navigation Label
+        type: string
+        required: true
+      - name: backLinkLabel
+        label: Article Back Link
+        type: string
+        required: true
+      - name: readMoreLabel
+        label: Read Article Link
+        type: string
+        required: true
+
+  - name: blogPosts
+    label: Blog Posts
+    type: collection
+    path: data/blog
+    format: json
+    exclude: [types.ts]
+    filename: "{fields.slug}.json"
+    view:
+      fields: [title, date, status]
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        description: Lowercase words separated by hyphens. This becomes the article URL.
+      - name: date
+        label: Publication Date
+        type: string
+        required: true
+        description: Use YYYY-MM-DD format.
+      - name: summary
+        label: Summary
+        type: text
+        required: true
+        description: A short introduction shown on the writing index and article page.
+      - name: heroImage
+        label: Hero Image
+        type: image
+        options:
+          media: images
+      - name: heroAlt
+        label: Hero Image Alt Text
+        type: string
+        description: Required when a hero image is set.
+      - name: heroCaption
+        label: Hero Image Caption
+        type: rich-text
+        options:
+          format: markdown
+          media: false
+      - name: status
+        label: Status
+        type: select
+        required: true
+        default: draft
+        options:
+          values:
+            - name: draft
+              label: Draft
+            - name: published
+              label: Published
+      - name: content
+        label: Article Content
+        type: block
+        list: true
+        blockKey: type
+        required: true
+        blocks:
+          - name: markdown
+            label: Markdown
+            fields:
+              - name: content
+                label: Content
+                type: rich-text
+                required: true
+                options:
+                  format: markdown
+                  media: false
+          - name: image
+            label: Image
+            fields:
+              - name: image
+                label: Image File
+                type: image
+                required: true
+                options:
+                  media: images
+              - name: alt
+                label: Alt Text
+                type: string
+                required: true
+              - name: caption
+                label: Caption
+                type: text
+              - name: size
+                label: Image Size
+                type: select
+                default: full
+                description: Maximum width. Images shrink to fit smaller screens.
+                options:
+                  values:
+                    - name: small
+                      label: Small (384px)
+                    - name: medium
+                      label: Medium (576px)
+                    - name: large
+                      label: Large (768px)
+                    - name: full
+                      label: Full article width
+              - name: alignment
+                label: Image Alignment
+                type: select
+                default: left
+                description: Positions the image and caption together. Most visible with a smaller image size.
+                options:
+                  values:
+                    - name: left
+                      label: Left
+                    - name: center
+                      label: Centre
+                    - name: right
+                      label: Right
+
   - name: proficiencies
     label: Proficiencies
     type: file

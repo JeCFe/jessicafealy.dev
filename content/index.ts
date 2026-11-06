@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import type { BlogPost } from "../data/blog/types";
 import type { ProfessionalProject } from "../data/professional-projects/types";
 
 const projectDirectory = path.join(
@@ -7,6 +8,7 @@ const projectDirectory = path.join(
   "data",
   "professional-projects",
 );
+const blogDirectory = path.join(process.cwd(), "data", "blog");
 
 const validateFields = (
   value: unknown,
@@ -125,6 +127,100 @@ export const getProjectWriteUps = () =>
 export const getProjectBySlug = (slug: string) =>
   getProjectWriteUps().find((project) => project.slug === slug);
 
+const readBlogPost = (filename: string): BlogPost => {
+  const source = `${filename}`;
+  const post = JSON.parse(
+    fs.readFileSync(path.join(blogDirectory, filename), "utf8"),
+  ) as Partial<BlogPost>;
+
+  for (const field of ["title", "slug", "date", "summary"] as const) {
+    if (typeof post[field] !== "string" || !post[field]?.trim()) {
+      throw new Error(`${source}: ${field} is required.`);
+    }
+  }
+  if (
+    post.slug !== path.basename(filename, ".json") ||
+    !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(post.slug as string)
+  ) {
+    throw new Error(
+      `${source}: slug must match the filename and use lowercase words and hyphens.`,
+    );
+  }
+  if (
+    !/^\d{4}-\d{2}-\d{2}$/.test(post.date as string) ||
+    Number.isNaN(Date.parse(`${post.date}T00:00:00Z`))
+  ) {
+    throw new Error(`${source}: date must use YYYY-MM-DD format.`);
+  }
+  post.status ??= "draft";
+  if (post.status !== "draft" && post.status !== "published") {
+    throw new Error(`${source}: status must be draft or published.`);
+  }
+  if (post.heroImage && !post.heroAlt?.trim()) {
+    throw new Error(`${source}: heroAlt is required when heroImage is set.`);
+  }
+  if (post.heroImage && !post.heroCaption?.trim()) {
+    throw new Error(
+      `${source}: heroCaption is required when heroImage is set.`,
+    );
+  }
+  if (!Array.isArray(post.content) || post.content.length === 0) {
+    throw new Error(
+      `${source}: content must be a list with at least one block.`,
+    );
+  }
+  post.content.forEach((value: unknown, index: number) => {
+    const blockSource = `${source}: content block ${index + 1}`;
+    if (!value || typeof value !== "object" || Array.isArray(value)) {
+      throw new Error(`${blockSource}: expected an object.`);
+    }
+    const block = value as Record<string, unknown>;
+    switch (block.type) {
+      case "markdown":
+        if (typeof block.content !== "string" || !block.content.trim()) {
+          throw new Error(`${blockSource}: content is required.`);
+        }
+        break;
+      case "image":
+        validateFields(block, ["image", "alt"], ["caption"], blockSource);
+        for (const [field, options] of [
+          ["size", ["small", "medium", "large", "full"]],
+          ["alignment", ["left", "center", "right"]],
+        ] as const) {
+          const value = block[field];
+          if (value != null && !options.some((option) => option === value)) {
+            throw new Error(
+              `${blockSource}: ${field} must be one of ${options.join(", ")}.`,
+            );
+          }
+        }
+        break;
+      default:
+        throw new Error(`${blockSource}: unknown block type.`);
+    }
+  });
+  return post as BlogPost;
+};
+
+export const getBlogPosts = () =>
+  fs
+    .readdirSync(blogDirectory)
+    .filter((filename) => filename.endsWith(".json"))
+    .map(readBlogPost)
+    .sort((a, b) => b.date.localeCompare(a.date));
+
+export const getPublishedBlogPosts = () =>
+  getBlogPosts().filter(({ status }) => status === "published");
+
+export const getBlogPostBySlug = (slug: string) =>
+  getPublishedBlogPosts().find((post) => post.slug === slug);
+
+export type {
+  BlogImageBlock,
+  BlogMarkdownBlock,
+  BlogPost,
+  BlogPostBlock,
+} from "../data/blog/types";
 export type {
   ProfessionalProject,
   ProfessionalProjectBlock,

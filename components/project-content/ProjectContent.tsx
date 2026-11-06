@@ -18,7 +18,6 @@ const ProjectContentBlock = ({
           src={block.image}
           alt={block.alt}
           frameClassName="aspect-[4/3] rounded-2xl"
-          sizes="(min-width: 1024px) 896px, (min-width: 640px) calc(100vw - 80px), calc(100vw - 48px)"
         />
       ) : (
         <video
